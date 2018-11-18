@@ -6,7 +6,7 @@ const MealItems = () => {
         <div className="itemlist">
             <h1 className="itemlist__header">New Meal</h1>
             <ul className="itemlist__body itemlist__body--border">
-                <MealItem className="itemlist__item" />
+                <MealItem />
             </ul>
         </div>
     );
