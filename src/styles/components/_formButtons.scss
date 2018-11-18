@@ -1,0 +1,24 @@
+.form-tabs {
+    display: flex;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .form-tabs__button {
+    background: $light-blue;
+    border: none;
+    border: 1px solid darken($light-blue, 15%);
+    border-radius: 10px 10px 0 0;
+    color: $white;
+    padding: 5px;
+    margin: $s-size $s-size 0 $s-size;
+    width: 100%;
+  }
+  
+  .form-tabs__button--meal {
+    margin-right: 2.5px;
+  }
+  
+  .form-tabs__button--grocery {
+    margin-left: 2.5px;
+  }

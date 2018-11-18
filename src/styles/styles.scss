@@ -1,6 +1,9 @@
 @import './base/settings';
 @import './base/base';
 
-h1 {
-    color: red;
-}
+@import './components/formButtons';
+@import './components/header';
+@import './components/meal/meal';
+@import './components/meal/mealForm';
+@import './components/meal/mealItems';
+@import './components/meal/mealItem';
