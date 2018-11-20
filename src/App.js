@@ -12,7 +12,7 @@ class App extends Component {
         <Meal />
       </div>
     );
-  }
+  };
 }
 
 export default App;

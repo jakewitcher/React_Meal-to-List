@@ -10,7 +10,7 @@ class Meal extends Component {
                 <MealItems />
             </div>
         );
-    }
+    };
 }
 
 export default Meal;

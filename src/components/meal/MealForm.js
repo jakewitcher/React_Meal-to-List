@@ -1,6 +1,49 @@
 import React, { Component } from 'react';
 
 class MealForm extends Component {
+    state = {
+        mealName: '',
+        itemName: '',
+        amount: '',
+        unit: '',
+        itemList: []
+    };
+
+    mealNameChange = (e) => {
+        const mealName = e.target.value;
+        this.setState({ mealName });
+    };
+
+    itemNameChange = (e) => {
+        const itemName = e.target.value;
+        this.setState({ itemName });
+    };
+
+    amountChange = (e) => {
+        const amount = e.target.value;
+        this.setState({ amount });
+    };
+
+    unitChange = (e) => {
+        const unit = e.target.value;
+        this.setState({ unit });
+    };
+
+    addItem = () => {
+        const { itemName, amount, unit, itemList } = this.state;
+        const newItem = {
+            itemName,
+            amount,
+            unit,
+        };
+        this.setState({
+            itemName: '',
+            amount: '',
+            unit: '',
+            itemList: [...itemList, newItem]
+        });
+    }
+
     render() {
         return (
             <div className="mealform">
@@ -8,22 +51,42 @@ class MealForm extends Component {
                 <div className="mealform__form">
                     <div className="mealform__nameinputfield">
                         <p>Meal Name</p>
-                        <input className="mealform__nameinputfield--input" type="text" />
+                        <input
+                            className="mealform__nameinputfield--input"
+                            type="text"
+                            value={this.state.mealName}
+                            onChange={this.mealNameChange}
+                        />
                     </div>
                     <div className="mealform__iteminputfields">
                         <div>
                             <p>Item</p>
-                            <input className="mealform__iteminputfields--input" type="text" />
+                            <input
+                                className="mealform__iteminputfields--input"
+                                type="text"
+                                value={this.state.itemName}
+                                onChange={this.itemNameChange}
+                            />
                         </div>
 
                         <div>
                             <p>Amount</p>
-                            <input className="mealform__iteminputfields--input" type="number" />
+                            <input
+                                className="mealform__iteminputfields--input"
+                                type="number"
+                                value={this.state.amount}
+                                onChange={this.amountChange}
+                            />
                         </div>
 
                         <div>
                             <p>Unit</p>
-                            <select className="mealform__iteminputfields--input mealform__iteminputfields--dropdown" name="unit">
+                            <select
+                                className="mealform__iteminputfields--input mealform__iteminputfields--dropdown"
+                                name="unit"
+                                value={this.state.unit}
+                                onChange={this.unitChange}
+                            >
                                 <option value="pound(s)">pound(s)</option>
                                 <option value="ounce(s)">ounce(s)</option>
                                 <option value="gallon(s)">gallons</option>
@@ -36,7 +99,12 @@ class MealForm extends Component {
                             </select>
                         </div>
                         <div className="mealform__button">
-                            <button className="mealform__button--add">Add Item</button>
+                            <button
+                                className="mealform__button--add"
+                                onClick={this.addItem}
+                            >
+                                Add Item
+                            </button>
                         </div>
                     </div>
                     <div>
@@ -44,8 +112,8 @@ class MealForm extends Component {
                     </div>
                 </div>
             </div>
-        )
-    }
-};
+        );
+    };
+}
 
 export default MealForm;
