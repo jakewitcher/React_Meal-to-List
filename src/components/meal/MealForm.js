@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import uuid from 'uuid';
+import { addMeal } from '../../actions/meal';
 
 class MealForm extends Component {
     state = {
@@ -32,6 +35,7 @@ class MealForm extends Component {
     addItem = () => {
         const { itemName, amount, unit, itemList } = this.state;
         const newItem = {
+            id: uuid(),
             itemName,
             amount,
             unit,
@@ -108,7 +112,20 @@ class MealForm extends Component {
                         </div>
                     </div>
                     <div>
-                        <button className="mealform__button--save">Save Meal</button>
+                        <button 
+                            className="mealform__button--save"
+                            onClick={() => {
+                                const name = this.state.mealName;
+                                const itemList = this.state.itemList;
+                                this.props.dispatch(addMeal({
+                                    name,
+                                    itemList
+                                }));
+                                this.setState({ mealName: '', itemList: [] });
+                            }}
+                        >
+                            Save Meal
+                        </button>
                     </div>
                 </div>
             </div>
@@ -116,4 +133,4 @@ class MealForm extends Component {
     };
 }
 
-export default MealForm;
+export default connect()(MealForm);

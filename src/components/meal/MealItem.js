@@ -7,7 +7,7 @@ const MealItem = () => {
                 <p>name</p>
             </div>
             <div className="item">
-                <p>item</p>
+                <p>amount</p>
             </div>
             <div className="item">
                 <p>unit</p>
