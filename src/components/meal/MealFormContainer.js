@@ -9,7 +9,7 @@ class MealFormContainer extends Component {
         mealName: '',
         itemName: '',
         amount: '',
-        unit: '',
+        unit: 'pound(s)',
         itemList: []
     };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-import App from './App';
+import AppRouter from './routers/AppRouter';
 import * as serviceWorker from './serviceWorker';
 import './styles/styles.scss';
 
@@ -15,7 +15,7 @@ store.subscribe(() => {
 
 const jsx = (
   <Provider store={store}>
-      <App />
+      <AppRouter />
   </Provider>
 );
 

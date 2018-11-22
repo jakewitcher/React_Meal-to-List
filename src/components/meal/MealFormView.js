@@ -56,7 +56,7 @@ const MealFormView = (props) => {
                         <select
                             className="mealform__iteminputfields--input mealform__iteminputfields--dropdown"
                             name="unit"
-                            value={unit}
+                            value="pound(s)"
                             onChange={unitChange}
                         >
                             <option value="pound(s)">pound(s)</option>

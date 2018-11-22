@@ -1,12 +1,14 @@
-const mealListDefaultState = [];
+const mealDefaultState = {
+    mealList: [],
+};
 
-export default (state = mealListDefaultState, action) => {
+export default (state = mealDefaultState, action) => {
     switch (action.type) {
         case 'ADD_MEAL':
-            return [
+            return {
                 ...state,
-                action.meal,
-            ];
+                mealList: [...state.mealList, action.meal]
+            };
         default:
             return state;
     }

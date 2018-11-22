@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MealFormContainer from './MealFormContainer';
-import MealItems from './MealItems';
+import MealFormContainer from '../components/meal/MealFormContainer';
+import MealItems from '../components/meal/MealItems';
 
-class Meal extends Component {
+class CreateMealPage extends Component {
     render() {
         return (
             <div className="grocery">
@@ -13,4 +13,4 @@ class Meal extends Component {
     };
 }
 
-export default Meal;
+export default CreateMealPage;
