@@ -1,9 +1,21 @@
 @import './base/settings';
 @import './base/base';
 
+// stylesheets for the Header
+
 @import './components/formButtons';
 @import './components/header';
+
+// stylesheets for the CreateMealPage
+
 @import './components/meal/meal';
 @import './components/meal/mealForm';
 @import './components/meal/mealItems';
 @import './components/meal/mealItem';
+
+// stylesheets for the CreateGroceryPage
+
+@import './components/grocery/grocery';
+@import './components/grocery/groceryform';
+@import './components/grocery/groceryitems';
+@import './components/grocery/groceryitem';

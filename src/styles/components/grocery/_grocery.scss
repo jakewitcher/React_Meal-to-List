@@ -1,0 +1,13 @@
+.grocery {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  @media (min-width: $tablet-breakpoint) {
+    .grocery {
+      flex-direction: row;
+    }
+  }

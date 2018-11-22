@@ -1,9 +1,12 @@
 import React from 'react'
+import GroceryForm from '../components/grocery/GroceryForm';
+import GroceryItems from '../components/grocery/GroceryItems';
 
 const CreateGroceryPage = () => {
     return (
-        <div>
-            <h1>Grocery List Page</h1>
+        <div className="grocery">
+            <GroceryForm />
+            <GroceryItems />
         </div>
     )
 }
