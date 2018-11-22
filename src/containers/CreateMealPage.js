@@ -45,7 +45,7 @@ class CreateMealPage extends Component {
         this.setState({
             itemName: '',
             amount: '',
-            unit: '',
+            unit: 'pound(s)',
             itemList: [...itemList, newItem]
         });
     }
@@ -72,7 +72,10 @@ class CreateMealPage extends Component {
                 itemList={this.state.itemList}
                 dispatch={this.props.dispatch}
             />
-                <MealItems />
+                <MealItems 
+                    mealName={this.state.mealName}
+                    itemList={this.state.itemList}
+                />
             </div>
         )
     }
