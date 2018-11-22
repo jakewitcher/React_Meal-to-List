@@ -1,4 +1,4 @@
-.grocery {
+.meal {
     display: flex;
     flex-direction: column;
     -webkit-box-sizing: border-box;
@@ -7,7 +7,7 @@
   }
   
   @media (min-width: $tablet-breakpoint) {
-    .grocery {
+    .meal {
       flex-direction: row;
     }
   }

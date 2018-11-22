@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MealFormView = (props) => {
+const MealForm = (props) => {
     const {
         mealNameChange,
         itemNameChange,
@@ -56,7 +56,7 @@ const MealFormView = (props) => {
                         <select
                             className="mealform__iteminputfields--input mealform__iteminputfields--dropdown"
                             name="unit"
-                            value="pound(s)"
+                            value={unit}
                             onChange={unitChange}
                         >
                             <option value="pound(s)">pound(s)</option>
@@ -101,4 +101,4 @@ const MealFormView = (props) => {
 
 
 
-export default MealFormView;
+export default MealForm;

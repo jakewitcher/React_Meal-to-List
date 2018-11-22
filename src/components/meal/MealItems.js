@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const MealItems = (props) => {
     return (
         <div className="itemlist">
-            <h1 className="itemlist__header">'New Meal'</h1>
+            <h1 className="itemlist__header">New Meal</h1>
             <ul className="itemlist__body itemlist__body--border">
                 <MealItem />
             </ul>

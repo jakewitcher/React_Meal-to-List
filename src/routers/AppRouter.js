@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, } from 'react-router-dom';
-import LandingPage from '../pages/LandingPage';
-import CreateMealPage from '../pages/CreateMealPage';
-import CreateGroceryPage from '../pages/CreateGroceryPage';
-import PageNotFound from '../pages/PageNotFound';
+import LandingPage from '../containers/LandingPage';
+import CreateMealPage from '../containers/CreateMealPage';
+import CreateGroceryPage from '../containers/CreateGroceryPage';
+import PageNotFound from '../containers/PageNotFound';
 import Header from '../components/Header';
 import FormButtons from '../components/FormButtons';
 

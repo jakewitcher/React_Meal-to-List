@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
-import MealFormView from './MealFormView';
-import { addMeal } from '../../actions/meal';
+import MealFormView from '../components/meal/MealForm';
+import MealItems from '../components/meal/MealItems';
+import { addMeal } from '../actions/meal';
 
-class MealFormContainer extends Component {
+class CreateMealPage extends Component {
     state = {
         mealName: '',
         itemName: '',
@@ -55,6 +56,7 @@ class MealFormContainer extends Component {
 
     render() {
         return (
+            <div className="meal">
             <MealFormView
                 mealNameChange={this.mealNameChange}
                 itemNameChange={this.itemNameChange}
@@ -70,8 +72,10 @@ class MealFormContainer extends Component {
                 itemList={this.state.itemList}
                 dispatch={this.props.dispatch}
             />
+                <MealItems />
+            </div>
         )
     }
 }
 
-export default connect()(MealFormContainer);
+export default connect()(CreateMealPage);
