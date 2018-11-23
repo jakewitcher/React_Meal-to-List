@@ -10,12 +10,13 @@
 
 @import './components/meal/meal';
 @import './components/meal/mealForm';
-@import './components/meal/mealItems';
-@import './components/meal/mealItem';
 
 // stylesheets for the CreateGroceryPage
 
 @import './components/grocery/grocery';
 @import './components/grocery/groceryform';
-@import './components/grocery/groceryitems';
-@import './components/grocery/groceryitem';
+
+// shared stylesheets
+
+@import './components/shared/items';
+@import './components/shared/item';

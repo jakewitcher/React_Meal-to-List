@@ -4,6 +4,7 @@ import uuid from 'uuid';
 import MealFormView from '../components/meal/MealForm';
 import MealItems from '../components/meal/MealItems';
 import { addMeal } from '../actions/meal';
+import { addToItemsAll } from '../actions/items';
 
 class CreateMealPage extends Component {
     state = {
@@ -34,14 +35,61 @@ class CreateMealPage extends Component {
         this.setState({ unit });
     };
 
+    createItemId = (itemName, itemMap) => {
+        if (itemMap.has(itemName)) {
+            return itemMap.get(itemName).id;
+        } else {
+            return uuid();
+        }
+    }
+
+    findItemAndSumAmount = (itemName, amount, list) => {
+        const currentAmount = Number(list.filter(item => item.itemName === itemName)[0].amount);
+        let amountSum = currentAmount + Number(amount);
+        let newList = list.map(i => {
+            if (i.itemName === itemName) {
+                i.amount = amountSum;
+                return i;
+            }
+            return i;
+        });
+        return newList;
+    }
+
+    checkListForItem = (name, list) => {
+        return list.filter(item => item.itemName === name).length > 0;
+    }
+
     addItem = () => {
         const { itemName, amount, unit, itemList } = this.state;
+        if (this.checkListForItem(itemName, itemList)) {
+            const newList = this.findItemAndSumAmount(itemName, amount, itemList)
+            this.setState({
+                itemName: '',
+                amount: '',
+                unit: 'pound(s)',
+                itemList: newList,
+            });
+            return;
+        } 
+        const { items, dispatch } = this.props; 
+        const id = this.createItemId(itemName, items.itemsAll);
+        
         const newItem = {
-            id: uuid(),
+            id,
             itemName,
             amount,
             unit,
         };
+        
+        dispatch(addToItemsAll({
+            name: itemName,
+            item: {
+                name: itemName,
+                id: id,
+            }
+        }));
+
         this.setState({
             itemName: '',
             amount: '',
@@ -79,6 +127,12 @@ class CreateMealPage extends Component {
             </div>
         )
     }
-}
+};
 
-export default connect()(CreateMealPage);
+const mapStateToProps = (state) => {
+    return {
+        items: state.items
+    };
+};
+
+export default connect(mapStateToProps)(CreateMealPage);

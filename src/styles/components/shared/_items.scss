@@ -14,17 +14,13 @@
   }
   
   .itemlist__body {
+    border: 1px solid $md-brown;
     margin: $s-size;
     padding: 0;
   }
   
-  .itemlist__body--border {
-    border: 1px solid $md-brown;
-  }
-  
   .itemlist__item {
     background: $white;
-    // border: 1px solid $md-brown;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

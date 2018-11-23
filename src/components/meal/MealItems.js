@@ -6,7 +6,7 @@ const MealItems = (props) => {
     return (
         <div className="itemlist">
             <h1 className="itemlist__header">{ mealName || 'New Meal'}</h1>
-            <ul className="itemlist__body itemlist__body--border">
+            {itemList.length > 0 && <ul className="itemlist__body">
                 {itemList.map(item => {
                     return (
                         <MealItem 
@@ -15,7 +15,7 @@ const MealItems = (props) => {
                         />
                     )
                 })}
-            </ul>
+            </ul>}
         </div>
     );
 }
