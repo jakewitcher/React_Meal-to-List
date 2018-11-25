@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
-import MealFormView from '../components/meal/MealForm';
+import MealForm from '../components/meal/MealForm';
 import MealItems from '../components/meal/MealItems';
 import { addMeal } from '../actions/meal';
 import { addToItemsAll } from '../actions/items';
@@ -71,17 +71,17 @@ class CreateMealPage extends Component {
                 itemList: newList,
             });
             return;
-        } 
-        const { items, dispatch } = this.props; 
+        }
+        const { items, dispatch } = this.props;
         const id = this.createItemId(itemName, items.itemsAll);
-        
+
         const newItem = {
             id,
             itemName,
             amount,
             unit,
         };
-        
+
         dispatch(addToItemsAll({
             name: itemName,
             item: {
@@ -105,22 +105,22 @@ class CreateMealPage extends Component {
     render() {
         return (
             <div className="meal">
-            <MealFormView
-                mealNameChange={this.mealNameChange}
-                itemNameChange={this.itemNameChange}
-                amountChange={this.amountChange}
-                unitChange={this.unitChange}
-                addItem={this.addItem}
-                addMeal={addMeal}
-                resetMeal={this.resetMeal}
-                mealName={this.state.mealName}
-                itemName={this.state.itemName}
-                amount={this.state.amount}
-                unit={this.state.unit}
-                itemList={this.state.itemList}
-                dispatch={this.props.dispatch}
-            />
-                <MealItems 
+                <MealForm
+                    mealNameChange={this.mealNameChange}
+                    itemNameChange={this.itemNameChange}
+                    amountChange={this.amountChange}
+                    unitChange={this.unitChange}
+                    addItem={this.addItem}
+                    addMeal={addMeal}
+                    resetMeal={this.resetMeal}
+                    mealName={this.state.mealName}
+                    itemName={this.state.itemName}
+                    amount={this.state.amount}
+                    unit={this.state.unit}
+                    itemList={this.state.itemList}
+                    dispatch={this.props.dispatch}
+                />
+                <MealItems
                     mealName={this.state.mealName}
                     itemList={this.state.itemList}
                 />
