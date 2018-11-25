@@ -14,9 +14,10 @@ class CreateGroceryPage extends Component {
         const { itemMap, selectedMeal } = this.state;
         const CombinedItemsList = selectedMeal.itemList.reduce((a, b) => {
             if (a.has(b.itemName)) {
-                let newAmount = Number(a.get(b.itemName).amount) + Number(b.amount)
-                b.amount = newAmount;
-                a.set(b.itemName, b);
+                const newAmount = Number(a.get(b.itemName).amount) + Number(b.amount);
+                const itemCopy = Object.assign({}, b)
+                itemCopy.amount = newAmount;
+                a.set(itemCopy.itemName, itemCopy);
                 return a;
             }
             a.set(b.itemName, b);

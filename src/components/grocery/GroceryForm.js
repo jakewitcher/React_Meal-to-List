@@ -21,7 +21,7 @@ const GroceryForm = (props) => {
                     <select 
                         className="groceryform__iteminputfields--input groceryform__iteminputfields--dropdown"
                         name="selectedMeal"
-                        value={selectedMeal}
+                        value={selectedMeal.name}
                         onChange={selectedMealChange}
                     >
                         {
