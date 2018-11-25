@@ -1,16 +1,17 @@
 import React from 'react';
 
-const GroceryItem = () =>  {
+const GroceryItem = (props) =>  {
+    const { itemName, amount, unit } = props.item;
     return (
         <li className="itemlist__item">
         <div className="item">
-          <p>name</p>
+          <p>{itemName}</p>
         </div>
         <div className="item">
-          <p>amount</p>
+          <p>{amount}</p>
         </div>
         <div className="item">
-          <p>unit</p>
+          <p>{unit}</p>
         </div>
       </li>
     )

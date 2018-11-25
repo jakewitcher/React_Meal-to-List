@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GroceryForm from '../components/grocery/GroceryForm';
 import GroceryItems from '../components/grocery/GroceryItems';
+import { addGrocery } from '../actions/grocery';
 
 class CreateGroceryPage extends Component {
     state = {
         groceryName: "",
         selectedMeal: this.props.meals.mealList[0] || {},
-        itemMap: new Map(),
+        itemsMap: new Map(),
+        itemsList: [],
     };
 
-    addMealToMap = () => {
-        const { itemMap, selectedMeal } = this.state;
+    addMealToList = () => {
+        const { itemsMap, selectedMeal } = this.state;
         const CombinedItemsList = selectedMeal.itemList.reduce((a, b) => {
             if (a.has(b.itemName)) {
                 const newAmount = Number(a.get(b.itemName).amount) + Number(b.amount);
@@ -22,9 +24,14 @@ class CreateGroceryPage extends Component {
             }
             a.set(b.itemName, b);
             return a;
-        }, itemMap);
+        }, itemsMap);
+
+        const newItemsList = [];
+        CombinedItemsList.forEach((i => newItemsList.push(i)));
+
         this.setState({
-            itemMap: CombinedItemsList,
+            itemsMap: CombinedItemsList,
+            itemsList: newItemsList,
             selectedMeal: this.props.meals.mealList[0],
         })
     };
@@ -43,6 +50,10 @@ class CreateGroceryPage extends Component {
         this.setState({ groceryName });
     };
 
+    resetGrocery = () => {
+        this.setState({ groceryName: "", itemsList: [], itemsMap: new Map() });
+    }
+
     render() {
         return (
             <div className="grocery">
@@ -50,12 +61,17 @@ class CreateGroceryPage extends Component {
                     meals={this.props.meals}
                     selectedMeal={this.state.selectedMeal}
                     groceryName={this.state.groceryName}
+                    itemsList={this.state.itemsList}
                     selectedMealChange={this.selectedMealChange}
                     groceryNameChange={this.groceryNameChange}
-                    addMealToMap={this.addMealToMap}
+                    addMealToList={this.addMealToList}
+                    addGrocery={addGrocery}
+                    resetGrocery={this.resetGrocery}
+                    dispatch={this.props.dispatch}
                 />
                 <GroceryItems 
                     groceryName={this.state.groceryName}
+                    itemsList={this.state.itemsList}
                 />
             </div>
         )

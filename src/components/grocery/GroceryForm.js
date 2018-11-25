@@ -1,7 +1,18 @@
 import React from 'react';
 
 const GroceryForm = (props) => {
-    const { selectedMealChange, selectedMeal, meals, groceryName, groceryNameChange, addMealToMap } = props;
+    const { 
+        selectedMealChange, 
+        selectedMeal, 
+        meals, 
+        groceryName,
+        itemsList, 
+        groceryNameChange, 
+        addMealToList,
+        addGrocery,
+        resetGrocery,
+        dispatch,    
+    } = props;
     return (
         <div className="groceryform">
             <h2 className="groceryform__header">Create a New Grocery List</h2>
@@ -32,14 +43,26 @@ const GroceryForm = (props) => {
                 <div className="groceryform__button">
                     <button 
                         className="groceryform__button--add"
-                        onClick={addMealToMap}
+                        onClick={addMealToList}
                     >
                         Add Meal
                     </button>
                 </div>
                 </div>
                 <div>
-                <button className="groceryform__button--save">Save Grocery List</button>
+                <button 
+                    className="groceryform__button--save"
+                    onClick={() => {
+                        dispatch(addGrocery({
+                            name: groceryName,
+                            items: itemsList,
+                        }));
+                        resetGrocery();
+                        }
+                    }    
+                >
+                    Save Grocery List
+                </button>
                 </div>
             </div>
 
