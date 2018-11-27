@@ -1,8 +1,10 @@
-const mealDefaultState = {
-    mealList: [],
-};
+import { defaultMealsList } from './seed';
 
-export default (state = mealDefaultState, action) => {
+// const mealDefaultState = {
+//     mealList: [],
+// };
+
+export default (state = {mealList: defaultMealsList}, action) => {
     switch (action.type) {
         case 'ADD_MEAL':
             return {

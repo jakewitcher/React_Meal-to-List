@@ -1,8 +1,10 @@
-const itemsAllDefaultState = {
-    itemsAll: new Map()
-};
+import { defaultItemsList } from './seed';
 
-export default (state = itemsAllDefaultState, action) => {
+// const itemsAllDefaultState = {
+//     itemsAll: new Map()
+// };
+
+export default (state = {itemsAll: defaultItemsList}, action) => {
     switch(action.type) {
         case 'ADD_ITEM':
             state.itemsAll.set(action.name, action.item);

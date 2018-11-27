@@ -1,8 +1,10 @@
-const groceryDefaultState = {
-    groceryList: [],
-};
+import { defaultGroceriesList } from './seed';
 
-export default (state = groceryDefaultState, action) => {
+// const groceryDefaultState = {
+//     groceryList: [],
+// };
+
+export default (state = {groceryList: defaultGroceriesList}, action) => {
     switch (action.type) {
         case 'ADD_GROCERY':
             return {
