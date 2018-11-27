@@ -1,10 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const FormButtons = () => {
     return (
         <div className="form-tabs">
-            <button className="form-tabs__button form-tabs__button--meal">New meal</button>
-            <button className="form-tabs__button form-tabs__button--grocery">New grocery list</button>
+            <Link to="/meals" exact={true}>
+                <button className="form-tabs__button form-tabs__button--meal">New meal</button>
+            </Link>
+            <Link to="/grocerylists" exact={true}>
+                <button className="form-tabs__button form-tabs__button--grocery">New grocery list</button>
+            </Link>
         </div>
     );
 };
