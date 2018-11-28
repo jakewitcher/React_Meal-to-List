@@ -5,14 +5,12 @@ import EditGroceryPage from '../containers/EditGroceryPage';
 
 
 const GroceryBranch = (props) => {
-    const { listOfGroceryLists, editGroceryList } = props;
+    const { listOfGroceryLists, editGroceryList, createGroceryList } = props;
 
     if (listOfGroceryLists) {
         return (
             <div>
-                <GroceryListsPage
-                    groceryLists={props.groceryLists}
-                />
+                <GroceryListsPage {...props} />
             </div>
         );
     } else if (editGroceryList) {
@@ -21,7 +19,7 @@ const GroceryBranch = (props) => {
                 <EditGroceryPage {...props} />
             </div>
         )
-    } else {
+    } else if (createGroceryList) {
         return (
             <div>
                 <CreateGroceryPage {...props} />

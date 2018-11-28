@@ -5,7 +5,7 @@ import { addGrocery } from '../actions/grocery';
 
 class GroceryPage extends Component {
     state = {
-        listofGroceryLists: true,
+        listOfGroceryLists: true,
         createGroceryList: false,
         editGroceryList: false,
         groceryName: "",
@@ -13,6 +13,30 @@ class GroceryPage extends Component {
         itemsMap: new Map(),
         itemsList: [],
     };
+
+    createNewGrocery = () => {
+        this.setState({
+            listOfGroceryLists: false,
+            createGroceryList: true,
+            editGroceryList: false,
+        });
+    }
+
+    editExistingGrocery = () => {
+        this.setState({
+            listOfGroceryLists: false,
+            createGroceryList: false,
+            editGroceryList: true,
+        });
+    }
+
+    viewListOfGroceries = () => {
+        this.setState({
+            listOfGroceryLists: true,
+            createGroceryList: false,
+            editGroceryList: false,
+        });
+    }
 
     addMealToList = () => {
         const { itemsMap, selectedMeal } = this.state;
@@ -73,6 +97,10 @@ class GroceryPage extends Component {
                     listOfGroceryLists={this.state.listOfGroceryLists}
                     createGroceryList={this.state.createGroceryList}
                     editGroceryList={this.state.editGroceryList}
+                    createNewGrocery={this.createNewGrocery}
+                    editExistingGrocery={this.editExistingGrocery}
+                    viewListOfGroceries={this.viewListOfGroceries}
+                    match={this.props.match}
                     dispatch={this.props.dispatch}
                 />
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Grocery from '../components/grocery/Grocery';
 
 const GroceriesList = (props) => {
-    const { groceryLists } = props;
+    const { groceryLists, createNewGrocery } = props;
     return (
         <div>
             {
@@ -13,6 +13,9 @@ const GroceriesList = (props) => {
                     />
                 })
             }
+            <div className="form-tabs">
+                <button onClick={() => createNewGrocery()} className="form-tabs__button">Create a New Grocery List</button>
+            </div>
         </div>
     );
 }

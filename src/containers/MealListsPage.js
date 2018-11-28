@@ -2,7 +2,7 @@ import React from 'react';
 import Meal from '../components/meal/Meal';
 
 const MealsList = (props) => {
-    const { meals } = props;
+    const { meals, createNewMeal } = props;
     return (
         <div>
             {
@@ -13,6 +13,9 @@ const MealsList = (props) => {
                     />
                 })
             }
+            <div className="form-tabs">
+                <button onClick={() => createNewMeal()} className="form-tabs__button">Create a New Meal</button>
+            </div>
         </div>
     );
 }

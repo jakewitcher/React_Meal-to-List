@@ -7,7 +7,7 @@ import { addMeal } from '../actions/meal';
 
 class MealPage extends Component {
     state = {
-        listofMeals: true,
+        listOfMeals: true,
         createMeal: false,
         editMeal: false,
         mealName: '',
@@ -16,6 +16,30 @@ class MealPage extends Component {
         unit: 'pound(s)',
         itemList: []
     };
+
+    createNewMeal = () => {
+        this.setState({
+            listOfMeals: false,
+            createMeal: true,
+            editMeal: false,
+        });
+    }
+
+    editExistingMeal = () => {
+        this.setState({
+            listOfMeals: false,
+            createMeal: false,
+            editMeal: true,
+        });
+    }
+
+    viewListOfMeals = () => {
+        this.setState({
+            listOfMeals: true,
+            createMeal: false,
+            editMeal: false,
+        });
+    }
 
     mealNameChange = (e) => {
         const mealName = e.target.value;
@@ -120,10 +144,14 @@ class MealPage extends Component {
                 unit={this.state.unit}
                 meals={this.props.meals.mealList}
                 itemList={this.state.itemList}
-                listofMeals={this.state.listofMeals}
+                listOfMeals={this.state.listOfMeals}
                 createMeal={this.state.createMeal}
                 editMeal={this.state.editMeal}
+                createNewMeal={this.createNewMeal}
+                editExistingMeal={this.editExistingMeal}
+                viewListOfMeals={this.viewListOfMeals}
                 dispatch={this.props.dispatch}
+                match={this.props.match}
             />
         )
     }

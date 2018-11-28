@@ -4,43 +4,21 @@ import MealItems from '../components/meal/MealItems';
 
 
 const CreateMealPage = (props) => {
-    const {
-        mealNameChange,
-        itemNameChange,
-        amountChange,
-        unitChange,
-        addItem,
-        addMeal,
-        resetMeal,
-        mealName,
-        itemName,
-        amount,
-        unit,
-        itemList,
-        dispatch,
-    } = props;
+    const { viewListOfMeals } = props;
     return (
-        <div className="meal">
-            <MealForm
-                mealNameChange={mealNameChange}
-                itemNameChange={itemNameChange}
-                amountChange={amountChange}
-                unitChange={unitChange}
-                addItem={addItem}
-                addMeal={addMeal}
-                resetMeal={resetMeal}
-                mealName={mealName}
-                itemName={itemName}
-                amount={amount}
-                unit={unit}
-                itemList={itemList}
-                dispatch={dispatch}
-            />
-            <MealItems
-                mealName={mealName}
-                itemList={itemList}
-            />
+        <div>
+            <div className="meal">
+                <MealForm {...props} />
+                <MealItems
+                    mealName={props.mealName}
+                    itemList={props.itemList}
+                />
+            </div>
+            <div className="form-tabs">
+                <button onClick={() => viewListOfMeals()} className="form-tabs__button">View List of Meals</button>
+            </div>
         </div>
+       
     )
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LandingPage from '../containers/LandingPage';
 import MealPage from '../containers/MealPage';
 import GroceryPage from '../containers/GroceryPage';
@@ -14,11 +14,11 @@ const AppRouter = () => (
             <Header />
             <FormButtons />
             <Switch>
-                <Route path="/" component={LandingPage} exact={true}/>
+                <Route path="/" component={LandingPage} exact={true} />
                 <Route path="/meals" component={MealPage} exact={true} />
                 <Route path="/grocerylists" component={GroceryPage} exact={true} />
                 <Route path="/grocerylists/create" component={CreateGroceryPage} exact={true} />
-                <Route component={PageNotFound}/>
+                <Route component={PageNotFound} />
             </Switch>
         </div>
     </BrowserRouter>
