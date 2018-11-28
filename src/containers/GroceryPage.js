@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CreateGroceryPage from './CreateGroceryPage';
-import GroceriesList from '../components/grocery/GroceriesList';
+import GroceryBranch from '../branches/GroceryBranch';
 import { addGrocery } from '../actions/grocery';
 
 class GroceryPage extends Component {
     state = {
+        listofGroceryLists: true,
+        createGroceryList: false,
+        editGroceryList: false,
         groceryName: "",
         selectedMeal: this.props.meals.mealList[0] || {},
         itemsMap: new Map(),
@@ -56,11 +58,8 @@ class GroceryPage extends Component {
     render() {
         return (
             <div>
-                <h1>Grocery Page</h1>
-                <GroceriesList
-                    groceryLists={this.props.groceryLists.groceryList}
-                />
-                <CreateGroceryPage
+
+                <GroceryBranch
                     meals={this.props.meals}
                     selectedMeal={this.state.selectedMeal}
                     groceryName={this.state.groceryName}
@@ -70,6 +69,10 @@ class GroceryPage extends Component {
                     addMealToList={this.addMealToList}
                     addGrocery={addGrocery}
                     resetGrocery={this.resetGrocery}
+                    groceryLists={this.props.groceryLists.groceryList}
+                    listOfGroceryLists={this.state.listOfGroceryLists}
+                    createGroceryList={this.state.createGroceryList}
+                    editGroceryList={this.state.editGroceryList}
                     dispatch={this.props.dispatch}
                 />
             </div>

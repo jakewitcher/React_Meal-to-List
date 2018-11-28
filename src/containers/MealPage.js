@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
-import CreateMealPage from './CreateMealPage';
-import MealsList from '../components/meal/MealsList';
+import MealBranch from '../branches/MealBranch';
 import { addToItemsAll } from '../actions/items';
 import { addMeal } from '../actions/meal';
 
 class MealPage extends Component {
     state = {
+        listofMeals: true,
+        createMeal: false,
+        editMeal: false,
         mealName: '',
         itemName: '',
         amount: '',
@@ -102,29 +104,27 @@ class MealPage extends Component {
         this.setState({ mealName: '', itemList: [] });
     }
 
-    render () {
+    render() {
         return (
-            <div>
-                <h1>Meal Page</h1>
-                <MealsList 
-                    meals={this.props.meals.mealList}
-                />
-                <CreateMealPage
-                    mealNameChange={this.mealNameChange}
-                    itemNameChange={this.itemNameChange}
-                    amountChange={this.amountChange}
-                    unitChange={this.unitChange}
-                    addItem={this.addItem}
-                    addMeal={addMeal}
-                    resetMeal={this.resetMeal}
-                    mealName={this.state.mealName}
-                    itemName={this.state.itemName}
-                    amount={this.state.amount}
-                    unit={this.state.unit}
-                    itemList={this.state.itemList}
-                    dispatch={this.props.dispatch}
-                />
-            </div>
+            <MealBranch
+                mealNameChange={this.mealNameChange}
+                itemNameChange={this.itemNameChange}
+                amountChange={this.amountChange}
+                unitChange={this.unitChange}
+                addItem={this.addItem}
+                addMeal={addMeal}
+                resetMeal={this.resetMeal}
+                mealName={this.state.mealName}
+                itemName={this.state.itemName}
+                amount={this.state.amount}
+                unit={this.state.unit}
+                meals={this.props.meals.mealList}
+                itemList={this.state.itemList}
+                listofMeals={this.state.listofMeals}
+                createMeal={this.state.createMeal}
+                editMeal={this.state.editMeal}
+                dispatch={this.props.dispatch}
+            />
         )
     }
 }
@@ -134,6 +134,6 @@ const mapStateToProps = (state) => {
         meals: state.meals,
         items: state.items,
     }
-} 
+}
 
 export default connect(mapStateToProps)(MealPage);

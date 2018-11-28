@@ -1,5 +1,5 @@
 import React from 'react';
-import Grocery from './Grocery';
+import Grocery from '../components/grocery/Grocery';
 
 const GroceriesList = (props) => {
     const { groceryLists } = props;
