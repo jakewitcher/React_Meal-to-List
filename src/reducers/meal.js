@@ -27,7 +27,9 @@ export default (state = { mealList: defaultMealsList }, action) => {
                 }
                 return meal;
             });
-            return editedMealList;
+            return {
+                mealList: editedMealList
+            };
 
         default:
             return state;

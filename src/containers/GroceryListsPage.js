@@ -2,13 +2,16 @@ import React from 'react';
 import Grocery from '../components/grocery/Grocery';
 
 const GroceriesList = (props) => {
-    const { groceryLists, createNewGrocery } = props;
+    const { groceryLists, createNewGrocery, editExistingGrocery, dispatch } = props;
     return (
         <div>
             {
                 groceryLists.map(list => {
                     return <Grocery
                         name={list.name}
+                        id={list.id}
+                        dispatch={dispatch}
+                        editExistingGrocery={editExistingGrocery}
                         key={list.id}
                     />
                 })
