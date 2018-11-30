@@ -1,86 +1,95 @@
 button {
     border: none;
     border-radius: 3px;
+    font-family: $sans-serif;
     padding: 5px;
   }
   
-  .groceryform {
+  .form {
     background: $off-white;
     box-shadow: 0 0 5px lighten($md-brown, 20%);
     margin: 0;
   }
   
-  .groceryform__form {
+  .form__form {
     padding: $s-size;
   }
   
-  .groceryform__button {
+  .form__button {
     display: flex;
     margin-top: $s-size;
   }
   
-  .groceryform__button--save {
+  .form__button--save {
     background: $light-blue;
     border: 1px solid darken($light-blue, 15%);
     color: $white;
     width: 100%;
   }
   
-  .groceryform__button--add {
+  .form__button--add {
     background: lighten($md-orange, 15%);
     border: 1px solid $md-orange;
     color: $md-brown;
   }
   
-  .groceryform__header {
+  .form__header {
     color: $md-brown;
+    font-family: $serif;
     font-size: $ml-size;
     margin: 0;
     padding: $s-size $l-size;
   }
   
-  .groceryform__iteminputfields {
+  .form__iteminputfields {
     border: 1px solid $md-brown;
     color: $md-brown;
     display: flex;
     flex-direction: column;
-    font-size: $s-size;
+    font-family: $serif;
+    font-size: $sm-size;
+    font-weight: bold;
     margin: $s-size 0;
     padding: $s-size;
   }
   
-  .groceryform__iteminputfields--input {
+  .form__iteminputfields--input {
     border: 1px solid $md-brown;
     color: $md-brown;
+    font-family: $sans-serif;
     height: $m-size;
     width: 100%;
   }
   
-  .groceryform__iteminputfields--input:focus {
+  .form__iteminputfields--input:focus {
     border: 1px solid $md-orange;
     box-shadow: 0 0 2px $off-white;
     outline: none;
   }
   
-  .groceryform__iteminputfields--dropdown {
+  .form__iteminputfields--dropdown {
+    font-family: $sans-serif;
     height: $ml-size;
   }
   
-  .groceryform__nameinputfield {
+  .form__nameinputfield {
     color: $md-brown;
     display: flex;
     flex-direction: column;
-    font-size: $s-size;
+    font-family: $serif;
+    font-size: $sm-size;
+    font-weight: bold;
     padding: 0;
   }
   
-  .groceryform__nameinputfield--input {
+  .form__nameinputfield--input {
     border: 1px solid $md-brown;
     color: $md-brown;
+    font-family: $sans-serif;
     height: $m-size;
   }
   
-  .groceryform__nameinputfield--input:focus {
+  .form__nameinputfield--input:focus {
     border: 1px solid $md-orange;
     box-shadow: 0 0 2px $off-white;
     outline: none;

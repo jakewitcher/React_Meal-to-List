@@ -13,3 +13,23 @@ export const addMeal = (
         itemList,
     }
 });
+
+export const deleteMeal = (id = '') => ({
+    type: 'DELETE_MEAL',
+    id,
+});
+
+export const editMeal = (
+    {
+        name = '',
+        id = '',
+        itemList = [],
+    } = {}
+) => ({
+    type: 'EDIT_MEAL',
+    meal: {
+        id,
+        name,
+        itemList,
+    }
+});

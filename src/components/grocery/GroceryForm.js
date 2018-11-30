@@ -1,67 +1,67 @@
 import React from 'react';
 
-const GroceryForm = (props) => {
-    const { 
-        selectedMealChange, 
-        selectedMeal, 
-        meals, 
+const form = (props) => {
+    const {
+        selectedMealChange,
+        selectedMeal,
+        meals,
         groceryName,
-        itemsList, 
-        groceryNameChange, 
+        itemsList,
+        groceryNameChange,
         addMealToList,
         addGrocery,
         resetGrocery,
-        dispatch,    
+        dispatch,
     } = props;
     return (
-        <div className="groceryform">
-            <h2 className="groceryform__header">Create a New Grocery List</h2>
-            <div className="groceryform__form">
-                <div className="groceryform__nameinputfield">
-                <p>Grocery List Name</p>
-                <input 
-                    className="groceryform__nameinputfield--input" 
-                    type="text" 
-                    value={groceryName}
-                    onChange={groceryNameChange}
-                />
+        <div className="form">
+            <h2 className="form__header">Create a New Grocery List</h2>
+            <div className="form__form">
+                <div className="form__nameinputfield">
+                    <p>Grocery List Name</p>
+                    <input
+                        className="form__nameinputfield--input"
+                        type="text"
+                        value={groceryName}
+                        onChange={groceryNameChange}
+                    />
                 </div>
-                <div className="groceryform__iteminputfields">
-                <div>
-                    <p>Meals</p>
-                    <select 
-                        className="groceryform__iteminputfields--input groceryform__iteminputfields--dropdown"
-                        name="selectedMeal"
-                        value={selectedMeal.name}
-                        onChange={selectedMealChange}
-                    >
-                        {
-                            meals.mealList.map(meal => <option value={meal.name} key={meal.id}>{meal.name}</option>)
-                        }
-                    </select>
-                </div>
-                <div className="groceryform__button">
-                    <button 
-                        className="groceryform__button--add"
-                        onClick={addMealToList}
-                    >
-                        Add Meal
+                <div className="form__iteminputfields">
+                    <div>
+                        <p>Meals</p>
+                        <select
+                            className="form__iteminputfields--input form__iteminputfields--dropdown"
+                            name="selectedMeal"
+                            value={selectedMeal.name}
+                            onChange={selectedMealChange}
+                        >
+                            {
+                                meals.mealList.map(meal => <option value={meal.name} key={meal.id}>{meal.name}</option>)
+                            }
+                        </select>
+                    </div>
+                    <div className="form__button">
+                        <button
+                            className="form__button--add"
+                            onClick={addMealToList}
+                        >
+                            Add Meal
                     </button>
-                </div>
+                    </div>
                 </div>
                 <div>
-                <button 
-                    className="groceryform__button--save"
-                    onClick={() => {
-                        dispatch(addGrocery({
-                            name: groceryName,
-                            items: itemsList,
-                        }));
-                        resetGrocery();
+                    <button
+                        className="form__button--save"
+                        onClick={() => {
+                            dispatch(addGrocery({
+                                name: groceryName,
+                                items: itemsList,
+                            }));
+                            resetGrocery();
                         }
-                    }    
-                >
-                    Save Grocery List
+                        }
+                    >
+                        Save Grocery List
                 </button>
                 </div>
             </div>
@@ -70,4 +70,4 @@ const GroceryForm = (props) => {
     )
 }
 
-export default GroceryForm;
+export default form;

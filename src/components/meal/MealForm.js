@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MealForm = (props) => {
+const form = (props) => {
     const {
         mealNameChange,
         itemNameChange,
@@ -18,23 +18,23 @@ const MealForm = (props) => {
     } = props;
 
     return (
-        <div className="mealform">
-            <h2 className="mealform__header">Create a New Meal</h2>
-            <div className="mealform__form">
-                <div className="mealform__nameinputfield">
+        <div className="form">
+            <h2 className="form__header">Create a New Meal</h2>
+            <div className="form__form">
+                <div className="form__nameinputfield">
                     <p>Meal Name</p>
                     <input
-                        className="mealform__nameinputfield--input"
+                        className="form__nameinputfield--input"
                         type="text"
                         value={mealName}
                         onChange={mealNameChange}
                     />
                 </div>
-                <div className="mealform__iteminputfields">
+                <div className="form__iteminputfields">
                     <div>
                         <p>Item</p>
                         <input
-                            className="mealform__iteminputfields--input"
+                            className="form__iteminputfields--input"
                             type="text"
                             value={itemName}
                             onChange={itemNameChange}
@@ -44,7 +44,7 @@ const MealForm = (props) => {
                     <div>
                         <p>Amount</p>
                         <input
-                            className="mealform__iteminputfields--input"
+                            className="form__iteminputfields--input"
                             type="number"
                             value={amount}
                             onChange={amountChange}
@@ -54,7 +54,7 @@ const MealForm = (props) => {
                     <div>
                         <p>Unit</p>
                         <select
-                            className="mealform__iteminputfields--input mealform__iteminputfields--dropdown"
+                            className="form__iteminputfields--input form__iteminputfields--dropdown"
                             name="unit"
                             value={unit}
                             onChange={unitChange}
@@ -70,9 +70,9 @@ const MealForm = (props) => {
                             <option value="container(s)">container(s)</option>
                         </select>
                     </div>
-                    <div className="mealform__button">
+                    <div className="form__button">
                         <button
-                            className="mealform__button--add"
+                            className="form__button--add"
                             onClick={addItem}
                         >
                             Add Item
@@ -81,7 +81,7 @@ const MealForm = (props) => {
                 </div>
                 <div>
                     <button
-                        className="mealform__button--save"
+                        className="form__button--save"
                         onClick={() => {
                             const name = mealName;
                             dispatch(addMeal({
@@ -101,4 +101,4 @@ const MealForm = (props) => {
 
 
 
-export default MealForm;
+export default form;
