@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { deleteGrocery } from '../../actions/grocery';
 
 const Grocery = (props) => {
-    const { name, dispatch, editExistingGrocery, id } = props;
+    const { name, dispatch, id } = props;
     return (
         <div>
             <p>{name}</p>
             <i 
                 className="fas fa-edit"
-                onClick={() => editExistingGrocery()}
             />
             <i 
                 className="fas fa-trash"

@@ -2,7 +2,7 @@ import React from 'react';
 import Grocery from '../components/grocery/Grocery';
 
 const GroceriesList = (props) => {
-    const { groceryLists, createNewGrocery, editExistingGrocery, dispatch } = props;
+    const { groceryLists, dispatch } = props;
     return (
         <div>
             {
@@ -11,14 +11,10 @@ const GroceriesList = (props) => {
                         name={list.name}
                         id={list.id}
                         dispatch={dispatch}
-                        editExistingGrocery={editExistingGrocery}
                         key={list.id}
                     />
                 })
             }
-            <div className="form-tabs">
-                <button onClick={() => createNewGrocery()} className="form-tabs__button">Create a New Grocery List</button>
-            </div>
         </div>
     );
 }

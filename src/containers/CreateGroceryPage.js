@@ -4,18 +4,14 @@ import GroceryItems from '../components/grocery/GroceryItems';
 
 
 const CreateGroceryPage = (props) => {
-    const { viewListOfGroceries } = props;
     return (
         <div>
             <div className="grocery">
                 <GroceryForm {...props} />
                 <GroceryItems
-                    groceryName={props.groceryName}
-                    itemsList={props.itemsList}
+                    groceryName={props.groceryProps.groceryName}
+                    itemsList={props.groceryProps.itemsList}
                 />
-            </div>
-            <div className="form-tabs">
-                <button onClick={() => viewListOfGroceries()} className="form-tabs__button">View List of Meals</button>
             </div>
         </div>
        

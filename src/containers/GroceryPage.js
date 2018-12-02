@@ -1,42 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import GroceryBranch from '../branches/GroceryBranch';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { addGrocery } from '../actions/grocery';
+import CreateGroceryPage from './CreateGroceryPage';
+import EditGroceryPage from './EditGroceryPage';
+import GroceryListsPage from './GroceryListsPage';
 
 class GroceryPage extends Component {
     state = {
-        listOfGroceryLists: true,
-        createGroceryList: false,
-        editGroceryList: false,
         groceryName: "",
         selectedMeal: this.props.meals.mealList[0] || {},
         itemsMap: new Map(),
         itemsList: [],
     };
-
-    createNewGrocery = () => {
-        this.setState({
-            listOfGroceryLists: false,
-            createGroceryList: true,
-            editGroceryList: false,
-        });
-    }
-
-    editExistingGrocery = () => {
-        this.setState({
-            listOfGroceryLists: false,
-            createGroceryList: false,
-            editGroceryList: true,
-        });
-    }
-
-    viewListOfGroceries = () => {
-        this.setState({
-            listOfGroceryLists: true,
-            createGroceryList: false,
-            editGroceryList: false,
-        });
-    }
 
     addMealToList = () => {
         const { itemsMap, selectedMeal } = this.state;
@@ -80,30 +56,42 @@ class GroceryPage extends Component {
         this.setState({ groceryName: "", itemsList: [], itemsMap: new Map() });
     }
     render() {
+        const { match } = this.props;
+        const groceryProps = {
+            meals: this.props.meals,
+            selectedMeal: this.state.selectedMeal,
+            groceryName: this.state.groceryName,
+            itemsList: this.state.itemsList,
+            selectedMealChange: this.selectedMealChange,
+            groceryNameChange: this.groceryNameChange,
+            addMealToList: this.addMealToList,
+            addGrocery: addGrocery,
+            resetGrocery: this.resetGrocery,
+            groceryLists: this.props.groceryLists.groceryList,
+            listOfGroceryLists: this.state.listOfGroceryLists,
+            createGroceryList: this.state.createGroceryList,
+            editGroceryList: this.state.editGroceryList,
+            match: this.props.match,
+            dispatch: this.props.dispatch,
+        }
         return (
-            <div>
+            <Router>
+                <div>
+                    <GroceryListsPage
+                        groceryLists={this.props.groceryLists.groceryList}
+                        dispatch={this.props.dispatch}
+                    />
+                    <Link to={`${match.url}/create`}>
+                        <button className="form-tabs__button form-tabs__button--meal">Create Grocery List</button>
+                    </Link>
+                    <Link to={`${match.url}/edit`}>
+                        <button className="form-tabs__button form-tabs__button--meal">Edit Grocery List</button>
+                    </Link>
 
-                <GroceryBranch
-                    meals={this.props.meals}
-                    selectedMeal={this.state.selectedMeal}
-                    groceryName={this.state.groceryName}
-                    itemsList={this.state.itemsList}
-                    selectedMealChange={this.selectedMealChange}
-                    groceryNameChange={this.groceryNameChange}
-                    addMealToList={this.addMealToList}
-                    addGrocery={addGrocery}
-                    resetGrocery={this.resetGrocery}
-                    groceryLists={this.props.groceryLists.groceryList}
-                    listOfGroceryLists={this.state.listOfGroceryLists}
-                    createGroceryList={this.state.createGroceryList}
-                    editGroceryList={this.state.editGroceryList}
-                    createNewGrocery={this.createNewGrocery}
-                    editExistingGrocery={this.editExistingGrocery}
-                    viewListOfGroceries={this.viewListOfGroceries}
-                    match={this.props.match}
-                    dispatch={this.props.dispatch}
-                />
-            </div>
+                    <Route path={`${match.path}/create`} render={props => <CreateGroceryPage {...props} groceryProps={groceryProps}/>} exact={true}/>
+                    <Route path={`${match.path}/edit`} render={props => <EditGroceryPage {...props} groceryProps={groceryProps}/>} exact={true}/>
+                </div>
+            </Router>
         )
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const form = (props) => {
+const form = ({ mealProps }) => {
     const {
         mealNameChange,
         itemNameChange,
@@ -15,7 +15,7 @@ const form = (props) => {
         unit,
         itemList,
         dispatch
-    } = props;
+    } = mealProps;
 
     return (
         <div className="form">
