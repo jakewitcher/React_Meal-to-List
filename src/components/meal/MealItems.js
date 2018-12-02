@@ -5,7 +5,7 @@ const MealItems = (props) => {
     const { mealName, itemList } = props;
     return (
         <div className="itemlist">
-            <h1 className="itemlist__header">{ mealName || 'New Meal'}</h1>
+            <h1 className="itemlist__header">{ mealName || 'Meal'}</h1>
             {itemList.length > 0 && <ul className="itemlist__body">
                 {itemList.map(item => {
                     return (

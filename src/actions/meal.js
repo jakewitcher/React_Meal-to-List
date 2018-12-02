@@ -3,6 +3,7 @@ import uuid from 'uuid';
 export const addMeal = (
     {
         name = '',
+        id ='',
         itemList = [],
     } = {}
 ) => ({

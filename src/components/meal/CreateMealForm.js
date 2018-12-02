@@ -1,13 +1,12 @@
 import React from 'react';
 
-const form = ({ mealProps }) => {
+const MealForm = (props) => {
     const {
         mealNameChange,
         itemNameChange,
         amountChange,
         unitChange,
         addItem,
-        addMeal,
         resetMeal,
         mealName,
         itemName,
@@ -15,7 +14,8 @@ const form = ({ mealProps }) => {
         unit,
         itemList,
         dispatch
-    } = mealProps;
+    } = props.mealProps;
+    const { addMeal } = props;
 
     return (
         <div className="form">
@@ -101,4 +101,4 @@ const form = ({ mealProps }) => {
 
 
 
-export default form;
+export default MealForm;

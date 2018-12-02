@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import uuid from 'uuid';
 import CreateMealPage from './CreateMealPage';
-import EditMealPage from './EditMealPage';
 import MealListsPage from './MealListsPage';
 import { addToItemsAll } from '../actions/items';
-import { addMeal, editMeal } from '../actions/meal';
 
 class MealPage extends Component {
     state = {
@@ -14,13 +12,13 @@ class MealPage extends Component {
         itemName: '',
         amount: '',
         unit: 'pound(s)',
-        itemList: []
+        itemList: [],
     };
 
     // sets the name and itemList of the selected meal in state so that it can be edited.
 
     mealToEdit = (id) => {
-        const selectedMeal = this.props.meals.mealList.filter(meal => meal.id === id);
+        const selectedMeal = this.props.meals.mealList.filter(meal => meal.id === id)[0];
         this.setState({
             mealName: selectedMeal.name,
             itemList: selectedMeal.itemList,
@@ -141,8 +139,6 @@ class MealPage extends Component {
             amountChange: this.amountChange,
             unitChange: this.unitChange,
             addItem: this.addItem,
-            addMeal: addMeal,
-            editMeal: editMeal,
             resetMeal: this.resetMeal,
             dispatch: this.props.dispatch,
         }
@@ -155,16 +151,14 @@ class MealPage extends Component {
                         meals={this.props.meals.mealList}
                         dispatch={this.props.dispatch}
                         mealToEdit={this.mealToEdit}
+                        match={this.props.match}
+                        mealProps={mealProps}
                     />
                     <Link to="/meals/create">
                         <button className="form-tabs__button form-tabs__button--meal">Create Meal</button>
                     </Link>
-                    <Link to="/meals/edit">
-                        <button className="form-tabs__button form-tabs__button--meal">Edit Meal</button>
-                    </Link>
 
                     <Route path={`${match.path}/create`} render={props => <CreateMealPage {...props} mealProps={mealProps}/>} exact={true}/>
-                    <Route path={`${match.path}/edit`} render={props => <EditMealPage {...props} mealProps={mealProps}/>} exact={true}/>
                 </div>
             </Router>
             

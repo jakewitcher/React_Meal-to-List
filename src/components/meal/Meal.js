@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { deleteMeal } from '../../actions/meal';
 
 const Meal = (props) => {
@@ -7,12 +8,15 @@ const Meal = (props) => {
     return (
         <div>
             <p>{name}</p>
-            <i 
-                className="fas fa-edit"
-                onClick={() => {
-                    mealToEdit(id); 
-                }}
-            />
+            
+             <Link to={`/meals/edit/${id}`}>
+                <i 
+                    className="fas fa-edit"
+                    onClick={() => {
+                        mealToEdit(id); 
+                    }}
+                />
+            </Link>
             <i 
                 className="fas fa-trash"
                 onClick={() => dispatch(deleteMeal(id))}    
