@@ -16,6 +16,7 @@ class MealPage extends Component {
     };
 
     // sets the name and itemList of the selected meal in state so that it can be edited.
+    // delete items from the meal item list.
 
     mealToEdit = (id) => {
         const selectedMeal = this.props.meals.mealList.filter(meal => meal.id === id)[0];
@@ -24,6 +25,13 @@ class MealPage extends Component {
             itemList: selectedMeal.itemList,
             id: selectedMeal.id,
         })
+    };
+
+    deleteMealItem = (id) => {
+        const newMealList = this.state.itemList.filter(item => item.id !== id);
+        this.setState({
+            itemList: newMealList,
+        });
     };
 
     // on Change event listeners for setting the information for a new item or setting the name of the meal.
@@ -140,6 +148,7 @@ class MealPage extends Component {
             unitChange: this.unitChange,
             addItem: this.addItem,
             resetMeal: this.resetMeal,
+            deleteMealItem: this.deleteMealItem,
             dispatch: this.props.dispatch,
         }
  

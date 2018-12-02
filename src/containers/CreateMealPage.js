@@ -5,6 +5,7 @@ import { addMeal } from '../actions/meal';
 
 
 const CreateMealPage = (props) => {
+    const { mealName, itemList, dispatch, deleteMealItem } = props.mealProps;
     return (
         <div>
             <div className="meal">
@@ -13,8 +14,10 @@ const CreateMealPage = (props) => {
                     addMeal={addMeal} 
                 />
                 <MealItems
-                    mealName={props.mealProps.mealName}
-                    itemList={props.mealProps.itemList}
+                    mealName={mealName}
+                    itemList={itemList}
+                    deleteMealItem={deleteMealItem}
+                    dispatch={dispatch}
                 />
             </div>
         </div>

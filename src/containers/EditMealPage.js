@@ -4,6 +4,7 @@ import MealItems from '../components/meal/MealItems';
 import { editMeal } from '../actions/meal'
 
 const EditMealPage = (props) => {
+    const { mealName, itemList, dispatch, deleteMealItem } = props.mealProps;
     return (
             <div className="meal">
                 <EditMealForm 
@@ -11,8 +12,10 @@ const EditMealPage = (props) => {
                     editMeal={editMeal}
                 />
                 <MealItems
-                    mealName={props.mealProps.mealName}
-                    itemList={props.mealProps.itemList}
+                    mealName={mealName}
+                    itemList={itemList}
+                    deleteMealItem={deleteMealItem}
+                    dispatch={dispatch}
                 />
             </div>
     );
