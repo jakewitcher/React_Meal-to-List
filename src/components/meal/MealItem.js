@@ -14,6 +14,12 @@ const MealItem = (props) => {
                 <p>{unit}</p>
             </div>
             <i 
+                className="fas fa-edit"
+                onClick={() => {
+                        props.itemToEdit(id); 
+                }}
+            />
+            <i 
                 className="fas fa-trash"
                 onClick={() => props.deleteMealItem(id)}    
             />

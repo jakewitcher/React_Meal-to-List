@@ -2,7 +2,7 @@ import React from 'react';
 import MealItem from './MealItem'
 
 const MealItems = (props) => {
-    const { mealName, itemList, dispatch, deleteMealItem } = props;
+    const { mealName, itemList, dispatch, deleteMealItem, itemToEdit } = props;
     return (
         <div className="itemlist">
             <h1 className="itemlist__header">{ mealName || 'Meal'}</h1>
@@ -11,6 +11,7 @@ const MealItems = (props) => {
                     return (
                         <MealItem 
                             item={item}
+                            itemToEdit={itemToEdit}
                             deleteMealItem={deleteMealItem}
                             dispatch={dispatch}
                             key={item.id}

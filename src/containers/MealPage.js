@@ -34,13 +34,12 @@ class MealPage extends Component {
         });
     };
 
-    editMealItem = (id) => {
-        const selectedItem = this.state.itemList.filter(item => item.id === id);
+    itemToEdit = (id) => {
+        const selectedItem = this.state.itemList.filter(item => item.id === id)[0];
         this.setState({
-            itemName: selectedItem.name,
+            itemName: selectedItem.itemName,
             amount: selectedItem.amount,
             unit: selectedItem.unit,
-            id: selectedItem.id,
         })
     }
 
@@ -157,6 +156,7 @@ class MealPage extends Component {
             unitChange: this.unitChange,
             addItem: this.addItem,
             resetMeal: this.resetMeal,
+            itemToEdit: this.itemToEdit,
             deleteMealItem: this.deleteMealItem,
             dispatch: this.props.dispatch,
         }
