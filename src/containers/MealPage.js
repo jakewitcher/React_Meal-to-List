@@ -34,6 +34,16 @@ class MealPage extends Component {
         });
     };
 
+    editMealItem = (id) => {
+        const selectedItem = this.state.itemList.filter(item => item.id === id);
+        this.setState({
+            itemName: selectedItem.name,
+            amount: selectedItem.amount,
+            unit: selectedItem.unit,
+            id: selectedItem.id,
+        })
+    }
+
     // on Change event listeners for setting the information for a new item or setting the name of the meal.
     // this includes the item name, amount, and unit of the item.
 
@@ -73,15 +83,14 @@ class MealPage extends Component {
     // once editing is in place, this will change and there will be a message that lets you know the item already exists
     // and asks if you would like to edit it.
 
-    findItemAndSumAmount = (itemName, amount, list) => {
-        const currentAmount = Number(list.filter(item => item.itemName === itemName)[0].amount);
-        let amountSum = currentAmount + Number(amount);
-        let newList = list.map(i => {
-            if (i.itemName === itemName) {
-                i.amount = amountSum;
-                return i;
+    findItemAndReplace = (itemName, amount, unit, list) => {
+        let newList = list.map(item => {
+            if (item.itemName === itemName) {
+                item.amount = amount;
+                item.unit = unit;
+                return item;
             }
-            return i;
+            return item;
         });
         return newList;
     }
@@ -93,7 +102,7 @@ class MealPage extends Component {
     addItem = () => {
         const { itemName, amount, unit, itemList } = this.state;
         if (this.checkListForItem(itemName, itemList)) {
-            const newList = this.findItemAndSumAmount(itemName, amount, itemList)
+            const newList = this.findItemAndReplace(itemName, amount, unit, itemList);
             this.setState({
                 itemName: '',
                 amount: '',
