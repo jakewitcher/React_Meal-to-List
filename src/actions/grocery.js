@@ -3,7 +3,7 @@ import uuid from 'uuid';
 export const addGrocery = (
     {
         name = '',
-        items = {},
+        items = [],
     } = {}
 ) => ({
     type: 'ADD_GROCERY',
@@ -23,13 +23,13 @@ export const editGrocery = (
     {
         name = '',
         id = '',
-        itemList = [],
+        items = [],
     } = {}
 ) => ({
     type: 'EDIT_GROCERY',
-    meal: {
+    grocery: {
         id,
         name,
-        itemList,
+        items,
     }
 });

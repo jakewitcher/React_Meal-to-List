@@ -1,6 +1,6 @@
 import React from 'react';
 
-const form = ({ groceryProps }) => {
+const CreateGroceryForm = (props) => {
     const {
         selectedMealChange,
         selectedMeal,
@@ -9,10 +9,10 @@ const form = ({ groceryProps }) => {
         itemsList,
         groceryNameChange,
         addMealToList,
-        addGrocery,
         resetGrocery,
         dispatch,
-    } = groceryProps;
+    } = props.groceryProps;
+    const { addGrocery } = props;
     return (
         <div className="form">
             <h2 className="form__header">Create a New Grocery List</h2>
@@ -70,4 +70,4 @@ const form = ({ groceryProps }) => {
     )
 }
 
-export default form;
+export default CreateGroceryForm;

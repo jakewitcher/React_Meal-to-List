@@ -1,13 +1,17 @@
 import React from 'react';
-import GroceryForm from '../components/grocery/GroceryForm';
+import CreateGroceryForm from '../components/grocery/CreateGroceryForm';
 import GroceryItems from '../components/grocery/GroceryItems';
+import { addGrocery } from '../actions/grocery';
 
 
 const CreateGroceryPage = (props) => {
     return (
         <div>
             <div className="grocery">
-                <GroceryForm {...props} />
+                <CreateGroceryForm 
+                    {...props}
+                    addGrocery={addGrocery}
+                    />
                 <GroceryItems
                     groceryName={props.groceryProps.groceryName}
                     itemsList={props.groceryProps.itemsList}

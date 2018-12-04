@@ -23,8 +23,7 @@ class MealPage extends Component {
         this.setState({
             mealName: selectedMeal.name,
             itemList: selectedMeal.itemList,
-            id: selectedMeal.id,
-        })
+        });
     };
 
     deleteMealItem = (id) => {
