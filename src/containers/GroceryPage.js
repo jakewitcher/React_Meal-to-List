@@ -12,18 +12,30 @@ class GroceryPage extends Component {
         itemsList: [],
     };
 
+
+
     groceryToEdit = (id) => {
         const selectedGrocery = this.props.groceryLists.groceryList.filter(list => list.id === id)[0];
+        const selectedGroceryMap = new Map();
+        selectedGrocery.items.forEach((item) => {
+            selectedGroceryMap.set(item.itemName, item);
+        });
         this.setState({
             groceryName: selectedGrocery.name,
+            itemsMap: selectedGroceryMap,
             itemsList: selectedGrocery.items,
         });
     };
 
     deleteGroceryItem = (id) => {
         const newGroceryList = this.state.itemsList.filter(item => item.id !== id);
+        const newGroceryMap = new Map();
+        newGroceryList.forEach((item) => {
+            newGroceryMap.set(item.itemName, item);
+        });
         this.setState({
-            itemList: newGroceryList,
+            itemsList: newGroceryList,
+            itemsMap: newGroceryMap,
         });
     };
 

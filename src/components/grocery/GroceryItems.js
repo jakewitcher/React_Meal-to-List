@@ -11,7 +11,6 @@ const GroceryItems = (props) => {
                     return (
                         <GroceryItem 
                             item={item}
-                            id={item.id}
                             deleteGroceryItem={deleteGroceryItem}
                             key={item.id}
                         />
