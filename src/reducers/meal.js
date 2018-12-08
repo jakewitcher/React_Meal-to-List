@@ -1,10 +1,8 @@
-import { defaultMealsList } from './seed';
+// import { mealDefaultState } from './seed';
 
-// const mealDefaultState = {
-//     mealList: [],
-// };
+const mealDefaultState = [];
 
-export default (state = { mealList: defaultMealsList }, action) => {
+export default (state = { mealList: mealDefaultState }, action) => {
     switch (action.type) {
 
         case 'ADD_MEAL':
@@ -18,7 +16,7 @@ export default (state = { mealList: defaultMealsList }, action) => {
             return {
                 mealList: newMealList,
             };
-            
+
         case 'EDIT_MEAL':
             const editedMealList = state.mealList.map((meal) => {
                 if (meal.id === action.meal.id) {

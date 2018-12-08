@@ -1,21 +1,21 @@
 import uuid from 'uuid';
 
-export const defaultItemsList = new Map([
+export const itemsAllDefaultState = new Map([
     ["bacon", { name: "bacon", id: uuid() }],
     ["eggs", { name: "eggs", id: uuid() }],
     ["toast", { name: "toast", id: uuid() }],
-    ["orange juice", {name: "orange juice", id: uuid() }],
-    ["salad", {name: "salad", id: uuid() }],
-    ["chicken", {name: "chicken", id: uuid() }],
-    ["walnuts", {name: "walnuts", id: uuid() }],
-    ["apples", {name: "apples", id: uuid() }],
-    ["pasta", {name: "pasta", id: uuid() }],
-    ["marinara sauce", {name: "marinara sauce", id: uuid() }],
-    ["breadsticks", {name: "breadsticks", id: uuid() }],
+    ["orange juice", { name: "orange juice", id: uuid() }],
+    ["salad", { name: "salad", id: uuid() }],
+    ["chicken", { name: "chicken", id: uuid() }],
+    ["walnuts", { name: "walnuts", id: uuid() }],
+    ["apples", { name: "apples", id: uuid() }],
+    ["pasta", { name: "pasta", id: uuid() }],
+    ["marinara sauce", { name: "marinara sauce", id: uuid() }],
+    ["breadsticks", { name: "breadsticks", id: uuid() }],
 ]);
 
 const getItemId = (item) => {
-    return defaultItemsList.get(item).id;
+    return itemsAllDefaultState.get(item).id;
 };
 
 const breakfast = [
@@ -40,7 +40,7 @@ const dinner = [
     { amount: 1, itemName: "salad", unit: "bag(s)", id: getItemId("salad") },
 ];
 
-export const defaultMealsList = [
+export const mealDefaultState = [
     { name: "breakfast", itemList: breakfast, id: uuid() },
     { name: "lunch", itemList: lunch, id: uuid() },
     { name: "dinner", itemList: dinner, id: uuid() }
@@ -68,7 +68,7 @@ const TuesdayMealItems = [
     { amount: 12, itemName: "breadsticks", unit: "item(s)", id: getItemId("breadsticks") },
 ]
 
-export const defaultGroceriesList = [
+export const groceryDefaultState = [
     { name: "Monday Meals", id: uuid(), items: MondayMealItems },
     { name: "Tuesday Meals", id: uuid(), items: TuesdayMealItems },
 ];
