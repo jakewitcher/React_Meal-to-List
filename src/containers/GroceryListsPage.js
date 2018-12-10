@@ -1,29 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import EditGroceryPage from './EditGroceryPage';
+import { connect } from 'react-redux';
 import Grocery from '../components/grocery/Grocery';
 
-const GroceriesList = (props) => {
-    const { groceryLists, dispatch, match, groceryToEdit, groceryProps } = props;
+const GroceryListsPage = (props) => {
     return (
-        <Router>
-            <div>
-                {
-                    groceryLists.map(list => {
-                        return <Grocery
-                            name={list.name}
-                            id={list.id}
-                            dispatch={dispatch}
-                            groceryToEdit={groceryToEdit}
-                            key={list.id}
-                        />
-                    })
-                }
-            
-                <Route path={`${match.path}/edit/:groceryId`} render={props => <EditGroceryPage {...props} groceryProps={groceryProps}/>} exact={true}/>
-            </div>
-        </Router>
+        <div>
+            {
+                props.groceryLists.groceryList.map(list => {
+                    return <Grocery
+                        name={list.name}
+                        id={list.id}
+                        key={list.id}
+                    />
+                })
+            }
+        </div>
     );
 }
 
-export default GroceriesList;
+const mapStateToProps = (state) => {
+    return {
+        groceryLists: state.groceryLists,
+    }
+}
+
+export default connect(mapStateToProps)(GroceryListsPage);

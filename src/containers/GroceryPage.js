@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CreateGroceryForm from '../components/grocery/CreateGroceryForm';
+import GroceryForm from '../components/grocery/GroceryForm';
 import GroceryItems from '../components/grocery/GroceryItems';
+import { addGrocery, editGrocery } from '../actions/grocery';
 
-class CreateGroceryPage extends Component {
-    state = {
-        groceryName: "",
-        selectedMeal: this.props.meals.mealList[0] || {},
-        itemsMap: new Map(),
-        itemsList: [],
-    };
-
-    groceryToEdit = (id) => {
-        const selectedGrocery = this.props.groceryLists.groceryList.filter(list => list.id === id)[0];
-        const selectedGroceryMap = new Map();
-        selectedGrocery.items.forEach((item) => {
-            selectedGroceryMap.set(item.itemName, item);
-        });
-        this.setState({
-            groceryName: selectedGrocery.name,
-            itemsMap: selectedGroceryMap,
-            itemsList: selectedGrocery.items,
-        });
-    };
+class GroceryPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            groceryName: props.grocery ? props.grocery.name : '',
+            selectedMeal: this.props.meals.mealList[0] || {},
+            itemsMap: props.grocery ? groceryMap(props.grocery) : new Map(),
+            itemsList: props.grocery ? props.grocery.items : [],
+        }
+    }
 
     deleteGroceryItem = (id) => {
         const newGroceryList = this.state.itemsList.filter(item => item.id !== id);
@@ -81,7 +72,7 @@ class CreateGroceryPage extends Component {
         return (
             <div>
                 <div className="grocery">
-                    <CreateGroceryForm
+                    <GroceryForm
                         selectedMeal={this.state.selectedMeal}
                         groceryName={this.state.groceryName}
                         itemsList={this.state.itemsList}
@@ -90,10 +81,14 @@ class CreateGroceryPage extends Component {
                         addMealToList={this.addMealToList}
                         resetGrocery={this.resetGrocery}
                         meals={this.props.meals}
+                        groceryId={this.props.grocery ? this.props.grocery.id : ''}
+                        title={this.props.grocery ? 'Edit Grocery List' : 'Create Grocery List'}
+                        updateGrocery={this.props.grocery ? this.props.editGrocery : this.props.addGrocery}
                     />
                     <GroceryItems
                         groceryName={this.state.groceryName}
                         itemsList={this.state.itemsList}
+                        deleteGroceryItem={this.deleteGroceryItem}
                     />
                 </div>
             </div>
@@ -103,11 +98,27 @@ class CreateGroceryPage extends Component {
 
 };
 
-const mapStateToProps = (state) => {
+const groceryMap = (grocery) => {
+    const selectedGroceryMap = new Map();
+    grocery.items.forEach((item) => {
+        selectedGroceryMap.set(item.itemName, item);
+    });
+    return selectedGroceryMap;
+};
+
+const mapStateToProps = (state, props) => {
     return {
         groceryLists: state.groceryLists,
         meals: state.meals,
+        grocery: state.groceryLists.groceryList.filter((list) => list.id === props.match.params.groceryId)[0],
     }
 }
 
-export default connect(mapStateToProps)(CreateGroceryPage);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        editGrocery: (data) => dispatch(editGrocery(data)),
+        addGrocery: (data) => dispatch(addGrocery(data)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GroceryPage);

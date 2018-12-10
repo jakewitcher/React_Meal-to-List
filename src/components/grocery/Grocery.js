@@ -4,24 +4,25 @@ import { Link } from 'react-router-dom';
 import { deleteGrocery } from '../../actions/grocery';
 
 const Grocery = (props) => {
-    const { name, dispatch, id, groceryToEdit } = props;
+    const { name, id } = props;
     return (
         <div>
             <p>{name}</p>
             <Link to={`grocerylists/edit/${id}`}>
-                <i 
-                    className="fas fa-edit"
-                    onClick={() => {
-                        groceryToEdit(id); 
-                    }}
-                />
+                <i className="fas fa-edit" />
             </Link>
-            <i 
+            <i
                 className="fas fa-trash"
-                onClick={() => dispatch(deleteGrocery(id))}    
+                onClick={() => props.deleteGrocery(id)}
             />
         </div>
     );
 }
 
-export default connect()(Grocery);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteGrocery: (id) => dispatch(deleteGrocery(id)),
+    }
+}
+
+export default connect(undefined, mapDispatchToProps)(Grocery);

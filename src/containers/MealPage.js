@@ -19,14 +19,6 @@ class MealPage extends Component {
         };
     }
 
-    mealToEdit = (id) => {
-        const selectedMeal = this.props.meals.mealList.filter(meal => meal.id === id)[0];
-        this.setState({
-            mealName: selectedMeal.name,
-            itemList: selectedMeal.itemList,
-        });
-    };
-
     deleteMealItem = (id) => {
         const newMealList = this.state.itemList.filter(item => item.id !== id);
         this.setState({
@@ -143,8 +135,9 @@ class MealPage extends Component {
                     itemName={this.state.itemName}
                     amount={this.state.amount}
                     unit={this.state.unit}
-                    mealId={this.props.meal ? this.props.meal.id : ''}
                     itemList={this.state.itemList}
+                    mealId={this.props.meal ? this.props.meal.id : ''}
+                    title={this.props.meal ? 'Edit Meal' : 'Create Meal'}
                     updateMeal={this.props.meal ? this.props.editMeal : this.props.addMeal}
                 />
                 <MealItems

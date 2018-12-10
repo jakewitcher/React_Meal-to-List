@@ -14,12 +14,13 @@ const MealForm = (props) => {
         unit,
         itemList,
         updateMeal,
-        mealId
+        mealId,
+        title,
     } = props;
 
     return (
         <div className="form">
-            <h2 className="form__header">Edit Meal</h2>
+            <h2 className="form__header">{title}</h2>
             <div className="form__form">
                 <div className="form__nameinputfield">
                     <p>Meal Name</p>
