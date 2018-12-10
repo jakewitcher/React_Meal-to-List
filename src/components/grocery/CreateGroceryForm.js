@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addGrocery } from '../../actions/grocery';
 
 const CreateGroceryForm = (props) => {
     const {
@@ -11,8 +13,7 @@ const CreateGroceryForm = (props) => {
         addMealToList,
         resetGrocery,
         dispatch,
-    } = props.groceryProps;
-    const { addGrocery } = props;
+    } = props;
     return (
         <div className="form">
             <h2 className="form__header">Create a New Grocery List</h2>
@@ -70,4 +71,4 @@ const CreateGroceryForm = (props) => {
     )
 }
 
-export default CreateGroceryForm;
+export default connect()(CreateGroceryForm);

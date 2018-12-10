@@ -13,13 +13,13 @@ const MealForm = (props) => {
         amount,
         unit,
         itemList,
-        dispatch
-    } = props.mealProps;
-    const { addMeal } = props;
+        updateMeal,
+        mealId
+    } = props;
 
     return (
         <div className="form">
-            <h2 className="form__header">Create a New Meal</h2>
+            <h2 className="form__header">Edit Meal</h2>
             <div className="form__form">
                 <div className="form__nameinputfield">
                     <p>Meal Name</p>
@@ -84,10 +84,12 @@ const MealForm = (props) => {
                         className="form__button--save"
                         onClick={() => {
                             const name = mealName;
-                            dispatch(addMeal({
+                            const id = mealId;
+                            updateMeal({
                                 name,
-                                itemList
-                            }));
+                                itemList,
+                                id,
+                            });
                             resetMeal();
                         }}
                     >
@@ -98,7 +100,5 @@ const MealForm = (props) => {
         </div>
     )
 }
-
-
 
 export default MealForm;

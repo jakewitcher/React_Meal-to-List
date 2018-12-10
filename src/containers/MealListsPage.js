@@ -1,28 +1,28 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import EditMealPage from './EditMealPage';
+import { connect } from 'react-redux';
 import Meal from '../components/meal/Meal';
 
-const MealsList = (props) => {
-    const { meals, dispatch, mealToEdit, mealProps, match } = props;
+const MealListsPage = (props) => {
     return (
-        <Router>
-            <div>
-                {
-                    meals.map(meal => {
-                        return <Meal
-                            name={meal.name}
-                            id={meal.id}
-                            dispatch={dispatch}
-                            mealToEdit={mealToEdit}
-                            key={meal.id}
-                        />
-                    })
-                }
-                <Route path={`${match.path}/edit/:mealId`} render={props => <EditMealPage {...props} mealProps={mealProps}/>} exact={true}/>
-            </div>
-        </Router>
+        <div>
+            {
+                props.meals.mealList.map(meal => {
+                    return <Meal
+                        name={meal.name}
+                        id={meal.id}
+                        key={meal.id}
+                    />
+                })
+            }
+
+        </div>
     );
 }
 
-export default MealsList;
+const mapStateToProps = (state) => {
+    return {
+        meals: state.meals,
+    }
+}
+
+export default connect(mapStateToProps)(MealListsPage);

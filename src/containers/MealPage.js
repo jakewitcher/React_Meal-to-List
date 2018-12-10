@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import uuid from 'uuid';
-import CreateMealPage from './CreateMealPage';
-import MealListsPage from './MealListsPage';
+import MealForm from '../components/meal/MealForm';
+import MealItems from '../components/meal/MealItems';
+import { addMeal, editMeal } from '../actions/meal';
 import { addToItemsAll } from '../actions/items';
 
 class MealPage extends Component {
-    state = {
-        mealName: '',
-        itemName: '',
-        amount: '',
-        unit: 'pound(s)',
-        itemList: [],
-    };
+    constructor(props) {
+        super(props);
 
-    // sets the name and itemList of the selected meal in state so that it can be edited.
-    // delete items from the meal item list.
+        this.state = {
+            mealName: props.meal ? props.meal.name : '',
+            itemName: '',
+            amount: '',
+            unit: 'pound(s)',
+            itemList: props.meal ? props.meal.itemList : [],
+        };
+    }
 
     mealToEdit = (id) => {
         const selectedMeal = this.props.meals.mealList.filter(meal => meal.id === id)[0];
@@ -40,10 +41,7 @@ class MealPage extends Component {
             amount: selectedItem.amount,
             unit: selectedItem.unit,
         })
-    }
-
-    // on Change event listeners for setting the information for a new item or setting the name of the meal.
-    // this includes the item name, amount, and unit of the item.
+    };
 
     mealNameChange = (e) => {
         const mealName = e.target.value;
@@ -65,9 +63,6 @@ class MealPage extends Component {
         this.setState({ unit });
     };
 
-    // all items are stored in a master list. createItemId checks to see if an item for a new meal already exists in the list.
-    // if it does, this function ensures that duplicate items have the same id across all meal lists.
-
     createItemId = (itemName, itemMap) => {
         if (itemMap.has(itemName)) {
             return itemMap.get(itemName).id;
@@ -75,11 +70,6 @@ class MealPage extends Component {
             return uuid();
         }
     }
-
-    // when a new item is added to a meal, these functions check to see if the item is already on the list.
-    // if not, it adds the item to the list. if it does exist, it sums the amounts. 
-    // once editing is in place, this will change and there will be a message that lets you know the item already exists
-    // and asks if you would like to edit it.
 
     findItemAndReplace = (itemName, amount, unit, list) => {
         let newList = list.map(item => {
@@ -109,7 +99,7 @@ class MealPage extends Component {
             });
             return;
         }
-        const { items, dispatch } = this.props;
+        const { items } = this.props;
         const id = this.createItemId(itemName, items.itemsAll);
 
         const newItem = {
@@ -119,13 +109,13 @@ class MealPage extends Component {
             unit,
         };
 
-        dispatch(addToItemsAll({
+        this.props.addToItemsAll({
             name: itemName,
             item: {
                 name: itemName,
                 id: id,
             }
-        }));
+        });
 
         this.setState({
             itemName: '',
@@ -135,59 +125,55 @@ class MealPage extends Component {
         });
     }
 
-    // resets the mealName and itemList after a new meal was created and saved.
-
     resetMeal = () => {
         this.setState({ mealName: '', itemList: [] });
     }
 
     render() {
-        const { match } = this.props;
-        const mealProps = {
-            mealName: this.state.mealName,
-            itemName: this.state.itemName,
-            amount: this.state.amount,
-            unit: this.state.unit,
-            itemList: this.state.itemList,
-            mealNameChange: this.mealNameChange,
-            itemNameChange: this.itemNameChange,
-            amountChange: this.amountChange,
-            unitChange: this.unitChange,
-            addItem: this.addItem,
-            resetMeal: this.resetMeal,
-            itemToEdit: this.itemToEdit,
-            deleteMealItem: this.deleteMealItem,
-            dispatch: this.props.dispatch,
-        }
- 
         return (
-            <Router>
-                <div>
-                    <MealListsPage
-                        createNewMeal={this.createNewMeal}
-                        meals={this.props.meals.mealList}
-                        dispatch={this.props.dispatch}
-                        mealToEdit={this.mealToEdit}
-                        match={this.props.match}
-                        mealProps={mealProps}
-                    />
-                    <Link to="/meals/create">
-                        <button className="form-tabs__button form-tabs__button--meal">Create Meal</button>
-                    </Link>
+            <div className="meal">
+                <MealForm
+                    mealNameChange={this.mealNameChange}
+                    itemNameChange={this.itemNameChange}
+                    amountChange={this.amountChange}
+                    unitChange={this.unitChange}
+                    addItem={this.addItem}
+                    resetMeal={this.resetMeal}
+                    mealName={this.state.mealName}
+                    itemName={this.state.itemName}
+                    amount={this.state.amount}
+                    unit={this.state.unit}
+                    mealId={this.props.meal ? this.props.meal.id : ''}
+                    itemList={this.state.itemList}
+                    updateMeal={this.props.meal ? this.props.editMeal : this.props.addMeal}
+                />
+                <MealItems
+                    mealName={this.state.mealName}
+                    itemList={this.state.itemList}
+                    itemToEdit={this.itemToEdit}
+                    deleteMealItem={this.deleteMealItem}
 
-                    <Route path={`${match.path}/create`} render={props => <CreateMealPage {...props} mealProps={mealProps}/>} exact={true}/>
-                </div>
-            </Router>
-            
-        )
+                />
+            </div>
+        );
     }
+
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
     return {
         meals: state.meals,
         items: state.items,
+        meal: state.meals.mealList.filter((meal) => meal.id === props.match.params.mealId)[0],
     }
 }
 
-export default connect(mapStateToProps)(MealPage);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToItemsAll: (data) => dispatch(addToItemsAll(data)),
+        editMeal: (data) => dispatch(editMeal(data)),
+        addMeal: (data) => dispatch(addMeal(data)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MealPage);

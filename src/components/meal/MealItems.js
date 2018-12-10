@@ -2,18 +2,17 @@ import React from 'react';
 import MealItem from './MealItem'
 
 const MealItems = (props) => {
-    const { mealName, itemList, dispatch, deleteMealItem, itemToEdit } = props;
+    const { mealName, itemList, deleteMealItem, itemToEdit } = props;
     return (
         <div className="itemlist">
-            <h1 className="itemlist__header">{ mealName || 'Meal'}</h1>
+            <h1 className="itemlist__header">{mealName || 'Meal'}</h1>
             {itemList.length > 0 && <ul className="itemlist__body">
                 {itemList.map(item => {
                     return (
-                        <MealItem 
+                        <MealItem
                             item={item}
                             itemToEdit={itemToEdit}
                             deleteMealItem={deleteMealItem}
-                            dispatch={dispatch}
                             key={item.id}
                         />
                     )
