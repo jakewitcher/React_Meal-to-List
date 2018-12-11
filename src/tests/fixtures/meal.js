@@ -34,3 +34,9 @@ export const dinnerEditItems = [
     { amount: 12, itemName: "walnuts", unit: "ounce(s)", id: 7 },
     { amount: 4, itemName: "apples", unit: "item(s)", id: 8 },
 ];
+
+export const mealItems = [
+    { amount: 2, itemName: "bacon", unit: "pound(s)", id: 1 },
+    { amount: 12, itemName: "eggs", unit: "item(s)", id: 2 },
+    { amount: 1, itemName: "toast", unit: "bag(s)", id: 3 },
+];

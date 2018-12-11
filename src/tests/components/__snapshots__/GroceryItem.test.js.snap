@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render GroceryItem correctly 1`] = `
+<li
+  className="itemlist__item"
+>
+  <div
+    className="item"
+  >
+    <p>
+      chicken
+    </p>
+  </div>
+  <div
+    className="item"
+  >
+    <p>
+      2
+    </p>
+  </div>
+  <div
+    className="item"
+  >
+    <p>
+      pound(s)
+    </p>
+  </div>
+  <i
+    className="fas fa-trash"
+    onClick={[Function]}
+  />
+</li>
+`;

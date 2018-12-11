@@ -33,3 +33,9 @@ export const editGroceryItems = [
     { amount: 1, itemName: "pasta", unit: "box(es)", id: 9 },
     { amount: 2, itemName: "marinara sauce", unit: "pint(s)", id: 10 },
 ];
+
+export const groceryItems = [
+    { amount: 2, itemName: "chicken", unit: "pound(s)", id: 6 },
+    { amount: 12, itemName: "eggs", unit: "item(s)", id: 2 },
+    { amount: 1, itemName: "toast", unit: "bag(s)", id: 3 },
+];

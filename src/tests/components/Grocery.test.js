@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { Grocery } from '../../components/grocery/Grocery';
 import { groceryLists } from '../fixtures/grocery';
 
+
 let name, id, wrapper, deleteGrocery;
 
 beforeEach(() => {
@@ -10,7 +11,7 @@ beforeEach(() => {
     id = groceryLists[0].id;
     deleteGrocery = jest.fn();
     wrapper = shallow(<Grocery name={name} id={id} deleteGrocery={deleteGrocery}/>);
-})
+});
 
 test('should render Grocery correctly', () => {
     expect(wrapper).toMatchSnapshot();
