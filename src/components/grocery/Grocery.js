@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteGrocery } from '../../actions/grocery';
 
-const Grocery = (props) => {
+export const Grocery = (props) => {
     const { name, id } = props;
     return (
         <div>

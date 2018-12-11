@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Grocery correctly 1`] = `
+<div>
+  <p>
+    Monday Meals
+  </p>
+  <Link
+    replace={false}
+    to="grocerylists/edit/201"
+  >
+    <i
+      className="fas fa-edit"
+    />
+  </Link>
+  <i
+    className="fas fa-trash"
+    onClick={[Function]}
+  />
+</div>
+`;
