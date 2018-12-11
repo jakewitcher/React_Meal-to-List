@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Meal correctly 1`] = `
+<div>
+  <p>
+    breakfast
+  </p>
+  <Link
+    replace={false}
+    to="/meals/edit/101"
+  >
+    <i
+      className="fas fa-edit"
+    />
+  </Link>
+  <i
+    className="fas fa-trash"
+    onClick={[Function]}
+  />
+</div>
+`;

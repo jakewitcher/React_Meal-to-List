@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render NavBar correctly 1`] = `
+<div
+  className="form-tabs"
+>
+  <Link
+    replace={false}
+    to="/meals"
+  >
+    <button
+      className="form-tabs__button form-tabs__button--meal"
+    >
+      Meals
+    </button>
+  </Link>
+  <Link
+    replace={false}
+    to="/meals/create"
+  >
+    <button
+      className="form-tabs__button form-tabs__button--meal"
+    >
+      Create a New Meal
+    </button>
+  </Link>
+  <Link
+    replace={false}
+    to="/grocerylists"
+  >
+    <button
+      className="form-tabs__button form-tabs__button--meal"
+    >
+      Grocery Lists
+    </button>
+  </Link>
+  <Link
+    replace={false}
+    to="/grocerylists/create"
+  >
+    <button
+      className="form-tabs__button form-tabs__button--meal"
+    >
+      Create a New Grocery List
+    </button>
+  </Link>
+</div>
+`;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly 1`] = `
+<div
+  className="header"
+>
+  <h1
+    className="header__title"
+  >
+    Meal to List
+  </h1>
+  <hr />
+  <h3
+    className="header__subtitle"
+  >
+    Meal Planning Made Easy
+  </h3>
+</div>
+`;
