@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render MealForm correctly 1`] = `
+<div
+  className="form"
+>
+  <h2
+    className="form__header"
+  >
+    meal
+  </h2>
+  <div
+    className="form__form"
+  >
+    <div
+      className="form__nameinputfield"
+    >
+      <p>
+        Meal Name
+      </p>
+      <input
+        className="form__nameinputfield--input"
+        onChange={[MockFunction]}
+        type="text"
+        value="breakfast"
+      />
+    </div>
+    <div
+      className="form__iteminputfields"
+    >
+      <div>
+        <p>
+          Item
+        </p>
+        <input
+          className="form__iteminputfields--input"
+          onChange={[MockFunction]}
+          type="text"
+          value="bacon"
+        />
+      </div>
+      <div>
+        <p>
+          Amount
+        </p>
+        <input
+          className="form__iteminputfields--input"
+          onChange={[MockFunction]}
+          type="number"
+          value={5}
+        />
+      </div>
+      <div>
+        <p>
+          Unit
+        </p>
+        <select
+          className="form__iteminputfields--input form__iteminputfields--dropdown"
+          name="unit"
+          onChange={[MockFunction]}
+          value="pounds"
+        >
+          <option
+            value="pounds"
+          >
+            pounds
+          </option>
+          <option
+            value="ounces"
+          >
+            ounces
+          </option>
+          <option
+            value="gallons"
+          >
+            gallons
+          </option>
+          <option
+            value="quarts"
+          >
+            quarts
+          </option>
+          <option
+            value="pints"
+          >
+            pints
+          </option>
+          <option
+            value="items"
+          >
+            items
+          </option>
+          <option
+            value="bags"
+          >
+            bags
+          </option>
+          <option
+            value="containers"
+          >
+            containers
+          </option>
+        </select>
+      </div>
+      <div
+        className="form__button"
+      >
+        <button
+          className="form__button--add"
+          onClick={[MockFunction]}
+        >
+          Add Item
+        </button>
+      </div>
+    </div>
+    <div>
+      <button
+        className="form__button--save"
+        onClick={[Function]}
+      >
+        Save Meal
+      </button>
+    </div>
+  </div>
+</div>
+`;

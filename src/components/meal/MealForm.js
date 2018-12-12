@@ -25,6 +25,17 @@ const MealForm = (props) => {
         return `${unitType}s`
     };
 
+    const handleMealChange = (name, id, list) => {
+        updateMeal({
+            name,
+            itemList,
+            id,
+        });
+        resetMeal();
+    };
+
+    
+
     return (
         <div className="form">
             <h2 className="form__header">{title}</h2>
@@ -89,16 +100,7 @@ const MealForm = (props) => {
                 <div>
                     <button
                         className="form__button--save"
-                        onClick={() => {
-                            const name = mealName;
-                            const id = mealId;
-                            updateMeal({
-                                name,
-                                itemList,
-                                id,
-                            });
-                            resetMeal();
-                        }}
+                        onClick={() => handleMealChange(mealName, mealId, itemList)}
                     >
                         Save Meal
                     </button>
