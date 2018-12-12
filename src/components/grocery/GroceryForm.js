@@ -14,6 +14,16 @@ const GroceryForm = (props) => {
         title,
         groceryId,
     } = props;
+
+    const handleGroceryChange = (name, id, items) => {
+        updateGrocery({
+            name,
+            items,
+            id,
+        });
+        resetGrocery();
+    };
+
     return (
         <div className="form">
             <h2 className="form__header">{title}</h2>
@@ -53,17 +63,7 @@ const GroceryForm = (props) => {
                 <div>
                     <button
                         className="form__button--save"
-                        onClick={
-                            () => {
-                                const id = groceryId;
-                                updateGrocery({
-                                    name: groceryName,
-                                    items: itemsList,
-                                    id,
-                                });
-                                resetGrocery();
-                            }
-                        }
+                        onClick={() => handleGroceryChange(groceryName, groceryId, itemsList)}
                     >
                         Save Grocery List
                 </button>

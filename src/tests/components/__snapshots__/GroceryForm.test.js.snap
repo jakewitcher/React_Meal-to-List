@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render GroceryForm correctly 1`] = `
+<div
+  className="form"
+>
+  <h2
+    className="form__header"
+  >
+    grocery
+  </h2>
+  <div
+    className="form__form"
+  >
+    <div
+      className="form__nameinputfield"
+    >
+      <p>
+        Grocery List Name
+      </p>
+      <input
+        className="form__nameinputfield--input"
+        onChange={[MockFunction]}
+        type="text"
+        value="Monday Meals"
+      />
+    </div>
+    <div
+      className="form__iteminputfields"
+    >
+      <div>
+        <p>
+          Meals
+        </p>
+        <select
+          className="form__iteminputfields--input form__iteminputfields--dropdown"
+          name="selectedMeal"
+          onChange={[MockFunction]}
+          value="breakfast"
+        >
+          <option
+            key="101"
+            value="breakfast"
+          >
+            breakfast
+          </option>
+          <option
+            key="102"
+            value="lunch"
+          >
+            lunch
+          </option>
+          <option
+            key="103"
+            value="dinner"
+          >
+            dinner
+          </option>
+        </select>
+      </div>
+      <div
+        className="form__button"
+      >
+        <button
+          className="form__button--add"
+          onClick={[MockFunction]}
+        >
+          Add Meal
+        </button>
+      </div>
+    </div>
+    <div>
+      <button
+        className="form__button--save"
+        onClick={[Function]}
+      >
+        Save Grocery List
+      </button>
+    </div>
+  </div>
+</div>
+`;
