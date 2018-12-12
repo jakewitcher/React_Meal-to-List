@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render MealPage correctly 1`] = `
+<div
+  className="meal"
+>
+  <MealForm
+    addItem={[Function]}
+    amount=""
+    amountChange={[Function]}
+    itemList={Array []}
+    itemName=""
+    itemNameChange={[Function]}
+    mealId=""
+    mealName=""
+    mealNameChange={[Function]}
+    resetMeal={[Function]}
+    title="Create Meal"
+    unit="pound(s)"
+    unitChange={[Function]}
+  />
+  <MealItems
+    deleteMealItem={[Function]}
+    itemList={Array []}
+    itemToEdit={[Function]}
+    mealName=""
+  />
+</div>
+`;

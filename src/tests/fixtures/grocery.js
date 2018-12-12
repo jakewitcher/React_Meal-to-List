@@ -39,3 +39,8 @@ export const groceryItems = [
     { amount: 12, itemName: "eggs", unit: "items", id: 2 },
     { amount: 1, itemName: "toast", unit: "bag", id: 3 },
 ];
+
+export const groceriesList = [
+    { name: "Monday Meals", id: 201, items: MondayMealItems },
+    { name: "Tuesday Meals", id: 202, items: TuesdayMealItems },
+];

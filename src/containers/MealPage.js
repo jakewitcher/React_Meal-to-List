@@ -6,7 +6,7 @@ import MealItems from '../components/meal/MealItems';
 import { addMeal, editMeal } from '../actions/meal';
 import { addToItemsAll } from '../actions/items';
 
-class MealPage extends Component {
+export class MealPage extends Component {
     constructor(props) {
         super(props);
 

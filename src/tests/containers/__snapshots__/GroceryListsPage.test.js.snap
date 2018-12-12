@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render MealListsPage correctly 1`] = `
+<div>
+  <Connect(Grocery)
+    id={201}
+    key="201"
+    name="Monday Meals"
+  />
+  <Connect(Grocery)
+    id={202}
+    key="202"
+    name="Tuesday Meals"
+  />
+</div>
+`;

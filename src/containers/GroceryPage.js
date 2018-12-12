@@ -4,12 +4,12 @@ import GroceryForm from '../components/grocery/GroceryForm';
 import GroceryItems from '../components/grocery/GroceryItems';
 import { addGrocery, editGrocery } from '../actions/grocery';
 
-class GroceryPage extends Component {
+export class GroceryPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             groceryName: props.grocery ? props.grocery.name : '',
-            selectedMeal: this.props.meals.mealList[0] || {},
+            selectedMeal: props.meals.mealList[0] || {},
             itemsMap: props.grocery ? groceryMap(props.grocery) : new Map(),
             itemsList: props.grocery ? props.grocery.items : [],
         }
