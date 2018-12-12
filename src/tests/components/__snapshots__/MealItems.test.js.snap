@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render MealItems correctly 1`] = `
+<div
+  className="itemlist"
+>
+  <h1
+    className="itemlist__header"
+  >
+    breakfast
+  </h1>
+  <ul
+    className="itemlist__body"
+  >
+    <MealItem
+      item={
+        Object {
+          "amount": 2,
+          "id": 1,
+          "itemName": "bacon",
+          "unit": "pounds",
+        }
+      }
+      key="1"
+    />
+    <MealItem
+      item={
+        Object {
+          "amount": 12,
+          "id": 2,
+          "itemName": "eggs",
+          "unit": "items",
+        }
+      }
+      key="2"
+    />
+    <MealItem
+      item={
+        Object {
+          "amount": 1,
+          "id": 3,
+          "itemName": "toast",
+          "unit": "bag",
+        }
+      }
+      key="3"
+    />
+    <MealItem
+      item={
+        Object {
+          "amount": 1,
+          "id": 4,
+          "itemName": "orange juice",
+          "unit": "quart",
+        }
+      }
+      key="4"
+    />
+  </ul>
+</div>
+`;

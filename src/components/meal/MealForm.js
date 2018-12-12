@@ -18,6 +18,13 @@ const MealForm = (props) => {
         title,
     } = props;
 
+    const pluralUnitValue = (amount, unitType) => {
+        if (amount < 2) {
+            return `${unitType}`
+        }
+        return `${unitType}s`
+    };
+
     return (
         <div className="form">
             <h2 className="form__header">{title}</h2>
@@ -60,15 +67,14 @@ const MealForm = (props) => {
                             value={unit}
                             onChange={unitChange}
                         >
-                            <option value="pound(s)">pound(s)</option>
-                            <option value="ounce(s)">ounce(s)</option>
-                            <option value="gallon(s)">gallons</option>
-                            <option value="quart(s)">quart(s)</option>
-                            <option value="pint(s)">pint(s)</option>
-                            <option value="item(s)">item(s)</option>
-                            <option value="bag(s)">bag(s)</option>
-                            <option value="box(es)">box(es)</option>
-                            <option value="container(s)">container(s)</option>
+                            <option value={pluralUnitValue(amount, 'pound')}>{pluralUnitValue(amount, 'pound')}</option>
+                            <option value={pluralUnitValue(amount, 'ounce')}>{pluralUnitValue(amount, 'ounce')}</option>
+                            <option value={pluralUnitValue(amount, 'gallon')}>{pluralUnitValue(amount, 'gallon')}</option>
+                            <option value={pluralUnitValue(amount, 'quart')}>{pluralUnitValue(amount, 'quart')}</option>
+                            <option value={pluralUnitValue(amount, 'pint')}>{pluralUnitValue(amount, 'pint')}</option>
+                            <option value={pluralUnitValue(amount, 'item')}>{pluralUnitValue(amount, 'item')}</option>
+                            <option value={pluralUnitValue(amount, 'bag')}>{pluralUnitValue(amount, 'bag')}</option>
+                            <option value={pluralUnitValue(amount, 'container')}>{pluralUnitValue(amount, 'container')}</option>
                         </select>
                     </div>
                     <div className="form__button">

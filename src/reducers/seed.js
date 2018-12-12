@@ -19,25 +19,25 @@ const getItemId = (item) => {
 };
 
 const breakfast = [
-    { amount: 2, itemName: "bacon", unit: "pound(s)", id: getItemId("bacon") },
-    { amount: 12, itemName: "eggs", unit: "item(s)", id: getItemId("eggs") },
-    { amount: 1, itemName: "toast", unit: "bag(s)", id: getItemId("toast") },
-    { amount: 1, itemName: "orange juice", unit: "quart(s)", id: getItemId("orange juice") },
+    { amount: 2, itemName: "bacon", unit: "pounds", id: getItemId("bacon") },
+    { amount: 12, itemName: "eggs", unit: "items", id: getItemId("eggs") },
+    { amount: 1, itemName: "toast", unit: "bag", id: getItemId("toast") },
+    { amount: 1, itemName: "orange juice", unit: "quart", id: getItemId("orange juice") },
 ];
 
 const lunch = [
-    { amount: 1, itemName: "salad", unit: "bag(s)", id: getItemId("salad") },
-    { amount: 2, itemName: "chicken", unit: "pound(s)", id: getItemId("chicken") },
-    { amount: 12, itemName: "walnuts", unit: "ounce(s)", id: getItemId("walnuts") },
-    { amount: 4, itemName: "apples", unit: "item(s)", id: getItemId("apples") },
-    { amount: 1, itemName: "bacon", unit: "pound(s)", id: getItemId("bacon") },
+    { amount: 1, itemName: "salad", unit: "bag", id: getItemId("salad") },
+    { amount: 2, itemName: "chicken", unit: "pounds", id: getItemId("chicken") },
+    { amount: 12, itemName: "walnuts", unit: "ounces", id: getItemId("walnuts") },
+    { amount: 4, itemName: "apples", unit: "items", id: getItemId("apples") },
+    { amount: 1, itemName: "bacon", unit: "pound", id: getItemId("bacon") },
 ];
 
 const dinner = [
-    { amount: 1, itemName: "pasta", unit: "box(es)", id: getItemId("pasta") },
-    { amount: 2, itemName: "marinara sauce", unit: "pint(s)", id: getItemId("marinara sauce") },
-    { amount: 12, itemName: "breadsticks", unit: "item(s)", id: getItemId("breadsticks") },
-    { amount: 1, itemName: "salad", unit: "bag(s)", id: getItemId("salad") },
+    { amount: 1, itemName: "pasta", unit: "container", id: getItemId("pasta") },
+    { amount: 2, itemName: "marinara sauce", unit: "pints", id: getItemId("marinara sauce") },
+    { amount: 12, itemName: "breadsticks", unit: "items", id: getItemId("breadsticks") },
+    { amount: 1, itemName: "salad", unit: "bag", id: getItemId("salad") },
 ];
 
 export const mealDefaultState = [
@@ -47,25 +47,25 @@ export const mealDefaultState = [
 ];
 
 const MondayMealItems = [
-    { amount: 1, itemName: "salad", unit: "bag(s)", id: getItemId("salad") },
-    { amount: 2, itemName: "chicken", unit: "pound(s)", id: getItemId("chicken") },
-    { amount: 12, itemName: "walnuts", unit: "ounce(s)", id: getItemId("walnuts") },
-    { amount: 4, itemName: "apples", unit: "item(s)", id: getItemId("apples") },
-    { amount: 2, itemName: "bacon", unit: "pound(s)", id: getItemId("bacon") },
-    { amount: 12, itemName: "eggs", unit: "item(s)", id: getItemId("eggs") },
-    { amount: 1, itemName: "toast", unit: "bag(s)", id: getItemId("toast") },
-    { amount: 1, itemName: "orange juice", unit: "quart(s)", id: getItemId("orange juice") },
+    { amount: 1, itemName: "salad", unit: "bag", id: getItemId("salad") },
+    { amount: 2, itemName: "chicken", unit: "pounds", id: getItemId("chicken") },
+    { amount: 12, itemName: "walnuts", unit: "ounces", id: getItemId("walnuts") },
+    { amount: 4, itemName: "apples", unit: "items", id: getItemId("apples") },
+    { amount: 2, itemName: "bacon", unit: "pounds", id: getItemId("bacon") },
+    { amount: 12, itemName: "eggs", unit: "items", id: getItemId("eggs") },
+    { amount: 1, itemName: "toast", unit: "bag", id: getItemId("toast") },
+    { amount: 1, itemName: "orange juice", unit: "quart", id: getItemId("orange juice") },
 ];
 
 const TuesdayMealItems = [
-    { amount: 2, itemName: "salad", unit: "bag(s)", id: getItemId("salad") },
-    { amount: 2, itemName: "chicken", unit: "pound(s)", id: getItemId("chicken") },
-    { amount: 12, itemName: "walnuts", unit: "ounce(s)", id: getItemId("walnuts") },
-    { amount: 4, itemName: "apples", unit: "item(s)", id: getItemId("apples") },
-    { amount: 1, itemName: "bacon", unit: "pound(s)", id: getItemId("bacon") },
-    { amount: 1, itemName: "pasta", unit: "box(es)", id: getItemId("pasta") },
-    { amount: 2, itemName: "marinara sauce", unit: "pint(s)", id: getItemId("marinara sauce") },
-    { amount: 12, itemName: "breadsticks", unit: "item(s)", id: getItemId("breadsticks") },
+    { amount: 2, itemName: "salad", unit: "bags", id: getItemId("salad") },
+    { amount: 2, itemName: "chicken", unit: "pounds", id: getItemId("chicken") },
+    { amount: 12, itemName: "walnuts", unit: "ounces", id: getItemId("walnuts") },
+    { amount: 4, itemName: "apples", unit: "items", id: getItemId("apples") },
+    { amount: 1, itemName: "bacon", unit: "pound", id: getItemId("bacon") },
+    { amount: 1, itemName: "pasta", unit: "container", id: getItemId("pasta") },
+    { amount: 2, itemName: "marinara sauce", unit: "pints", id: getItemId("marinara sauce") },
+    { amount: 12, itemName: "breadsticks", unit: "items", id: getItemId("breadsticks") },
 ]
 
 export const groceryDefaultState = [

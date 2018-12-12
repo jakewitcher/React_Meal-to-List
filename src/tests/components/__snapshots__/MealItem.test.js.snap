@@ -22,7 +22,7 @@ exports[`should render MealItem correctly 1`] = `
     className="item"
   >
     <p>
-      pound(s)
+      pounds
     </p>
   </div>
   <i

@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render MealItems correctly 1`] = `
+<div
+  className="itemlist"
+>
+  <h1
+    className="itemlist__header"
+  >
+    New Grocery List
+  </h1>
+  <ul
+    className="itemlist__body"
+  >
+    <GroceryItem
+      item={
+        Object {
+          "amount": 1,
+          "id": 5,
+          "itemName": "salad",
+          "unit": "bag",
+        }
+      }
+      key="5"
+    />
+    <GroceryItem
+      item={
+        Object {
+          "amount": 2,
+          "id": 6,
+          "itemName": "chicken",
+          "unit": "pounds",
+        }
+      }
+      key="6"
+    />
+    <GroceryItem
+      item={
+        Object {
+          "amount": 12,
+          "id": 7,
+          "itemName": "walnuts",
+          "unit": "ounces",
+        }
+      }
+      key="7"
+    />
+    <GroceryItem
+      item={
+        Object {
+          "amount": 4,
+          "id": 8,
+          "itemName": "apples",
+          "unit": "items",
+        }
+      }
+      key="8"
+    />
+    <GroceryItem
+      item={
+        Object {
+          "amount": 2,
+          "id": 1,
+          "itemName": "bacon",
+          "unit": "pounds",
+        }
+      }
+      key="1"
+    />
+    <GroceryItem
+      item={
+        Object {
+          "amount": 12,
+          "id": 2,
+          "itemName": "eggs",
+          "unit": "items",
+        }
+      }
+      key="2"
+    />
+    <GroceryItem
+      item={
+        Object {
+          "amount": 1,
+          "id": 3,
+          "itemName": "toast",
+          "unit": "bag",
+        }
+      }
+      key="3"
+    />
+    <GroceryItem
+      item={
+        Object {
+          "amount": 1,
+          "id": 4,
+          "itemName": "orange juice",
+          "unit": "quart",
+        }
+      }
+      key="4"
+    />
+  </ul>
+</div>
+`;
