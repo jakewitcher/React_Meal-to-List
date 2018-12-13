@@ -1,6 +1,6 @@
-// import { itemsAllDefaultState } from './seed';
+import { itemsAllDefaultState } from './seed';
 
-const itemsAllDefaultState = new Map();
+// const itemsAllDefaultState = new Map();
 
 export default (state = { itemsAll: itemsAllDefaultState }, action) => {
     switch (action.type) {
