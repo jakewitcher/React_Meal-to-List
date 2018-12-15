@@ -6,14 +6,22 @@
 @import './components/formButtons';
 @import './components/header';
 
-// stylesheets for the CreateMealPage
+// stylesheet for the CreateMealPage
 
 @import './components/meal/meal';
 
 
-// stylesheets for the CreateGroceryPage
+// stylesheet for the CreateGroceryPage
 
 @import './components/grocery/grocery';
+
+// stylesheet for LandingPage
+
+@import './components/landingPage';
+
+// stylesheet for NavBar
+
+@import './components/navbar';
 
 // shared stylesheets
 

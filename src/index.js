@@ -8,11 +8,6 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-store.subscribe(() => {
-    const state = store.getState();
-    console.log(state);
-});
-
 const jsx = (
     <Provider store={store}>
         <AppRouter />

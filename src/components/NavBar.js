@@ -1,24 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
-const NavBar = () => {
-    return (
-        <div className="form-tabs">
-            <Link to="/meals">
-                <button className="form-tabs__button form-tabs__button--meal">Meals</button>
-            </Link>
-            <Link to="/meals/create">
-                <button className="form-tabs__button form-tabs__button--meal">Create a New Meal</button>
-            </Link>
-            <Link to="/grocerylists">
-                <button className="form-tabs__button form-tabs__button--meal">Grocery Lists</button>
-            </Link>
-            <Link to="/grocerylists/create">
-                <button className="form-tabs__button form-tabs__button--meal">Create a New Grocery List</button>
-            </Link>
+class NavBar extends Component {
+    state = {
+        navLinkClassName: 'navbar__link',
+        isToggled: true,
+    }
 
-        </div>
-    );
+    toggleNav = () => {
+        let { isToggled } = this.state;
+        this.setState({ isToggled: !isToggled});
+        isToggled ? this.setState({navLinkClassName: 'navbar__link--show'}) : this.setState({navLinkClassName: 'navbar__link'});
+    }
+
+    render() {
+        return (
+            <div className="navbar">
+                <NavLink to="/" className="navbar__brand" activeClassName="navbar__link--active" exact={true}>
+                    <p>Meal to List</p>
+                </NavLink>
+                <i onClick={this.toggleNav} className="fas fa-bars navbar__hamburger"/>
+                <NavLink to="/meals" className={this.state.navLinkClassName} activeClassName="navbar__link--active" exact={true}>
+                    <p>Meals</p>
+                </NavLink>
+                <NavLink to="/meals/create" className={this.state.navLinkClassName} activeClassName="navbar__link--active" exact={true}>
+                    <p>Create a New Meal</p>
+                </NavLink>
+                <NavLink to="/grocerylists" className={this.state.navLinkClassName} activeClassName="navbar__link--active" exact={true}>
+                    <p>Grocery Lists</p>
+                </NavLink>
+                <NavLink to="/grocerylists/create" className={this.state.navLinkClassName} activeClassName="navbar__link--active" exact={true}>
+                    <p>Create a New Grocery List</p>
+                </NavLink>
+            </div>
+        );
+    }
 };
 
 export default NavBar;
