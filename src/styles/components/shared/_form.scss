@@ -8,7 +8,8 @@ button {
   .form {
     background: $gray-2;
     box-shadow: 0 0 5px $gray-6;
-    margin: 0;
+    margin: $l-size;
+    width: 30%;
   }
   
   .form__form {
@@ -48,7 +49,7 @@ button {
     font-family: $sans-serif;
     font-size: $sm-size;
     font-weight: bold;
-    margin: $s-size 0;
+    margin: $s-size;
     padding: $s-size;
   }
   
@@ -57,6 +58,7 @@ button {
     color: $gray-8;
     font-family: $sans-serif;
     height: $m-size;
+    margin: $m-size;
     width: 100%;
   }
   
@@ -85,6 +87,7 @@ button {
     color: $gray-8;
     font-family: $sans-serif;
     height: $m-size;
+    margin: $m-size;
   }
   
   .form__nameinputfield--input:focus {

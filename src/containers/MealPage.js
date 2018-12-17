@@ -137,7 +137,6 @@ export class MealPage extends Component {
                     unit={this.state.unit}
                     itemList={this.state.itemList}
                     mealId={this.props.meal ? this.props.meal.id : ''}
-                    title={this.props.meal ? 'Edit Meal' : 'Create Meal'}
                     updateMeal={this.props.meal ? this.props.editMeal : this.props.addMeal}
                 />
                 <MealItems
