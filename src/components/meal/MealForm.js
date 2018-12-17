@@ -15,6 +15,7 @@ const MealForm = (props) => {
         itemList,
         updateMeal,
         mealId,
+        title,
     } = props;
 
     const pluralUnitValue = (amount, unitType) => {
@@ -37,38 +38,40 @@ const MealForm = (props) => {
 
     return (
         <div className="form">
+            <h2 className="form__header">{title}</h2>
             <div className="form__form">
                 <div className="form__nameinputfield">
+                    <p>Meal Name</p>
                     <input
                         className="form__nameinputfield--input"
                         type="text"
-                        placeholder="meal name"
                         value={mealName}
                         onChange={mealNameChange}
                     />
                 </div>
                 <div className="form__iteminputfields">
                     <div>
+                        <p>Item</p>
                         <input
                             className="form__iteminputfields--input"
                             type="text"
-                            placeholder="item name"
                             value={itemName}
                             onChange={itemNameChange}
                         />
                     </div>
 
                     <div>
+                        <p>Amount</p>
                         <input
                             className="form__iteminputfields--input"
                             type="number"
-                            placeholder="amount"
                             value={amount}
                             onChange={amountChange}
                         />
                     </div>
 
                     <div>
+                        <p>Unit</p>
                         <select
                             className="form__iteminputfields--input form__iteminputfields--dropdown"
                             name="unit"
