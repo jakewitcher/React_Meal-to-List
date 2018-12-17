@@ -2,47 +2,66 @@
 
 exports[`should render NavBar correctly 1`] = `
 <div
-  className="form-tabs"
+  className="navbar"
 >
-  <Link
-    replace={false}
+  <NavLink
+    activeClassName="navbar__link--active"
+    aria-current="page"
+    className="navbar__brand"
+    exact={true}
+    to="/"
+  >
+    <p>
+      Meal to List
+    </p>
+  </NavLink>
+  <i
+    className="fas fa-bars navbar__hamburger"
+    onClick={[Function]}
+  />
+  <NavLink
+    activeClassName="navbar__link--active"
+    aria-current="page"
+    className="navbar__link"
+    exact={true}
     to="/meals"
   >
-    <button
-      className="form-tabs__button form-tabs__button--meal"
-    >
+    <p>
       Meals
-    </button>
-  </Link>
-  <Link
-    replace={false}
+    </p>
+  </NavLink>
+  <NavLink
+    activeClassName="navbar__link--active"
+    aria-current="page"
+    className="navbar__link"
+    exact={true}
     to="/meals/create"
   >
-    <button
-      className="form-tabs__button form-tabs__button--meal"
-    >
+    <p>
       Create a New Meal
-    </button>
-  </Link>
-  <Link
-    replace={false}
+    </p>
+  </NavLink>
+  <NavLink
+    activeClassName="navbar__link--active"
+    aria-current="page"
+    className="navbar__link"
+    exact={true}
     to="/grocerylists"
   >
-    <button
-      className="form-tabs__button form-tabs__button--meal"
-    >
+    <p>
       Grocery Lists
-    </button>
-  </Link>
-  <Link
-    replace={false}
+    </p>
+  </NavLink>
+  <NavLink
+    activeClassName="navbar__link--active"
+    aria-current="page"
+    className="navbar__link"
+    exact={true}
     to="/grocerylists/create"
   >
-    <button
-      className="form-tabs__button form-tabs__button--meal"
-    >
+    <p>
       Create a New Grocery List
-    </button>
-  </Link>
+    </p>
+  </NavLink>
 </div>
 `;

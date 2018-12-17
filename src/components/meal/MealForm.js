@@ -34,7 +34,7 @@ const MealForm = (props) => {
         resetMeal();
     };
 
-    
+
 
     return (
         <div className="form">
@@ -45,6 +45,7 @@ const MealForm = (props) => {
                     <input
                         className="form__nameinputfield--input"
                         type="text"
+                        placeholder="meal name"
                         value={mealName}
                         onChange={mealNameChange}
                     />
@@ -55,6 +56,7 @@ const MealForm = (props) => {
                         <input
                             className="form__iteminputfields--input"
                             type="text"
+                            placeholder="item name"
                             value={itemName}
                             onChange={itemNameChange}
                         />
@@ -65,6 +67,7 @@ const MealForm = (props) => {
                         <input
                             className="form__iteminputfields--input"
                             type="number"
+                            placeholder="amount"
                             value={amount}
                             onChange={amountChange}
                         />
