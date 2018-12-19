@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import mealReducer from '../reducers/meal';
 import itemsReducer from '../reducers/items';
 import groceryReducer from '../reducers/grocery';
