@@ -13,7 +13,7 @@ const MealItems = (props) => {
                             item={item}
                             itemToEdit={itemToEdit}
                             deleteMealItem={deleteMealItem}
-                            key={item.id}
+                            key={item.itemName}
                         />
                     )
                 })}

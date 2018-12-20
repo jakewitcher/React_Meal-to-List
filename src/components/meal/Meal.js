@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteMeal } from '../../actions/meal';
+import { onDeleteMealAsync } from '../../actions/meal';
 
 export const Meal = (props) => {
     const { name, id } = props;
@@ -14,7 +14,7 @@ export const Meal = (props) => {
             </Link>
             <i
                 className="fas fa-trash"
-                onClick={() => props.deleteMeal(id)}
+                onClick={() => props.onDeleteMealAsync(id)}
             />
         </div>
     );
@@ -22,7 +22,7 @@ export const Meal = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteMeal: (id) => dispatch(deleteMeal(id)),
+        onDeleteMealAsync: (id) => dispatch(onDeleteMealAsync(id)),
     }
 }
 

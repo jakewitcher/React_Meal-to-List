@@ -1,32 +1,29 @@
-import uuid from 'uuid';
-
-export const addMeal = (
+export const onAddMealAsync = (
     {
         name = '',
         itemList = [],
     } = {}
 ) => ({
-    type: 'ADD_MEAL',
+    type: 'ADD_MEAL_ASYNC',
     meal: {
-        id: uuid(),
         name,
         itemList,
     }
 });
 
-export const deleteMeal = (id = '') => ({
-    type: 'DELETE_MEAL',
+export const onDeleteMealAsync = (id = '') => ({
+    type: 'DELETE_MEAL_ASYNC',
     id,
 });
 
-export const editMeal = (
+export const onEditMealAsync = (
     {
         name = '',
         id = '',
         itemList = [],
     } = {}
 ) => ({
-    type: 'EDIT_MEAL',
+    type: 'EDIT_MEAL_ASYNC',
     meal: {
         id,
         name,

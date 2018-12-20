@@ -1,11 +1,11 @@
 // import { itemsAllDefaultState } from './seed';
 
-const itemsAllDefaultState = new Map();
+const itemsAllDefaultState = [];
 
 export default (state = { itemsAll: itemsAllDefaultState }, action) => {
     switch (action.type) {
         case 'ADD_ITEM':
-            state.itemsAll.set(action.name, action.item);
+            state.itemsAll.push(action.name);
             return state;
         default:
             return state;

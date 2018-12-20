@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import uuid from 'uuid';
 import MealForm from '../components/meal/MealForm';
 import MealItems from '../components/meal/MealItems';
-import { addMeal, editMeal } from '../actions/meal';
-import { addToItemsAll } from '../actions/items';
+import { onAddMealAsync, onEditMealAsync } from '../actions/meal';
+import { onAddItemAsync } from '../actions/items';
 
 export class MealPage extends Component {
     constructor(props) {
@@ -14,20 +13,20 @@ export class MealPage extends Component {
             mealName: props.meal ? props.meal.name : '',
             itemName: '',
             amount: '',
-            unit: 'pound(s)',
+            unit: 'pound',
             itemList: props.meal ? props.meal.itemList : [],
         };
     }
 
-    deleteMealItem = (id) => {
-        const newMealList = this.state.itemList.filter(item => item.id !== id);
+    deleteMealItem = (name) => {
+        const newMealList = this.state.itemList.filter(item => item.itemName !== name);
         this.setState({
             itemList: newMealList,
         });
     };
 
-    itemToEdit = (id) => {
-        const selectedItem = this.state.itemList.filter(item => item.id === id)[0];
+    itemToEdit = (name) => {
+        const selectedItem = this.state.itemList.filter(item => item.itemName === name)[0];
         this.setState({
             itemName: selectedItem.itemName,
             amount: selectedItem.amount,
@@ -55,64 +54,35 @@ export class MealPage extends Component {
         this.setState({ unit });
     };
 
-    createItemId = (itemName, itemMap) => {
-        if (itemMap.has(itemName)) {
-            return itemMap.get(itemName).id;
-        } else {
-            return uuid();
+    findItem = (itemName, itemList) => {
+        if (itemList.find((item) => item === itemName)) {
+            return true;
         }
-    }
-
-    findItemAndReplace = (itemName, amount, unit, list) => {
-        let newList = list.map(item => {
-            if (item.itemName === itemName) {
-                item.amount = amount;
-                item.unit = unit;
-                return item;
-            }
-            return item;
-        });
-        return newList;
-    }
-
-    checkListForItem = (name, list) => {
-        return list.filter(item => item.itemName === name).length > 0;
+        return false
     }
 
     addItem = () => {
-        const { itemName, amount, unit, itemList } = this.state;
-        if (this.checkListForItem(itemName, itemList)) {
-            const newList = this.findItemAndReplace(itemName, amount, unit, itemList);
-            this.setState({
-                itemName: '',
-                amount: '',
-                unit: 'pound(s)',
-                itemList: newList,
-            });
-            return;
-        }
+        let { itemName, amount, unit, itemList } = this.state;
         const { items } = this.props;
-        const id = this.createItemId(itemName, items.itemsAll);
 
+        if (!this.findItem(itemName, items.itemsAll)) {
+            this.props.onAddItemAsync(itemName);
+        }
+        
         const newItem = {
-            id,
             itemName,
             amount,
             unit,
         };
 
-        this.props.addToItemsAll({
-            name: itemName,
-            item: {
-                name: itemName,
-                id: id,
-            }
-        });
+        if (this.findItem(itemName, itemList.map(i => i.itemName))) {
+            itemList = itemList.filter(item => item.itemName !== itemName);
+        }
 
         this.setState({
             itemName: '',
             amount: '',
-            unit: 'pound(s)',
+            unit: 'pound',
             itemList: [...itemList, newItem]
         });
     }
@@ -138,7 +108,7 @@ export class MealPage extends Component {
                     itemList={this.state.itemList}
                     mealId={this.props.meal ? this.props.meal.id : ''}
                     title={this.props.meal ? 'Edit Meal' : 'Create Meal'}
-                    updateMeal={this.props.meal ? this.props.editMeal : this.props.addMeal}
+                    updateMeal={this.props.meal ? this.props.onEditMealAsync : this.props.onAddMealAsync}
                 />
                 <MealItems
                     mealName={this.state.mealName}
@@ -163,9 +133,9 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addToItemsAll: (data) => dispatch(addToItemsAll(data)),
-        editMeal: (data) => dispatch(editMeal(data)),
-        addMeal: (data) => dispatch(addMeal(data)),
+        onAddItemAsync: (data) => dispatch(onAddItemAsync(data)),
+        onEditMealAsync: (data) => dispatch(onEditMealAsync(data)),
+        onAddMealAsync: (data) => dispatch(onAddMealAsync(data)),
     }
 }
 

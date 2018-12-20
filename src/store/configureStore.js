@@ -1,7 +1,12 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import mealReducer from '../reducers/meal';
 import itemsReducer from '../reducers/items';
 import groceryReducer from '../reducers/grocery';
+import rootSaga from '../sagas/sagas';
+
+const sagaMiddleware = createSagaMiddleware();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default () => {
     const store = createStore(
@@ -10,7 +15,8 @@ export default () => {
             items: itemsReducer,
             groceryLists: groceryReducer,
         }),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        composeEnhancers(applyMiddleware(sagaMiddleware))
     );
+    sagaMiddleware.run(rootSaga);
     return store;
-}
+};
