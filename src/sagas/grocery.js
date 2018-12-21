@@ -51,7 +51,30 @@ function* deleteGroceryAsync({ id = '' }) {
         type: 'DELETE_GROCERY',
         id,
     });
-}
+};
+
+function* setGroceryAsync() {
+    const lists = [];
+    yield database.ref('groceryLists').once('value').then((snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const items = [];
+            childSnapshot.child('itemList').forEach((item) => {
+                items.push({
+                    itemName: item.key,
+                    amount: item.val().amount,
+                    unit: item.val().unit,
+                });
+            });
+            
+            lists.push({
+                id: childSnapshot.key,
+                name: childSnapshot.val().name,
+                items,
+            });
+        });
+    });
+    yield put({ type: 'SET_GROCERY', lists });
+};
 
 export function* watchAddGroceryAsync() {
     yield takeEvery('ADD_GROCERY_ASYNC', addGroceryAsync);
@@ -63,4 +86,8 @@ export function* watchEditGroceryAsync() {
 
 export function* watchDeleteGroceryAsync() {
     yield takeEvery('DELETE_GROCERY_ASYNC', deleteGroceryAsync);
+};
+
+export function* watchSetGroceryAsync() {
+    yield takeEvery('SET_GROCERY_ASYNC', setGroceryAsync);
 };

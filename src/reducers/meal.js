@@ -1,6 +1,6 @@
-import { mealDefaultState } from './seed';
+// import { mealDefaultState } from './seed';
 
-// const mealDefaultState = [];
+const mealDefaultState = [];
 
 export default (state = { mealList: mealDefaultState }, action) => {
     switch (action.type) {
@@ -27,6 +27,11 @@ export default (state = { mealList: mealDefaultState }, action) => {
             });
             return {
                 mealList: editedMealList
+            };
+
+        case 'SET_MEAL':
+            return {
+                mealList: action.meals 
             };
 
         default:

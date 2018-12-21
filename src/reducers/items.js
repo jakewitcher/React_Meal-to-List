@@ -1,6 +1,6 @@
-import { itemsAllDefaultState } from './seed';
+// import { itemsAllDefaultState } from './seed';
 
-// const itemsAllDefaultState = [];
+const itemsAllDefaultState = [];
 
 export default (state = { itemsAll: itemsAllDefaultState }, action) => {
     switch (action.type) {
@@ -10,6 +10,10 @@ export default (state = { itemsAll: itemsAllDefaultState }, action) => {
                 id: action.id
             });
             return state;
+        case 'SET_ITEM':
+            return {
+                itemsAll: action.items
+            };
         default:
             return state;
     }

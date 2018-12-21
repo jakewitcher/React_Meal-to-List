@@ -30,3 +30,7 @@ export const onEditGroceryAsync = (
         items,
     }
 });
+
+export const onSetGroceryAsync = () => ({
+    type: 'SET_GROCERY_ASYNC',
+});

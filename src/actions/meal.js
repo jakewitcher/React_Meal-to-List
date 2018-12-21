@@ -30,3 +30,7 @@ export const onEditMealAsync = (
         itemList,
     }
 });
+
+export const onSetMealAsync = () => ({
+    type: 'SET_MEAL_ASYNC',
+});

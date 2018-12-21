@@ -1,6 +1,6 @@
-import { groceryDefaultState } from './seed';
+// import { groceryDefaultState } from './seed';
 
-// const groceryDefaultState = [];
+const groceryDefaultState = [];
 
 export default (state = { groceryList: groceryDefaultState }, action) => {
     switch (action.type) {
@@ -26,6 +26,10 @@ export default (state = { groceryList: groceryDefaultState }, action) => {
             return {
                 groceryList: editedGroceryList,
             };
+        case 'SET_GROCERY': 
+            return {
+                groceryList: action.lists,
+            }
         default:
             return state;
     }

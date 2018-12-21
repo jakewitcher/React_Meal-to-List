@@ -53,6 +53,30 @@ function* deleteMealAsync({ id = '' }) {
     });
 }
 
+function* setMealAsync() {
+    const meals = [];
+    yield database.ref('meals').once('value').then((snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const itemList = [];
+            childSnapshot.child('items').forEach((item) => {
+                itemList.push({
+                    itemName: item.key,
+                    amount: item.val().amount,
+                    unit: item.val().unit,
+                });
+            });
+            
+            meals.push({
+                id: childSnapshot.key,
+                name: childSnapshot.val().name,
+                itemList,
+            });
+        });
+    });
+
+    yield put({ type: 'SET_MEAL', meals });
+};
+
 export function* watchAddMealAsync() {
     yield takeEvery('ADD_MEAL_ASYNC', addMealAsync);
 };
@@ -63,4 +87,8 @@ export function* watchEditMealAsync() {
 
 export function* watchDeleteMealAsync() {
     yield takeEvery('DELETE_MEAL_ASYNC', deleteMealAsync);
+};
+
+export function* watchSetMealAsync() {
+    yield takeEvery('SET_MEAL_ASYNC', setMealAsync);
 }
