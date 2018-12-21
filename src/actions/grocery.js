@@ -1,32 +1,29 @@
-import uuid from 'uuid';
-
-export const addGrocery = (
+export const onAddGroceryAsync = (
     {
         name = '',
         items = [],
     } = {}
 ) => ({
-    type: 'ADD_GROCERY',
+    type: 'ADD_GROCERY_ASYNC',
     grocery: {
-        id: uuid(),
         name,
         items,
     }
 });
 
-export const deleteGrocery = (id = '') => ({
-    type: 'DELETE_GROCERY',
+export const onDeleteGroceryAsync = (id = '') => ({
+    type: 'DELETE_GROCERY_ASYNC',
     id,
 });
 
-export const editGrocery = (
+export const onEditGroceryAsync = (
     {
         name = '',
         id = '',
         items = [],
     } = {}
 ) => ({
-    type: 'EDIT_GROCERY',
+    type: 'EDIT_GROCERY_ASYNC',
     grocery: {
         id,
         name,

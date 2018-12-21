@@ -12,7 +12,7 @@ const GroceryItems = (props) => {
                         <GroceryItem 
                             item={item}
                             deleteGroceryItem={deleteGroceryItem}
-                            key={item.id}
+                            key={item.itemName}
                         />
                     )
                 })}

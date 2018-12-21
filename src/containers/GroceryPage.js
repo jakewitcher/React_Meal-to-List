@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GroceryForm from '../components/grocery/GroceryForm';
 import GroceryItems from '../components/grocery/GroceryItems';
-import { addGrocery, editGrocery } from '../actions/grocery';
+import { onAddGroceryAsync, onEditGroceryAsync } from '../actions/grocery';
 
 export class GroceryPage extends Component {
     constructor(props) {
@@ -10,43 +10,34 @@ export class GroceryPage extends Component {
         this.state = {
             groceryName: props.grocery ? props.grocery.name : '',
             selectedMeal: props.meals.mealList[0] || {},
-            itemsMap: props.grocery ? groceryMap(props.grocery) : new Map(),
             itemsList: props.grocery ? props.grocery.items : [],
         }
     }
 
     deleteGroceryItem = (id) => {
         const newGroceryList = this.state.itemsList.filter(item => item.id !== id);
-        const newGroceryMap = new Map();
-        newGroceryList.forEach((item) => {
-            newGroceryMap.set(item.itemName, item);
-        });
         this.setState({
             itemsList: newGroceryList,
-            itemsMap: newGroceryMap,
         });
     };
 
     addMealToList = () => {
-        const { itemsMap, selectedMeal } = this.state;
-        const CombinedItemsList = selectedMeal.itemList.reduce((a, b) => {
-            if (a.has(b.itemName)) {
-                const newAmount = Number(a.get(b.itemName).amount) + Number(b.amount);
-                const itemCopy = Object.assign({}, b)
-                itemCopy.amount = newAmount;
-                a.set(itemCopy.itemName, itemCopy);
-                return a;
-            }
-            a.set(b.itemName, b);
-            return a;
-        }, itemsMap);
+        const { itemsList, selectedMeal } = this.state;
+        const listCopy = itemsList.map(i => Object.assign({}, i));
 
-        const newItemsList = [];
-        CombinedItemsList.forEach((i => newItemsList.push(i)));
+        const combinedItemsList = selectedMeal.itemList.reduce((list, item) => {
+            const itemFound = list.find(i => i.itemName === item.itemName)
+            if (itemFound) {
+                itemFound.amount = Number(item.amount) + Number(itemFound.amount);
+                return list;
+            }
+
+            list.push(item);
+            return list;
+        }, listCopy);
 
         this.setState({
-            itemsMap: CombinedItemsList,
-            itemsList: newItemsList,
+            itemsList: combinedItemsList,
             selectedMeal: this.props.meals.mealList[0],
         });
     };
@@ -66,7 +57,7 @@ export class GroceryPage extends Component {
     };
 
     resetGrocery = () => {
-        this.setState({ groceryName: "", itemsList: [], itemsMap: new Map() });
+        this.setState({ groceryName: "", itemsList: [] });
     }
     render() {
         return (
@@ -83,7 +74,7 @@ export class GroceryPage extends Component {
                         meals={this.props.meals}
                         groceryId={this.props.grocery ? this.props.grocery.id : ''}
                         title={this.props.grocery ? 'Edit Grocery List' : 'Create Grocery List'}
-                        updateGrocery={this.props.grocery ? this.props.editGrocery : this.props.addGrocery}
+                        updateGrocery={this.props.grocery ? this.props.onEditGroceryAsync : this.props.onAddGroceryAsync}
                     />
                     <GroceryItems
                         groceryName={this.state.groceryName}
@@ -98,14 +89,6 @@ export class GroceryPage extends Component {
 
 };
 
-const groceryMap = (grocery) => {
-    const selectedGroceryMap = new Map();
-    grocery.items.forEach((item) => {
-        selectedGroceryMap.set(item.itemName, item);
-    });
-    return selectedGroceryMap;
-};
-
 const mapStateToProps = (state, props) => {
     return {
         groceryLists: state.groceryLists,
@@ -116,8 +99,8 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        editGrocery: (data) => dispatch(editGrocery(data)),
-        addGrocery: (data) => dispatch(addGrocery(data)),
+        onEditGroceryAsync: (data) => dispatch(onEditGroceryAsync(data)),
+        onAddGroceryAsync: (data) => dispatch(onAddGroceryAsync(data)),
     }
 }
 

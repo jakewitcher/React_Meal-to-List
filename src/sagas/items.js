@@ -2,10 +2,12 @@ import { put, takeEvery } from 'redux-saga/effects';
 import database from '../firebase/firebase';
 
 function* addItemAsync({name = ''}) {
-    
-    yield database.ref('itemsAll').push({ name });
+    let id;
+    yield database.ref('itemsAll').push({ name }).then((ref) => {
+        id = ref.key;
+    });
 
-    yield put ({ type: 'ADD_ITEM', name });
+    yield put ({ type: 'ADD_ITEM', name, id });
 };
 
 export function* watchAddItemsAsync() {

@@ -65,7 +65,7 @@ export class MealPage extends Component {
         let { itemName, amount, unit, itemList } = this.state;
         const { items } = this.props;
 
-        if (!this.findItem(itemName, items.itemsAll)) {
+        if (!this.findItem(itemName, items.itemsAll.map(i => i.name))) {
             this.props.onAddItemAsync(itemName);
         }
         
