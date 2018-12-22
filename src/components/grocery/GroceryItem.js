@@ -1,7 +1,7 @@
 import React from 'react';
 
 const GroceryItem = (props) =>  {
-    const { itemName, amount, unit, id } = props.item;
+    const { itemName, amount, unit } = props.item;
     return (
         <li className="itemlist__item">
             <div className="item">
@@ -18,7 +18,7 @@ const GroceryItem = (props) =>  {
                 <div>
                     <i 
                         className="fas fa-trash"
-                        onClick={() => props.deleteGroceryItem(id)}    
+                        onClick={() => props.deleteGroceryItem(itemName)}    
                     />
                 </div>
             }

@@ -14,8 +14,8 @@ export class GroceryPage extends Component {
         }
     }
 
-    deleteGroceryItem = (id) => {
-        const newGroceryList = this.state.itemsList.filter(item => item.id !== id);
+    deleteGroceryItem = (name) => {
+        const newGroceryList = this.state.itemsList.filter(item => item.itemName !== name);
         this.setState({
             itemsList: newGroceryList,
         });
