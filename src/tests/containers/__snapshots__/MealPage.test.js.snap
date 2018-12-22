@@ -21,6 +21,7 @@ exports[`should render MealPage correctly 1`] = `
   />
   <MealItems
     deleteMealItem={[Function]}
+    isDetails={false}
     itemList={Array []}
     itemToEdit={[Function]}
     mealName=""

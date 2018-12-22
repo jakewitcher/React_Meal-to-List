@@ -26,12 +26,12 @@ test('should render MealItem correctly', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
-test('should delete meal item by id', () => {
+test('should delete meal item by name', () => {
     wrapper.find('i').at(1).simulate('click');
     expect(deleteMealItem).toHaveBeenLastCalledWith(item.itemName);
 });
 
-test('should select meal item to edit by id', () => {
+test('should select meal item to edit by name', () => {
     wrapper.find('i').at(0).simulate('click');
     expect(itemToEdit).toHaveBeenLastCalledWith(item.itemName);
 });

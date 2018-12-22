@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should correctly render MealDetailsPage 1`] = `
+<div>
+  <MealItems
+    isDetails={true}
+    itemList={
+      Array [
+        Object {
+          "amount": 2,
+          "id": 1,
+          "itemName": "bacon",
+          "unit": "pounds",
+        },
+        Object {
+          "amount": 12,
+          "id": 2,
+          "itemName": "eggs",
+          "unit": "items",
+        },
+        Object {
+          "amount": 1,
+          "id": 3,
+          "itemName": "toast",
+          "unit": "bag",
+        },
+        Object {
+          "amount": 1,
+          "id": 4,
+          "itemName": "orange juice",
+          "unit": "quart",
+        },
+      ]
+    }
+    mealName="breakfast"
+  />
+</div>
+`;

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MealItems from '../components/meal/MealItems';
 
-const MealDetailsPage = (props) => {
+export const MealDetailsPage = (props) => {
     return (
         <div>
             <MealItems 

@@ -25,7 +25,7 @@ test('should render GroceryItem correctly', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
-test('should delete grocery item by id', () => {
+test('should delete grocery item by name', () => {
     wrapper.find('i').simulate('click');
-    expect(deleteGroceryItem).toHaveBeenLastCalledWith(item.id);
+    expect(deleteGroceryItem).toHaveBeenLastCalledWith(item.itemName);
 });

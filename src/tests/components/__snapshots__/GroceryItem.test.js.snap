@@ -25,9 +25,11 @@ exports[`should render GroceryItem correctly 1`] = `
       pounds
     </p>
   </div>
-  <i
-    className="fas fa-trash"
-    onClick={[Function]}
-  />
+  <div>
+    <i
+      className="fas fa-trash"
+      onClick={[Function]}
+    />
+  </div>
 </li>
 `;

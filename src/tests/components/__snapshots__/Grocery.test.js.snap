@@ -2,9 +2,14 @@
 
 exports[`should render Grocery correctly 1`] = `
 <div>
-  <p>
-    Monday Meals
-  </p>
+  <Link
+    replace={false}
+    to="grocerylists/grocery-list/201"
+  >
+    <p>
+      Monday Meals
+    </p>
+  </Link>
   <Link
     replace={false}
     to="grocerylists/edit/201"
