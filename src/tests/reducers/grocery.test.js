@@ -44,3 +44,10 @@ test('should not edit grocery list by id', () => {
     const state = groceryReducer({ groceryList: groceryLists }, action);
     expect(state.groceryList).toEqual(groceryLists);
 });
+
+test('should set grocery lists initial state of redux store', () => {
+    const lists = groceryLists
+    const action = { type: 'SET_GROCERY', lists };
+    const state = groceryReducer(undefined, action);
+    expect(state.groceryList).toEqual(lists);
+});

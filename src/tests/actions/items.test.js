@@ -1,11 +1,17 @@
-import { addToItemsAll } from '../../actions/items';
+import { onAddItemAsync, onSetItemAsync } from '../../actions/items';
 
 test('should generate add item action object', () => {
-    const item = { name: 'bacon', id: '123wasd' };
-    const action = addToItemsAll({ name: 'bacon', item });
+    const name = 'bacon';
+    const action = onAddItemAsync(name);
     expect(action).toEqual({
-        type: 'ADD_ITEM',
-        name: 'bacon',
-        item,
+        type: 'ADD_ITEM_ASYNC',
+        name,
+    });
+});
+
+test('should generate set action object', () => {
+    const action = onSetItemAsync();
+    expect(action).toEqual({
+        type: 'SET_ITEM_ASYNC',
     });
 });

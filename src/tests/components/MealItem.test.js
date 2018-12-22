@@ -10,7 +10,6 @@ beforeEach(() => {
         itemName: mealItems[0].itemName,
         amount: mealItems[0].amount,
         unit: mealItems[0].unit,
-        id: mealItems[0].id,
     };
     deleteMealItem = jest.fn();
     itemToEdit = jest.fn();
@@ -29,10 +28,10 @@ test('should render MealItem correctly', () => {
 
 test('should delete meal item by id', () => {
     wrapper.find('i').at(1).simulate('click');
-    expect(deleteMealItem).toHaveBeenLastCalledWith(item.id);
+    expect(deleteMealItem).toHaveBeenLastCalledWith(item.itemName);
 });
 
 test('should select meal item to edit by id', () => {
     wrapper.find('i').at(0).simulate('click');
-    expect(itemToEdit).toHaveBeenLastCalledWith(item.id);
+    expect(itemToEdit).toHaveBeenLastCalledWith(item.itemName);
 });

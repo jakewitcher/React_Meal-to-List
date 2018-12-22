@@ -21,7 +21,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "bag",
         }
       }
-      key="5"
+      key="salad"
     />
     <GroceryItem
       item={
@@ -32,7 +32,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "pounds",
         }
       }
-      key="6"
+      key="chicken"
     />
     <GroceryItem
       item={
@@ -43,7 +43,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "ounces",
         }
       }
-      key="7"
+      key="walnuts"
     />
     <GroceryItem
       item={
@@ -54,7 +54,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "items",
         }
       }
-      key="8"
+      key="apples"
     />
     <GroceryItem
       item={
@@ -65,7 +65,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "pounds",
         }
       }
-      key="1"
+      key="bacon"
     />
     <GroceryItem
       item={
@@ -76,7 +76,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "items",
         }
       }
-      key="2"
+      key="eggs"
     />
     <GroceryItem
       item={
@@ -87,7 +87,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "bag",
         }
       }
-      key="3"
+      key="toast"
     />
     <GroceryItem
       item={
@@ -98,7 +98,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "quart",
         }
       }
-      key="4"
+      key="orange juice"
     />
   </ul>
 </div>

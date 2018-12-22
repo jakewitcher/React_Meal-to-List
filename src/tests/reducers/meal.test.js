@@ -45,3 +45,10 @@ test('should not edit meal if id not found', () => {
     const state = mealReducer({ mealList: mealsList }, action);
     expect(state.mealList).toEqual(mealsList);
 });
+
+test('should set initial meal state for Redux store', () => {
+    const meals = mealsList;
+    const action = { type: 'SET_MEAL', meals };
+    const state = mealReducer(undefined, action);
+    expect(state.mealList).toEqual(meals);
+});

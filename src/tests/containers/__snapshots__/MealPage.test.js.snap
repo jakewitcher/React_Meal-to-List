@@ -16,7 +16,7 @@ exports[`should render MealPage correctly 1`] = `
     mealNameChange={[Function]}
     resetMeal={[Function]}
     title="Create Meal"
-    unit="pound(s)"
+    unit="pound"
     unitChange={[Function]}
   />
   <MealItems

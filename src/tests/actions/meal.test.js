@@ -1,15 +1,14 @@
-import { addMeal, deleteMeal, editMeal } from '../../actions/meal';
+import { onAddMealAsync, onDeleteMealAsync, onEditMealAsync, onSetMealAsync } from '../../actions/meal';
 
 const itemList = [{ name: 'bacon', amount: 2, unit: 'pounds' }, { name: 'waffles', amount: 12, unit: 'items' }];
 const name = 'breakfast';
 const id = '123wasd';
 
 test('should generate new meal action object', () => {
-    const action = addMeal({ name, itemList });
+    const action = onAddMealAsync({ name, itemList });
     expect(action).toEqual({
-        type: 'ADD_MEAL',
+        type: 'ADD_MEAL_ASYNC',
         meal: {
-            id: expect.any(String),
             name,
             itemList,
         }
@@ -17,21 +16,28 @@ test('should generate new meal action object', () => {
 });
 
 test('should generate delete meal action object', () => {
-    const action = deleteMeal(id);
+    const action = onDeleteMealAsync(id);
     expect(action).toEqual({
-        type: 'DELETE_MEAL',
+        type: 'DELETE_MEAL_ASYNC',
         id,
     });
 });
 
 test('should generate edit meal action object', () => {
-    const action = editMeal({ name, id, itemList });
+    const action = onEditMealAsync({ name, id, itemList });
     expect(action).toEqual({
-        type: 'EDIT_MEAL',
+        type: 'EDIT_MEAL_ASYNC',
         meal: {
             id,
             name,
             itemList,
         }
+    });
+});
+
+test('shouldl generate set meal action object', () => {
+    const action = onSetMealAsync();
+    expect(action).toEqual({
+        type: 'SET_MEAL_ASYNC'
     });
 });

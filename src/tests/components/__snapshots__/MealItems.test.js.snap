@@ -21,7 +21,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "pounds",
         }
       }
-      key="1"
+      key="bacon"
     />
     <MealItem
       item={
@@ -32,7 +32,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "items",
         }
       }
-      key="2"
+      key="eggs"
     />
     <MealItem
       item={
@@ -43,7 +43,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "bag",
         }
       }
-      key="3"
+      key="toast"
     />
     <MealItem
       item={
@@ -54,7 +54,7 @@ exports[`should render MealItems correctly 1`] = `
           "unit": "quart",
         }
       }
-      key="4"
+      key="orange juice"
     />
   </ul>
 </div>

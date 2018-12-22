@@ -4,13 +4,13 @@ import { Grocery } from '../../components/grocery/Grocery';
 import { groceryLists } from '../fixtures/grocery';
 
 
-let name, id, wrapper, deleteGrocery;
+let name, id, wrapper, onDeleteGroceryAsync;
 
 beforeEach(() => {
     name = groceryLists[0].name;
     id = groceryLists[0].id;
-    deleteGrocery = jest.fn();
-    wrapper = shallow(<Grocery name={name} id={id} deleteGrocery={deleteGrocery}/>);
+    onDeleteGroceryAsync = jest.fn();
+    wrapper = shallow(<Grocery name={name} id={id} onDeleteGroceryAsync={onDeleteGroceryAsync}/>);
 });
 
 test('should render Grocery correctly', () => {
@@ -19,5 +19,5 @@ test('should render Grocery correctly', () => {
 
 test('should delete grocery list by id', () => {
     wrapper.find('i').at(1).simulate('click');
-    expect(deleteGrocery).toHaveBeenLastCalledWith(id);
+    expect(onDeleteGroceryAsync).toHaveBeenLastCalledWith(id);
 });
