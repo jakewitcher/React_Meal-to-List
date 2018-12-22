@@ -115,7 +115,7 @@ export class MealPage extends Component {
                     itemList={this.state.itemList}
                     itemToEdit={this.itemToEdit}
                     deleteMealItem={this.deleteMealItem}
-
+                    isDetails={false}
                 />
             </div>
         );

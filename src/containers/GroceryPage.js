@@ -80,6 +80,7 @@ export class GroceryPage extends Component {
                         groceryName={this.state.groceryName}
                         itemsList={this.state.itemsList}
                         deleteGroceryItem={this.deleteGroceryItem}
+                        isDetails={false}
                     />
                 </div>
             </div>

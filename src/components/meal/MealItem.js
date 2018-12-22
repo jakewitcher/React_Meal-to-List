@@ -13,16 +13,22 @@ const MealItem = (props) => {
             <div className="item">
                 <p>{unit}</p>
             </div>
-            <i 
-                className="fas fa-edit"
-                onClick={() => {
-                        props.itemToEdit(itemName); 
-                }}
-            />
-            <i 
-                className="fas fa-trash"
-                onClick={() => props.deleteMealItem(itemName)}    
-            />
+            {
+                !props.isDetails &&
+                <div>
+                    <i 
+                        className="fas fa-edit"
+                        onClick={() => {
+                                props.itemToEdit(itemName); 
+                        }}
+                    />
+                    <i 
+                        className="fas fa-trash"
+                        onClick={() => props.deleteMealItem(itemName)}    
+                    />
+                </div>
+            }
+            
         </li>
     );
 }

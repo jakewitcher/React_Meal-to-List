@@ -7,7 +7,9 @@ export const Meal = (props) => {
     const { name, id } = props;
     return (
         <div>
-            <p>{name}</p>
+            <Link to={`/meals/meal/${id}`}>
+                <p>{name}</p>
+            </Link>
 
             <Link to={`/meals/edit/${id}`}>
                 <i className="fas fa-edit" />

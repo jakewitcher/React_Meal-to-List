@@ -13,10 +13,15 @@ const GroceryItem = (props) =>  {
             <div className="item">
                 <p>{unit}</p>
             </div>
-            <i 
-                className="fas fa-trash"
-                onClick={() => props.deleteGroceryItem(id)}    
-            />
+            {
+                !props.isDetails &&
+                <div>
+                    <i 
+                        className="fas fa-trash"
+                        onClick={() => props.deleteGroceryItem(id)}    
+                    />
+                </div>
+            }
         </li>
     )
 }
