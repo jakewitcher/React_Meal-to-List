@@ -6,9 +6,9 @@ import AppRouter from './routers/AppRouter';
 import * as serviceWorker from './serviceWorker';
 import './styles/styles.scss';
 import './firebase/firebase';
-import { onSetItemAsync } from './actions/items';
-import { onSetMealAsync } from './actions/meal';
-import { onSetGroceryAsync } from './actions/grocery';
+import { onSetItem } from './actions/items';
+import { onSetMeal } from './actions/meal';
+import { onSetGrocery } from './actions/grocery';
 import LoadingPage from './containers/LoadingPage';
 
 const store = configureStore();
@@ -20,9 +20,9 @@ const jsx = (
 );
 
 async function setStore() {
-        await store.dispatch(onSetItemAsync());
-        await store.dispatch(onSetMealAsync());
-        await store.dispatch(onSetGroceryAsync());
+    await store.dispatch(onSetItem());
+    await store.dispatch(onSetMeal());
+    await store.dispatch(onSetGrocery());
 };
 
 ReactDOM.render(<LoadingPage />, document.getElementById('root'));

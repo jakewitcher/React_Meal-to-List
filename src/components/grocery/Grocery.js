@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { onDeleteGroceryAsync } from '../../actions/grocery';
+import { onDeleteGrocery } from '../../actions/grocery';
 
 export const Grocery = (props) => {
     const { name, id } = props;
     return (
         <div>
             <Link to={`grocerylists/grocery-list/${id}`}>
-            <p>{name}</p>
+                <p>{name}</p>
             </Link>
 
             <Link to={`grocerylists/edit/${id}`}>
@@ -16,7 +16,7 @@ export const Grocery = (props) => {
             </Link>
             <i
                 className="fas fa-trash"
-                onClick={() => props.onDeleteGroceryAsync(id)}
+                onClick={() => props.onDeleteGrocery(id)}
             />
         </div>
     );
@@ -24,7 +24,7 @@ export const Grocery = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onDeleteGroceryAsync: (id) => dispatch(onDeleteGroceryAsync(id)),
+        onDeleteGrocery: (id) => dispatch(onDeleteGrocery(id)),
     }
 }
 

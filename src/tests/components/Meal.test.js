@@ -3,13 +3,13 @@ import { shallow } from 'enzyme';
 import { Meal } from '../../components/meal/Meal';
 import { mealsList } from '../fixtures/meal';
 
-let id, name, onDeleteMealAsync, wrapper;
+let id, name, onDeleteMeal, wrapper;
 
 beforeEach(() => {
     id = mealsList[0].id;
     name = mealsList[0].name;
-    onDeleteMealAsync = jest.fn();
-    wrapper = shallow(<Meal name={name} id={id} onDeleteMealAsync={onDeleteMealAsync} />);
+    onDeleteMeal = jest.fn();
+    wrapper = shallow(<Meal name={name} id={id} onDeleteMeal={onDeleteMeal} />);
 });
 
 test('should render Meal correctly', () => {
@@ -18,5 +18,5 @@ test('should render Meal correctly', () => {
 
 test('should delete meal by id', () => {
     wrapper.find('i').at(1).simulate('click');
-    expect(onDeleteMealAsync).toHaveBeenLastCalledWith(id);
+    expect(onDeleteMeal).toHaveBeenLastCalledWith(id);
 });

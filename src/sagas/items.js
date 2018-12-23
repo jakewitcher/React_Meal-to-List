@@ -1,7 +1,7 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import database from '../firebase/firebase';
 
-function* addItemAsync({name = ''}) {
+function* addItem({ name = '' }) {
     let id;
     yield database.ref('itemsAll').push({ name }).then((ref) => {
         id = ref.key;
@@ -10,7 +10,7 @@ function* addItemAsync({name = ''}) {
     yield put({ type: 'ADD_ITEM', name, id });
 };
 
-function* setItemAsync() {
+function* setItem() {
     const items = [];
     yield database.ref('itemsAll').once('value').then((snapshot) => {
         snapshot.forEach((childSnapshot) => {
@@ -24,10 +24,10 @@ function* setItemAsync() {
     yield put({ type: 'SET_ITEM', items })
 }
 
-export function* watchAddItemsAsync() {
-    yield takeEvery('ADD_ITEM_ASYNC', addItemAsync);
+export function* watchAddItems() {
+    yield takeEvery('ON_ADD_ITEM', addItem);
 };
 
-export function* watchSetItemAsync() {
-    yield takeEvery('SET_ITEM_ASYNC', setItemAsync);
+export function* watchSetItem() {
+    yield takeEvery('ON_SET_ITEM', setItem);
 }

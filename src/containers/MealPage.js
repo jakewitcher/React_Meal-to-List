@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MealForm from '../components/meal/MealForm';
 import MealItems from '../components/meal/MealItems';
-import { onAddMealAsync, onEditMealAsync } from '../actions/meal';
-import { onAddItemAsync } from '../actions/items';
+import { onAddMeal, onEditMeal } from '../actions/meal';
+import { onAddItem } from '../actions/items';
 
 export class MealPage extends Component {
     constructor(props) {
@@ -66,9 +66,9 @@ export class MealPage extends Component {
         const { items } = this.props;
 
         if (!this.findItem(itemName, items.itemsAll.map(i => i.name))) {
-            this.props.onAddItemAsync(itemName);
+            this.props.onAddItem(itemName);
         }
-        
+
         const newItem = {
             itemName,
             amount,
@@ -108,7 +108,7 @@ export class MealPage extends Component {
                     itemList={this.state.itemList}
                     mealId={this.props.meal ? this.props.meal.id : ''}
                     title={this.props.meal ? 'Edit Meal' : 'Create Meal'}
-                    updateMeal={this.props.meal ? this.props.onEditMealAsync : this.props.onAddMealAsync}
+                    updateMeal={this.props.meal ? this.props.onEditMeal : this.props.onAddMeal}
                 />
                 <MealItems
                     mealName={this.state.mealName}
@@ -133,9 +133,9 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onAddItemAsync: (data) => dispatch(onAddItemAsync(data)),
-        onEditMealAsync: (data) => dispatch(onEditMealAsync(data)),
-        onAddMealAsync: (data) => dispatch(onAddMealAsync(data)),
+        onAddItem: (data) => dispatch(onAddItem(data)),
+        onEditMeal: (data) => dispatch(onEditMeal(data)),
+        onAddMeal: (data) => dispatch(onAddMeal(data)),
     }
 }
 

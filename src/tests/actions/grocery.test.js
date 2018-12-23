@@ -1,13 +1,13 @@
-import { onAddGroceryAsync, onDeleteGroceryAsync, onEditGroceryAsync, onSetGroceryAsync } from '../../actions/grocery';
+import { onAddGrocery, onDeleteGrocery, onEditGrocery, onSetGrocery } from '../../actions/grocery';
 
 const items = [{ name: 'bacon', amount: 2, unit: 'pounds' }, { name: 'waffles', amount: 12, unit: 'items' }];
 const name = 'Monday Meals';
 const id = '123wasd';
 
 test('should generate add grocery action object', () => {
-    const action = onAddGroceryAsync({ name, items });
+    const action = onAddGrocery({ name, items });
     expect(action).toEqual({
-        type: 'ADD_GROCERY_ASYNC',
+        type: 'ON_ADD_GROCERY',
         grocery: {
             name,
             items,
@@ -16,17 +16,17 @@ test('should generate add grocery action object', () => {
 });
 
 test('should generate delete grocery action object', () => {
-    const action = onDeleteGroceryAsync(id);
+    const action = onDeleteGrocery(id);
     expect(action).toEqual({
-        type: 'DELETE_GROCERY_ASYNC',
+        type: 'ON_DELETE_GROCERY',
         id,
     });
 });
 
 test('should generate edit grocery action object', () => {
-    const action = onEditGroceryAsync({ name, items, id });
+    const action = onEditGrocery({ name, items, id });
     expect(action).toEqual({
-        type: 'EDIT_GROCERY_ASYNC',
+        type: 'ON_EDIT_GROCERY',
         grocery: {
             id,
             name,
@@ -36,8 +36,8 @@ test('should generate edit grocery action object', () => {
 });
 
 test('should generate set grocery action object', () => {
-    const action = onSetGroceryAsync();
+    const action = onSetGrocery();
     expect(action).toEqual({
-        type: 'SET_GROCERY_ASYNC',
+        type: 'ON_SET_GROCERY',
     });
 });

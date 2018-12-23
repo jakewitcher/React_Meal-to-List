@@ -2,16 +2,16 @@ import { put, takeEvery } from 'redux-saga/effects';
 import database from '../firebase/firebase';
 
 const formatItemList = (list) => {
-    return list.reduce((list, item) => { 
+    return list.reduce((list, item) => {
         list[item.itemName] = {
-        amount: item.amount, 
-        unit: item.unit
+            amount: item.amount,
+            unit: item.unit
         };
         return list;
-    } ,{});
+    }, {});
 };
 
-function* addMealAsync({ meal = {} } = {}) {
+function* addMeal({ meal = {} } = {}) {
     const { itemList, name } = meal;
     const items = formatItemList(itemList);
 
@@ -20,40 +20,42 @@ function* addMealAsync({ meal = {} } = {}) {
         id = ref.key;
     });
 
-    yield put ({ 
-        type: 'ADD_MEAL', 
+    yield put({
+        type: 'ADD_MEAL',
         meal: {
             name,
             itemList,
             id,
-    }});
+        }
+    });
 }
 
-function* editMealAsync({ meal = {} }) {
+function* editMeal({ meal = {} }) {
     const { itemList, name, id } = meal;
     const items = formatItemList(itemList);
 
     yield database.ref(`meals/${id}`).update({ name, items });
 
-    yield put ({ 
-        type: 'EDIT_MEAL', 
+    yield put({
+        type: 'EDIT_MEAL',
         meal: {
             name,
             itemList,
             id,
-    }});
+        }
+    });
 };
 
-function* deleteMealAsync({ id = '' }) {
+function* deleteMeal({ id = '' }) {
     yield database.ref(`meals/${id}`).remove();
 
-    yield put ({
+    yield put({
         type: 'DELETE_MEAL',
         id,
     });
 }
 
-function* setMealAsync() {
+function* setMeal() {
     const meals = [];
     yield database.ref('meals').once('value').then((snapshot) => {
         snapshot.forEach((childSnapshot) => {
@@ -65,7 +67,7 @@ function* setMealAsync() {
                     unit: item.val().unit,
                 });
             });
-            
+
             meals.push({
                 id: childSnapshot.key,
                 name: childSnapshot.val().name,
@@ -77,18 +79,18 @@ function* setMealAsync() {
     yield put({ type: 'SET_MEAL', meals });
 };
 
-export function* watchAddMealAsync() {
-    yield takeEvery('ADD_MEAL_ASYNC', addMealAsync);
+export function* watchAddMeal() {
+    yield takeEvery('ON_ADD_MEAL', addMeal);
 };
 
-export function* watchEditMealAsync() {
-    yield takeEvery('EDIT_MEAL_ASYNC', editMealAsync);
+export function* watchEditMeal() {
+    yield takeEvery('ON_EDIT_MEAL', editMeal);
 };
 
-export function* watchDeleteMealAsync() {
-    yield takeEvery('DELETE_MEAL_ASYNC', deleteMealAsync);
+export function* watchDeleteMeal() {
+    yield takeEvery('ON_DELETE_MEAL', deleteMeal);
 };
 
-export function* watchSetMealAsync() {
-    yield takeEvery('SET_MEAL_ASYNC', setMealAsync);
+export function* watchSetMeal() {
+    yield takeEvery('ON_SET_MEAL', setMeal);
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GroceryForm from '../components/grocery/GroceryForm';
 import GroceryItems from '../components/grocery/GroceryItems';
-import { onAddGroceryAsync, onEditGroceryAsync } from '../actions/grocery';
+import { onAddGrocery, onEditGrocery } from '../actions/grocery';
 
 export class GroceryPage extends Component {
     constructor(props) {
@@ -74,7 +74,7 @@ export class GroceryPage extends Component {
                         meals={this.props.meals}
                         groceryId={this.props.grocery ? this.props.grocery.id : ''}
                         title={this.props.grocery ? 'Edit Grocery List' : 'Create Grocery List'}
-                        updateGrocery={this.props.grocery ? this.props.onEditGroceryAsync : this.props.onAddGroceryAsync}
+                        updateGrocery={this.props.grocery ? this.props.onEditGrocery : this.props.onAddGrocery}
                     />
                     <GroceryItems
                         groceryName={this.state.groceryName}
@@ -100,8 +100,8 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onEditGroceryAsync: (data) => dispatch(onEditGroceryAsync(data)),
-        onAddGroceryAsync: (data) => dispatch(onAddGroceryAsync(data)),
+        onEditGrocery: (data) => dispatch(onEditGrocery(data)),
+        onAddGrocery: (data) => dispatch(onAddGrocery(data)),
     }
 }
 

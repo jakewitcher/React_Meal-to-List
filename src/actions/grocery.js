@@ -1,29 +1,29 @@
-export const onAddGroceryAsync = (
+export const onAddGrocery = (
     {
         name = '',
         items = [],
     } = {}
 ) => ({
-    type: 'ADD_GROCERY_ASYNC',
+    type: 'ON_ADD_GROCERY',
     grocery: {
         name,
         items,
     }
 });
 
-export const onDeleteGroceryAsync = (id = '') => ({
-    type: 'DELETE_GROCERY_ASYNC',
+export const onDeleteGrocery = (id = '') => ({
+    type: 'ON_DELETE_GROCERY',
     id,
 });
 
-export const onEditGroceryAsync = (
+export const onEditGrocery = (
     {
         name = '',
         id = '',
         items = [],
     } = {}
 ) => ({
-    type: 'EDIT_GROCERY_ASYNC',
+    type: 'ON_EDIT_GROCERY',
     grocery: {
         id,
         name,
@@ -31,6 +31,6 @@ export const onEditGroceryAsync = (
     }
 });
 
-export const onSetGroceryAsync = () => ({
-    type: 'SET_GROCERY_ASYNC',
+export const onSetGrocery = () => ({
+    type: 'ON_SET_GROCERY',
 });
