@@ -10,7 +10,7 @@ exports[`should render MealPage correctly 1`] = `
       groceryId=""
       groceryName=""
       groceryNameChange={[Function]}
-      itemsList={Array []}
+      itemList={Array []}
       meals={
         Object {
           "mealList": Array [
@@ -153,7 +153,7 @@ exports[`should render MealPage correctly 1`] = `
       deleteGroceryItem={[Function]}
       groceryName=""
       isDetails={false}
-      itemsList={Array []}
+      itemList={Array []}
     />
   </div>
 </div>

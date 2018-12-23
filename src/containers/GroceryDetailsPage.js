@@ -5,9 +5,9 @@ import GroceryItems from '../components/grocery/GroceryItems';
 export const GroceryDetailsPage = (props) => {
     return (
         <div>
-            <GroceryItems 
+            <GroceryItems
                 groceryName={props.grocery.name}
-                itemsList={props.grocery.items}
+                itemList={props.grocery.itemList}
                 isDetails={true}
             />
         </div>

@@ -1,13 +1,13 @@
 export const onAddGrocery = (
     {
         name = '',
-        items = [],
+        itemList = [],
     } = {}
 ) => ({
     type: 'ON_ADD_GROCERY',
     grocery: {
         name,
-        items,
+        itemList,
     }
 });
 
@@ -20,14 +20,14 @@ export const onEditGrocery = (
     {
         name = '',
         id = '',
-        items = [],
+        itemList = [],
     } = {}
 ) => ({
     type: 'ON_EDIT_GROCERY',
     grocery: {
         id,
         name,
-        items,
+        itemList,
     }
 });
 

@@ -16,12 +16,12 @@ export class MealPage extends Component {
             unit: 'pound',
             itemList: props.meal ? props.meal.itemList : [],
         };
-    }
+    };
 
     deleteMealItem = (name) => {
-        const newMealList = this.state.itemList.filter(item => item.itemName !== name);
+        const updateMealList = this.state.itemList.filter(item => item.itemName !== name);
         this.setState({
-            itemList: newMealList,
+            itemList: updateMealList,
         });
     };
 
@@ -31,7 +31,7 @@ export class MealPage extends Component {
             itemName: selectedItem.itemName,
             amount: selectedItem.amount,
             unit: selectedItem.unit,
-        })
+        });
     };
 
     mealNameChange = (e) => {

@@ -5,7 +5,7 @@ import { groceryLists } from '../fixtures/grocery';
 
 test('should render MealItems correctly', () => {
     const groceryName = groceryLists[0].name;
-    const itemsList = groceryLists[0].items;
-    const wrapper = shallow(<GroceryItems mealName={groceryName} itemsList={itemsList} />);
+    const itemList = groceryLists[0].items;
+    const wrapper = shallow(<GroceryItems mealName={groceryName} itemList={itemList} />);
     expect(wrapper).toMatchSnapshot();
 });

@@ -10,22 +10,22 @@ export class GroceryPage extends Component {
         this.state = {
             groceryName: props.grocery ? props.grocery.name : '',
             selectedMeal: props.meals.mealList[0] || {},
-            itemsList: props.grocery ? props.grocery.items : [],
+            itemList: props.grocery ? props.grocery.items : [],
         }
     }
 
     deleteGroceryItem = (name) => {
-        const newGroceryList = this.state.itemsList.filter(item => item.itemName !== name);
+        const newGroceryList = this.state.itemList.filter(item => item.itemName !== name);
         this.setState({
-            itemsList: newGroceryList,
+            itemList: newGroceryList,
         });
     };
 
     addMealToList = () => {
-        const { itemsList, selectedMeal } = this.state;
-        const listCopy = itemsList.map(i => Object.assign({}, i));
+        const { itemList, selectedMeal } = this.state;
+        const listCopy = itemList.map(i => Object.assign({}, i));
 
-        const combinedItemsList = selectedMeal.itemList.reduce((list, item) => {
+        const combinedItemList = selectedMeal.itemList.reduce((list, item) => {
             const itemFound = list.find(i => i.itemName === item.itemName)
             if (itemFound) {
                 itemFound.amount = Number(item.amount) + Number(itemFound.amount);
@@ -37,7 +37,7 @@ export class GroceryPage extends Component {
         }, listCopy);
 
         this.setState({
-            itemsList: combinedItemsList,
+            itemList: combinedItemList,
             selectedMeal: this.props.meals.mealList[0],
         });
     };
@@ -57,7 +57,7 @@ export class GroceryPage extends Component {
     };
 
     resetGrocery = () => {
-        this.setState({ groceryName: "", itemsList: [] });
+        this.setState({ groceryName: "", itemList: [] });
     }
     render() {
         return (
@@ -66,7 +66,7 @@ export class GroceryPage extends Component {
                     <GroceryForm
                         selectedMeal={this.state.selectedMeal}
                         groceryName={this.state.groceryName}
-                        itemsList={this.state.itemsList}
+                        itemList={this.state.itemList}
                         selectedMealChange={this.selectedMealChange}
                         groceryNameChange={this.groceryNameChange}
                         addMealToList={this.addMealToList}
@@ -78,7 +78,7 @@ export class GroceryPage extends Component {
                     />
                     <GroceryItems
                         groceryName={this.state.groceryName}
-                        itemsList={this.state.itemsList}
+                        itemList={this.state.itemList}
                         deleteGroceryItem={this.deleteGroceryItem}
                         isDetails={false}
                     />

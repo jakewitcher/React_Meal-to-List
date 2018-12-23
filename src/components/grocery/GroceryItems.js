@@ -2,14 +2,14 @@ import React from 'react';
 import GroceryItem from './GroceryItem';
 
 const GroceryItems = (props) => {
-    const { groceryName, itemsList, deleteGroceryItem, isDetails } = props;
+    const { groceryName, itemList, deleteGroceryItem, isDetails } = props;
     return (
         <div className="itemlist">
             <h1 className="itemlist__header">{groceryName || 'New Grocery List'}</h1>
-            {itemsList.length > 0 && <ul className="itemlist__body">
-                {itemsList.map(item => {
+            {itemList.length > 0 && <ul className="itemlist__body">
+                {itemList.map(item => {
                     return (
-                        <GroceryItem 
+                        <GroceryItem
                             item={item}
                             deleteGroceryItem={deleteGroceryItem}
                             key={item.itemName}

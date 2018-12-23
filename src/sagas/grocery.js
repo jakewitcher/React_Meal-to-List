@@ -12,10 +12,10 @@ const formatItemList = (list) => {
 };
 
 function* addGrocery({ grocery = {} }) {
-    const { items, name } = grocery;
-    const itemList = formatItemList(items);
+    const { itemList, name } = grocery;
+    const items = formatItemList(itemList);
     let id;
-    yield database.ref('groceryLists').push({ name, itemList }).then((ref) => {
+    yield database.ref('groceryLists').push({ name, items }).then((ref) => {
         id = ref.key;
     });
 
@@ -23,23 +23,23 @@ function* addGrocery({ grocery = {} }) {
         type: 'ADD_GROCERY',
         grocery: {
             name,
-            items,
+            itemList,
             id,
         }
     });
 };
 
 function* editGrocery({ grocery = {} }) {
-    const { items, name, id } = grocery;
-    const itemList = formatItemList(items);
+    const { itemList, name, id } = grocery;
+    const items = formatItemList(itemList);
 
-    yield database.ref(`groceryLists/${id}`).update({ name, itemList });
+    yield database.ref(`groceryLists/${id}`).update({ name, items });
 
     yield put({
         type: 'EDIT_GROCERY',
         grocery: {
             name,
-            items,
+            itemList,
             id,
         }
     });
@@ -58,9 +58,9 @@ function* setGrocery() {
     const lists = [];
     yield database.ref('groceryLists').once('value').then((snapshot) => {
         snapshot.forEach((childSnapshot) => {
-            const items = [];
-            childSnapshot.child('itemList').forEach((item) => {
-                items.push({
+            const itemList = [];
+            childSnapshot.child('items').forEach((item) => {
+                itemList.push({
                     itemName: item.key,
                     amount: item.val().amount,
                     unit: item.val().unit,
@@ -70,7 +70,7 @@ function* setGrocery() {
             lists.push({
                 id: childSnapshot.key,
                 name: childSnapshot.val().name,
-                items,
+                itemList,
             });
         });
     });

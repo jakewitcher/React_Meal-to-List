@@ -1,16 +1,16 @@
 import { onAddGrocery, onDeleteGrocery, onEditGrocery, onSetGrocery } from '../../actions/grocery';
 
-const items = [{ name: 'bacon', amount: 2, unit: 'pounds' }, { name: 'waffles', amount: 12, unit: 'items' }];
+const itemList = [{ name: 'bacon', amount: 2, unit: 'pounds' }, { name: 'waffles', amount: 12, unit: 'items' }];
 const name = 'Monday Meals';
 const id = '123wasd';
 
 test('should generate add grocery action object', () => {
-    const action = onAddGrocery({ name, items });
+    const action = onAddGrocery({ name, itemList });
     expect(action).toEqual({
         type: 'ON_ADD_GROCERY',
         grocery: {
             name,
-            items,
+            itemList,
         }
     });
 });
@@ -24,13 +24,13 @@ test('should generate delete grocery action object', () => {
 });
 
 test('should generate edit grocery action object', () => {
-    const action = onEditGrocery({ name, items, id });
+    const action = onEditGrocery({ name, itemList, id });
     expect(action).toEqual({
         type: 'ON_EDIT_GROCERY',
         grocery: {
             id,
             name,
-            items,
+            itemList,
         }
     });
 });

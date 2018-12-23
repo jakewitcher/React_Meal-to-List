@@ -6,7 +6,7 @@ const GroceryForm = (props) => {
         selectedMeal,
         meals,
         groceryName,
-        itemsList,
+        itemList,
         groceryNameChange,
         addMealToList,
         resetGrocery,
@@ -15,10 +15,10 @@ const GroceryForm = (props) => {
         groceryId,
     } = props;
 
-    const handleGroceryChange = (name, id, items) => {
+    const handleGroceryChange = (name, id, itemList) => {
         updateGrocery({
             name,
-            items,
+            itemList,
             id,
         });
         resetGrocery();
@@ -63,7 +63,7 @@ const GroceryForm = (props) => {
                 <div>
                     <button
                         className="form__button--save"
-                        onClick={() => handleGroceryChange(groceryName, groceryId, itemsList)}
+                        onClick={() => handleGroceryChange(groceryName, groceryId, itemList)}
                     >
                         Save Grocery List
                 </button>
