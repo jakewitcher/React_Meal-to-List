@@ -1,28 +1,30 @@
 button {
     border: none;
     border-radius: 3px;
-    font-family: $sans-serif;
+    font-family: $text;
     padding: 5px;
   }
   
   .form {
     background: $gray-2;
     box-shadow: 0 0 5px $gray-6;
-    margin: $l-size;
-    width: 30%;
+    grid-column: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    margin: 0 $size-4;
   }
   
   .form__form {
-    padding: $s-size;
+    padding: $size-2;
   }
   
   .form__button {
     display: flex;
-    margin-top: $s-size;
+    margin-top: $size-2;
   }
   
   .form__button--save {
-    background: $green-6;
+    background: $primary-6;
     box-shadow: 0 0 5px $gray-8;
     color: $gray-1;
     width: 100%;
@@ -36,29 +38,29 @@ button {
   
   .form__header {
     color: $gray-8;
-    font-family: $sans-serif;
-    font-size: $ml-size;
+    font-family: $text;
+    font-size: $size-7;
     margin: 0;
-    padding: $s-size $l-size;
+    padding: $size-2 $size-8;
   }
   
   .form__iteminputfields {
     color: $gray-8;
     display: flex;
     flex-direction: column;
-    font-family: $sans-serif;
-    font-size: $sm-size;
+    font-family: $text;
+    font-size: $size-4;
     font-weight: bold;
-    margin: $s-size;
-    padding: $s-size;
+    margin: $size-2;
+    padding: $size-2;
   }
   
   .form__iteminputfields--input {
     border: none;
     color: $gray-8;
-    font-family: $sans-serif;
-    height: $m-size;
-    margin: $m-size;
+    font-family: $text;
+    height: $size-5;
+    margin: $size-5;
     width: 100%;
   }
   
@@ -68,16 +70,16 @@ button {
   }
   
   .form__iteminputfields--dropdown {
-    font-family: $sans-serif;
-    height: $ml-size;
+    font-family: $text;
+    height: $size-7;
   }
   
   .form__nameinputfield {
     color: $gray-8;
     display: flex;
     flex-direction: column;
-    font-family: $sans-serif;
-    font-size: $sm-size;
+    font-family: $text;
+    font-size: $size-4;
     font-weight: bold;
     padding: 0;
   }
@@ -85,9 +87,9 @@ button {
   .form__nameinputfield--input {
     border: none;
     color: $gray-8;
-    font-family: $sans-serif;
-    height: $m-size;
-    margin: $m-size;
+    font-family: $text;
+    height: $size-5;
+    margin: $size-5;
   }
   
   .form__nameinputfield--input:focus {

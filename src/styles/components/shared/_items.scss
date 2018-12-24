@@ -4,19 +4,22 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    margin: $l-size;
+    grid-column: 3;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    margin: $size-8;
   }
   
   .itemlist__header {
     color: $gray-8;
-    font-family: $sans-serif;
-    font-size: $ml-size;
+    font-family: $text;
+    font-size: $size-7;
     margin: 0;
-    padding: $s-size $l-size;
+    padding: $size-2 $size-8;
   }
   
   .itemlist__body {
-    margin: $s-size;
+    margin: $size-2;
     padding: 0;
   }
   
@@ -27,14 +30,14 @@
     box-sizing: border-box;
     color: $gray-8;
     display: flex;
-    font-size: $s-size;
+    font-size: $size-2;
     justify-content: space-around;
     margin: 0;
     padding: 0;
   }
   
-  @media (min-width: $tablet-breakpoint) {
+  @media (max-width: $breakpoint-2) {
     .itemlist {
-      margin: 0 0 0 $s-size;
+      margin: 0 0 0 $size-2;
     }
   }

@@ -1,13 +1,11 @@
 .meal {
-    display: flex;
-    flex-direction: column;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+    display: grid;
+    grid-template-columns: auto $size-13 $size-14 auto;
+    grid-template-rows: $size-4 $size-9 $size-13 $size-13 $size-9 auto; 
+}
   
-  @media (min-width: $tablet-breakpoint) {
-    .meal {
-      flex-direction: row;
-    }
-  }
+// @media (max-width: $breakpoint-2) {
+//   .meal {
+//     flex-direction: row;
+//   }
+// }
