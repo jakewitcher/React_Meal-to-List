@@ -1,49 +1,107 @@
+// =========================================================
 // colors
+// =========================================================
 
 // gray scale
-$gray-1: #FCFCFC;
-$gray-2: #E2E3E2;
-$gray-3: #C0C3C0;
-$gray-4: #A6AAA6;
-$gray-5: #7B837C;
-$gray-6: #646B65;
-$gray-7: #4D504D;
-$gray-8: #363937;
-$gray-9: #1B1C1B;
+$white: white;
+$gray-1: hsl(35, 5%, 98%);
+$gray-2: hsl(35, 5%, 90%);
+$gray-3: hsl(35, 5%, 80%);
+$gray-4: hsl(35, 5%, 65%);
+$gray-5: hsl(35, 5%, 50%);
+$gray-6: hsl(35, 5%, 40%);
+$gray-7: hsl(35, 5%, 30%);
+$gray-8: hsl(35, 5%, 20%);
+$gray-9: hsl(35, 5%, 10%);
 
 // primary
-$green-1: #CCEACF;
-$green-2: #A8DBAD;
-$green-3: #83CC8B;
-$green-4: #5FBD69;
-$green-5: #44A64D;
-$green-6: #35823C;
-$green-7: #17391B;
-$green-8: #08150A;
+$primary-1: hsl(45, 85%, 90%);
+$primary-2: hsl(45, 75%, 85%);
+$primary-3: hsl(40, 75%, 80%);
+$primary-4: hsl(40, 65%, 65%);
+$primary-5: hsl(35, 55%, 50%);
+$primary-6: hsl(35, 65%, 40%);
+$primary-7: hsl(35, 75%, 30%);
+$primary-8: hsl(40, 85%, 20%);
+$primary-9: hsl(45, 85%, 10%);
 
-// old colors
-$dk-blue: #467077;
-$light-beige: #e8e4de;
-$light-blue: #9dbdc4;
-$light-orange: #edcea1;
-$md-orange: #dbb67f;
-$md-brown: #7a5a2c;
-$off-white: #f7f4ef;
-$white: white;
+// secondary
+$secondary-1: hsl(180, 85%, 90%);
+$secondary-2: hsl(180, 75%, 85%);
+$secondary-3: hsl(185, 75%, 80%);
+$secondary-4: hsl(185, 65%, 65%);
+$secondary-5: hsl(185, 55%, 50%);
+$secondary-6: hsl(185, 65%, 40%);
+$secondary-7: hsl(185, 75%, 30%);
+$secondary-8: hsl(180, 85%, 20%);
+$secondary-9: hsl(180, 85%, 10%);
 
+// go
+$go-1: hsl(160, 85%, 90%);
+$go-3: hsl(155, 75%, 80%);
+$go-5: hsl(150, 55%, 50%);
+$go-7: hsl(155, 75%, 30%);
+$go-9: hsl(160, 85%, 10%);
+
+// yield
+$yield-1: hsl(60, 85%, 90%);
+$yield-3: hsl(55, 75%, 80%);
+$yield-5: hsl(50, 55%, 50%);
+$yield-7: hsl(55, 75%, 30%);
+$yield-9: hsl(60, 85%, 10%);
+
+// stop
+$stop-1: hsl(20, 85%, 90%);
+$stop-3: hsl(20, 75%, 85%);
+$stop-5: hsl(10, 55%, 50%);
+$stop-7: hsl(15, 75%, 30%);
+$stop-9: hsl(20, 85%, 10%);
+
+// =========================================================
 //spacing
-$s-size: 1.2rem;
-$sm-size: 1.4rem;
-$m-size: 1.6rem;
-$ml-size: 2.4rem;
-$l-size: 3.2rem;
-$xl-size: 4.8rem;
-$xxl-size: 6.0rem;
+// =========================================================
+$size-1: 0.4rem;
+$size-2: 0.8rem;
+$size-3: 1.2rem;
+$size-4: 1.6rem;
+$size-5: 2.4rem;
+$size-6: 3.2rem;
+$size-7: 4.8rem;
+$size-8: 6.4rem;
+$size-9: 9.6rem;
+$size-10: 12.8rem;
+$size-11: 19.2rem;
+$size-12: 25.6rem;
+$size-13: 38.4rem;
+$size-14: 51.2rem;
+$size-15: 64.0rem;
+$size-16: 76.8rem;
 
+// =========================================================
+// shadows
+// =========================================================
+$shadow-1: 0 1px 3px hsla(0, 0%, 0%, .12), 0 1px 2px hsla(0, 0%, 0%, .24);
+$shadow-2: 0 3px 6px hsla(0, 0%, 0%, .15), 0 2px 4px hsla(0, 0%, 0%, .12);
+$shadow-3: 0 10px 20px hsla(0, 0%, 0%, .15), 0 3px 6px hsla(0, 0%, 0%, .10);
+$shadow-4: 0 15px 25px hsla(0, 0%, 0%, .15), 0 5px 10px hsla(0, 0%, 0%, .5);
+$shadow-5: 0 20px 40px hsla(0, 0%, 0%, .2);
+
+// =========================================================
+// border radius
+// =========================================================
+$radius-1: 1.0rem;
+$radius-2: 2.0rem;
+
+// =========================================================
 // screen sizes
-$tablet-breakpoint: 40rem;
-$desktop-breakpoint: 70rem;
+// =========================================================
+$breakpoint-1: 57.6rem;
+$breakpoint-2: 76.8rem;
+$breakpoint-3: 99.2rem;
+$breakpoint-4: 120rem;
 
+// =========================================================
 // fonts
-$serif: 'Playfair Display', serif;
-$sans-serif: 'Open Sans', sans-serif;
+// =========================================================
+$header: 'Roboto', sans-serif;
+$text: 'Raleway', sans-serif;
