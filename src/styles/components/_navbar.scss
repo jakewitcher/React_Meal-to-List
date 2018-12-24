@@ -18,9 +18,10 @@
     text-decoration: none;
 }
 
-.navbar__brand:hover {
+.navbar__brand:hover, .navbar__brand:focus {
     border-bottom: 2px solid $secondary-4;
     margin-bottom: -2px;
+    outline: none;
 }
 
 .navbar__link {
@@ -31,9 +32,10 @@
     text-decoration: none;
 }
 
-.navbar__link:hover {
+.navbar__link:hover, .navbar__link:focus {
     border-bottom: 2px solid $secondary-4;
     margin-bottom: -2px;
+    outline: none;
 }
 
 .navbar__link--show {
@@ -75,20 +77,22 @@
         padding-left: $size-2;
     }
 
-    .navbar__brand:hover {
+    .navbar__brand:hover, .navbar__brand:focus {
         border-bottom: none;
         border-left: 3px solid $secondary-4;
         margin-bottom: $size-2;
         margin-left: 7px;
+        outline: none;
     }
 
     .navbar__link {
         display: none;
     }
 
-    .navbar__link--show:hover {
+    .navbar__link--show:hover, .navbar__link--show:focus {
         border-left: 3px solid $secondary-4;
         margin-left: 7px;
+        outline: none;
     }
 
     .navbar__hamburger {

@@ -1,7 +1,7 @@
 .meal {
     display: grid;
-    grid-template-columns: auto $size-13 $size-14 auto;
-    grid-template-rows: $size-4 $size-9 $size-13 $size-13 $size-9 auto; 
+    grid-template-columns: auto $size-14 $size-16 auto;
+    grid-template-rows: $size-3 $size-6 $size-12 32rem $size-9 auto; 
 }
   
 // @media (max-width: $breakpoint-2) {
