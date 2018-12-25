@@ -5,7 +5,7 @@ button {
   }
   
   .form {
-    background: $primary-5;
+    background: $gray-3;
     border-radius: $radius-1;
     box-shadow: $shadow-3;
     display: grid;
@@ -19,13 +19,15 @@ button {
   }
   
   .form__nameinputfield {
-    color: $white;
+    color: $gray-9;
     display: flex;
     flex-direction: column;
     font-family: $text;
     font-size: $size-3;
+    font-weight: bold;
     grid-column: 1;
     grid-row: 1;
+    letter-spacing: .1rem;
     margin: 0 $size-3 $size-2 $size-3;
     padding: 0;
   }
@@ -34,11 +36,11 @@ button {
     border: none;
     border-radius: $radius-1;
     box-shadow: $shadow-1;
-    color: $primary-9;
+    color: $gray-9;
     font-family: $text;
     height: $size-4;
     margin: 0;
-    padding: $size-1;
+    padding: $size-1 $size-2;
   }
   
   .form__nameinputfield--input:focus {
@@ -47,11 +49,13 @@ button {
   }
   
   .form__iteminputfields {
-    color: $white;
+    color: $gray-9;
     display: flex;
     flex-direction: column;
     font-family: $text;
     font-size: $size-3;
+    font-weight: bold;
+    letter-spacing: .1rem;
     margin: 0 $size-3 $size-2 $size-3;
     padding: 0;
   }
@@ -60,11 +64,11 @@ button {
     border: none;
     border-radius: $radius-1;
     box-shadow: $shadow-1;
-    color: $primary-9;
+    color: $gray-9;
     font-family: $text;
     height: $size-4;
     margin: 0;
-    padding: $size-1;
+    padding: $size-1 $size-2;
   }
   
   .form__iteminputfields--input:focus {
@@ -101,7 +105,7 @@ button {
   }
 
   .form__button--item-button {
-    background: $primary-7;
+    background: $gray-4;
     box-shadow: $shadow-2;
     color: $gray-1;
     padding: $size-1 $size-7;
@@ -121,10 +125,10 @@ button {
   }
   
   .form__button--meal-button {
-    background: $secondary-5;
+    background: $primary-5;
     box-shadow: $shadow-3;
-    color: $secondary-9;
-    font-size: $size-4;
+    color: $white;
+    font-size: $size-5;
     font-weight: bold;
     padding: $size-3;
   }
@@ -132,4 +136,16 @@ button {
   .form__button--meal-button:focus {
     box-shadow: $shadow-4;
     outline: none;
+  }
+
+  @media (max-width: $breakpoint-2) {
+    .form {
+      margin: $size-6 $size-12;
+    }
+  }
+
+  @media (max-width: $breakpoint-1) {
+    .form {
+      margin: $size-4;
+    }
   }

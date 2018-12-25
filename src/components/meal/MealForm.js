@@ -24,7 +24,7 @@ const MealForm = (props) => {
         return `${unitType}s`
     };
 
-    const handleMealChange = (name, id, list) => {
+    const handleMealChange = (name, id, itemList) => {
         updateMeal({
             name,
             itemList,

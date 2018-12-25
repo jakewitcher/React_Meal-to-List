@@ -13,7 +13,7 @@ export class MealPage extends Component {
             mealName: props.meal ? props.meal.name : '',
             itemName: '',
             amount: '',
-            unit: 'pound',
+            unit: '',
             itemList: props.meal ? props.meal.itemList : [],
         };
     };
@@ -82,7 +82,6 @@ export class MealPage extends Component {
         this.setState({
             itemName: '',
             amount: '',
-            unit: 'pound',
             itemList: [...itemList, newItem]
         });
     }

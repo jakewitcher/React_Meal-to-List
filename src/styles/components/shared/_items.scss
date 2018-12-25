@@ -1,43 +1,110 @@
 .itemlist {
-    background: $gray-2;
-    box-shadow: 0 0 5px $gray-6;
+    background: $gray-1;
+    border-radius: $radius-1;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     grid-column: 3;
     grid-row-start: 2;
     grid-row-end: 6;
-    margin: $size-8;
+    margin: 0 $size-4;
+    padding: $size-2 $size-5;
   }
   
   .itemlist__header {
-    color: $gray-8;
-    font-family: $text;
-    font-size: $size-7;
-    margin: 0;
-    padding: $size-2 $size-8;
+    background-color: $gray-2;
+    border-radius: $radius-2;
+    box-shadow: $shadow-3;
+    color: $gray-7;
+    font-family: $header;
+    font-size: $size-5;
+    letter-spacing: .1rem;
+    margin: $size-3 $size-3;
+    padding: $size-2 $size-4;
   }
   
   .itemlist__body {
+    display: flex;
+    flex-wrap: wrap;
     margin: $size-2;
-    padding: 0;
+    padding: 0 $size-2;
   }
   
   .itemlist__item {
-    background: $gray-1;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: $gray-8;
+    background: $white;
+    border-radius: $radius-1;
+    box-shadow: $shadow-3;
     display: flex;
-    font-size: $size-2;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+    margin: $size-2 $size-2;
+    padding: $size-2 $size-4;
+    width: $size-10;
+  }
+
+  .item__name {
+    color: $secondary-5;
+    display: flex;
+    font-family: $text;
+    font-size: $size-4;
+    font-weight: bold;
+    letter-spacing: .1rem;
     margin: 0;
     padding: 0;
+  }
+  
+  .item__amount {
+    color: $gray-7;
+    display: flex;
+    font-family: $text;
+    font-size: $size-3;
+    margin: $size-1 0 0 0;
+    padding: 0;
+  }
+
+  .item__update {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: $size-4;
+  }
+
+  .item__update--edit {
+    color: $gray-4;
+    font-size: $size-3;
+    margin: 0 0 0 $size-1;
+  }
+
+  .item__update--delete {
+    color: $primary-3;
+    font-size: $size-3;
+    margin: 0 0 0 $size-1;
   }
   
   @media (max-width: $breakpoint-2) {
     .itemlist {
-      margin: 0 0 0 $size-2;
+      margin: $size-6 $size-12;
+      padding: 0;
+    }
+
+    .itemlist__header {
+      margin: 0;
+    }
+
+    .itemlist__body {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      padding: 0;
+    }
+
+    .itemlist__item {
+      margin: $size-1 0;
+      width: auto;
+    }
+  }
+
+  @media (max-width: $breakpoint-1) {
+    .itemlist {
+      margin: $size-4;
+      padding: 0;
     }
   }
