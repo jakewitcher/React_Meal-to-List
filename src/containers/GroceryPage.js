@@ -10,7 +10,7 @@ export class GroceryPage extends Component {
         this.state = {
             groceryName: props.grocery ? props.grocery.name : '',
             selectedMeal: props.meals.mealList[0] || {},
-            itemList: props.grocery ? props.grocery.items : [],
+            itemList: props.grocery ? props.grocery.itemList : [],
         }
     }
 
