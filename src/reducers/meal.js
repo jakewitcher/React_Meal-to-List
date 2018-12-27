@@ -1,5 +1,3 @@
-// import { mealDefaultState } from './seed';
-
 const mealDefaultState = [];
 
 export default (state = { mealList: mealDefaultState }, action) => {
@@ -31,7 +29,7 @@ export default (state = { mealList: mealDefaultState }, action) => {
 
         case 'SET_MEAL':
             return {
-                mealList: action.meals 
+                mealList: action.meals
             };
 
         default:

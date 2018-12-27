@@ -74,6 +74,7 @@ const MealForm = (props) => {
                     value={unit}
                     onChange={unitChange}
                 >
+                    <option value={''}>{'none'}</option>
                     <option value={pluralUnitValue(amount, 'pound')}>{pluralUnitValue(amount, 'pound')}</option>
                     <option value={pluralUnitValue(amount, 'ounce')}>{pluralUnitValue(amount, 'ounce')}</option>
                     <option value={pluralUnitValue(amount, 'gallon')}>{pluralUnitValue(amount, 'gallon')}</option>

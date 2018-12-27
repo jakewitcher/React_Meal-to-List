@@ -1,5 +1,3 @@
-// import { groceryDefaultState } from './seed';
-
 const groceryDefaultState = [];
 
 export default (state = { groceryList: groceryDefaultState }, action) => {
@@ -26,7 +24,7 @@ export default (state = { groceryList: groceryDefaultState }, action) => {
             return {
                 groceryList: editedGroceryList,
             };
-        case 'SET_GROCERY': 
+        case 'SET_GROCERY':
             return {
                 groceryList: action.lists,
             }

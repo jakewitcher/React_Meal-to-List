@@ -1,5 +1,3 @@
-// import { itemsAllDefaultState } from './seed';
-
 const itemsAllDefaultState = [];
 
 export default (state = { itemsAll: itemsAllDefaultState }, action) => {

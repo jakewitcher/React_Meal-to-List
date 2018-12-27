@@ -1,18 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { onStartLogin } from '../actions/auth';
 
-const LandingPage = () => {
+const LandingPage = (props) => {
     return (
-        <div class="container container__landingpage">
+        <div className="container container__landingpage">
             <div className="landingpage">
                 <h1 className="landingpage__title">Meal to List</h1>
                 <h3 className="landingpage__subtitle">Meal Planning Made Easy</h3>
-                <Link to="meals/create" className="landingpage__button--div">
-                    <button className="landingpage__button">Get started!</button>
-                </Link>
+                <div className="landingpage__button--div">
+                    <button
+                        className="landingpage__button"
+                        onClick={props.onStartLogin}
+                    >Login with Google</button>
+                </div>
             </div>
         </div>
     );
 }
 
-export default LandingPage;
+const mapDispatchToProps = (dispatch) => ({
+    onStartLogin: () => dispatch(onStartLogin())
+});
+
+export default connect(undefined, mapDispatchToProps)(LandingPage);
