@@ -29,7 +29,7 @@ export class MealPage extends Component {
         const selectedItem = this.state.itemList.filter(item => item.itemName === name)[0];
         this.setState({
             itemName: selectedItem.itemName,
-            amount: selectedItem.amount,
+            amount: selectedItem.amount.toString(),
             unit: selectedItem.unit,
         });
     };
@@ -64,6 +64,7 @@ export class MealPage extends Component {
     addItem = () => {
         let { itemName, amount, unit, itemList } = this.state;
         const { items } = this.props;
+        amount = parseFloat(amount);
 
         if (!this.findItem(itemName, items.itemsAll.map(i => i.name))) {
             this.props.onAddItem(itemName);

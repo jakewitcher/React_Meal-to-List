@@ -1,9 +1,12 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, select } from 'redux-saga/effects';
 import database from '../firebase/firebase';
+
+const getUserId = (state) => state.auth.uid;
 
 function* addItem({ name = '' }) {
     let id;
-    yield database.ref('itemsAll').push({ name }).then((ref) => {
+    const uid = yield select(getUserId);
+    yield database.ref(`users/${uid}/itemsAll`).push({ name }).then((ref) => {
         id = ref.key;
     });
 
@@ -12,7 +15,8 @@ function* addItem({ name = '' }) {
 
 function* setItem() {
     const items = [];
-    yield database.ref('itemsAll').once('value').then((snapshot) => {
+    const uid = yield select(getUserId);
+    yield database.ref(`users/${uid}/itemsAll`).once('value').then((snapshot) => {
         snapshot.forEach((childSnapshot) => {
             items.push({
                 id: childSnapshot.key,

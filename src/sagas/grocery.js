@@ -1,5 +1,7 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, select } from 'redux-saga/effects';
 import database from '../firebase/firebase';
+
+const getUserId = (state) => state.auth.uid;
 
 const formatItemList = (list) => {
     return list.reduce((list, item) => {
@@ -14,8 +16,11 @@ const formatItemList = (list) => {
 function* addGrocery({ grocery = {} }) {
     const { itemList, name } = grocery;
     const items = formatItemList(itemList);
+
     let id;
-    yield database.ref('groceryLists').push({ name, items }).then((ref) => {
+    const uid = yield select(getUserId);
+
+    yield database.ref(`users/${uid}/groceryLists`).push({ name, items }).then((ref) => {
         id = ref.key;
     });
 
@@ -32,8 +37,9 @@ function* addGrocery({ grocery = {} }) {
 function* editGrocery({ grocery = {} }) {
     const { itemList, name, id } = grocery;
     const items = formatItemList(itemList);
+    const uid = yield select(getUserId);
 
-    yield database.ref(`groceryLists/${id}`).update({ name, items });
+    yield database.ref(`users/${uid}/groceryLists/${id}`).update({ name, items });
 
     yield put({
         type: 'EDIT_GROCERY',
@@ -46,7 +52,9 @@ function* editGrocery({ grocery = {} }) {
 };
 
 function* deleteGrocery({ id = '' }) {
-    yield database.ref(`groceryLists/${id}`).remove();
+    const uid = yield select(getUserId);
+    
+    yield database.ref(`users/${uid}/groceryLists/${id}`).remove();
 
     yield put({
         type: 'DELETE_GROCERY',
@@ -56,7 +64,9 @@ function* deleteGrocery({ id = '' }) {
 
 function* setGrocery() {
     const lists = [];
-    yield database.ref('groceryLists').once('value').then((snapshot) => {
+    const uid = yield select(getUserId);
+
+    yield database.ref(`users/${uid}/groceryLists`).once('value').then((snapshot) => {
         snapshot.forEach((childSnapshot) => {
             const itemList = [];
             childSnapshot.child('items').forEach((item) => {

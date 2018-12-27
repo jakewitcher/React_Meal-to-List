@@ -28,7 +28,7 @@ export class GroceryPage extends Component {
         const combinedItemList = selectedMeal.itemList.reduce((list, item) => {
             const itemFound = list.find(i => i.itemName === item.itemName)
             if (itemFound) {
-                itemFound.amount = Number(item.amount) + Number(itemFound.amount);
+                itemFound.amount = item.amount + itemFound.amount;
                 return list;
             }
 

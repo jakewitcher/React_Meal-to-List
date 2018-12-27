@@ -1,5 +1,7 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, select } from 'redux-saga/effects';
 import database from '../firebase/firebase';
+
+const getUserId = (state) => state.auth.uid;
 
 const formatItemList = (list) => {
     return list.reduce((list, item) => {
@@ -16,7 +18,8 @@ function* addMeal({ meal = {} } = {}) {
     const items = formatItemList(itemList);
 
     let id;
-    yield database.ref('meals').push({ name, items }).then((ref) => {
+    const uid = yield select(getUserId);
+    yield database.ref(`users/${uid}/meals`).push({ name, items }).then((ref) => {
         id = ref.key;
     });
 
@@ -33,8 +36,9 @@ function* addMeal({ meal = {} } = {}) {
 function* editMeal({ meal = {} }) {
     const { itemList, name, id } = meal;
     const items = formatItemList(itemList);
+    const uid = yield select(getUserId);
 
-    yield database.ref(`meals/${id}`).update({ name, items });
+    yield database.ref(`users/${uid}/meals/${id}`).update({ name, items });
 
     yield put({
         type: 'EDIT_MEAL',
@@ -47,7 +51,9 @@ function* editMeal({ meal = {} }) {
 };
 
 function* deleteMeal({ id = '' }) {
-    yield database.ref(`meals/${id}`).remove();
+    const uid = yield select(getUserId);
+
+    yield database.ref(`users/${uid}/meals/${id}`).remove();
 
     yield put({
         type: 'DELETE_MEAL',
@@ -57,7 +63,9 @@ function* deleteMeal({ id = '' }) {
 
 function* setMeal() {
     const meals = [];
-    yield database.ref('meals').once('value').then((snapshot) => {
+    const uid = yield select(getUserId);
+
+    yield database.ref(`users/${uid}/meals`).once('value').then((snapshot) => {
         snapshot.forEach((childSnapshot) => {
             const itemList = [];
             childSnapshot.child('items').forEach((item) => {
