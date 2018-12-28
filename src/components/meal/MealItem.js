@@ -11,13 +11,13 @@ const MealItem = (props) => {
                 !props.isDetails &&
                 <div className="item__update">
                     <i
-                        className="fas fa-edit item__update--edit"
+                        className="fas fa-edit item__update-edit"
                         onClick={() => {
                             props.itemToEdit(itemName);
                         }}
                     />
                     <i
-                        className="fas fa-trash item__update--delete"
+                        className="fas fa-trash item__update-delete"
                         onClick={() => props.deleteMealItem(itemName)}
                     />
                 </div>

@@ -4,20 +4,22 @@ import { Link } from 'react-router-dom';
 import { onDeleteGrocery } from '../../actions/grocery';
 
 export const Grocery = (props) => {
-    const { name, id } = props;
+    const { name, id, itemList } = props;
     return (
-        <div>
-            <Link to={`grocerylists/grocery-list/${id}`}>
-                <p>{name}</p>
+        <div className="list-type">
+            <Link className="list-type__link" to={`grocerylists/grocery-list/${id}`}>
+                <p className="list-type__name">{name}</p>
             </Link>
-
-            <Link to={`grocerylists/edit/${id}`}>
-                <i className="fas fa-edit" />
-            </Link>
-            <i
-                className="fas fa-trash"
-                onClick={() => props.onDeleteGrocery(id)}
-            />
+            <p className="list-type__details">number of items: <span className="list-type__details list-type__details--span">{itemList.length}</span></p>
+            <div className="list-type__update">
+                <Link className="list-type__link" to={`grocerylists/edit/${id}`}>
+                    <i className="list-type__edit fas fa-edit" />
+                </Link>
+                <i
+                    className="list-type__delete fas fa-trash"
+                    onClick={() => props.onDeleteGrocery(id)}
+                />
+            </div>
         </div>
     );
 }

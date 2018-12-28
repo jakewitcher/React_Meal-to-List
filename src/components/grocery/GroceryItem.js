@@ -11,7 +11,7 @@ const GroceryItem = (props) =>  {
                 !props.isDetails &&
                 <div className="item__update">
                     <i 
-                        className="fas fa-trash item__update--delete"
+                        className="fas fa-trash item__update-delete"
                         onClick={() => props.deleteGroceryItem(itemName)}    
                     />
                 </div>

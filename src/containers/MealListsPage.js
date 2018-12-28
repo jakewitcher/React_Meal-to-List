@@ -4,17 +4,19 @@ import Meal from '../components/meal/Meal';
 
 export const MealListsPage = (props) => {
     return (
-        <div>
-            {
-                props.meals.mealList.map(meal => {
-                    return <Meal
-                        name={meal.name}
-                        id={meal.id}
-                        key={meal.id}
-                    />
-                })
-            }
-
+        <div className="list__container">
+            <div className="list">
+                {
+                    props.meals.mealList.map(meal => {
+                        return <Meal
+                            name={meal.name}
+                            id={meal.id}
+                            itemList={meal.itemList}
+                            key={meal.id}
+                        />
+                    })
+                }
+            </div>
         </div>
     );
 }
