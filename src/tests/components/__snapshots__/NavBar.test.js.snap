@@ -63,5 +63,8 @@ exports[`should render NavBar correctly 1`] = `
       Create a New Grocery List
     </p>
   </NavLink>
+  <button>
+    Logout
+  </button>
 </div>
 `;

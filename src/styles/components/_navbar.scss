@@ -54,6 +54,22 @@
     text-decoration: none;
 }
 
+.navbar__link-button {
+    background: none;
+    border: none;
+    font-family: $text;
+    font-weight: $size-4;
+    padding: $size-4;
+    @media(max-width: $breakpoint-2) {
+      margin-bottom: $size-5;
+      padding-left: $size-2;
+    }
+}
+
+.navbar__link-button:focus {
+    outline: none;
+}
+
 .navbar__hamburger {
     align-self: flex-end;
     color: $primary-2;

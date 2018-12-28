@@ -1,0 +1,57 @@
+.button {
+    border: none;
+    border-radius: $radius-2;
+    font-family: $text;
+  }
+
+  .button-box__add {
+    display: flex;
+    grid-column: 1;
+    grid-row: 4;
+    justify-content: flex-end;
+    margin: 0 $size-3 $size-4 0;
+  }
+
+  .button-box__add--meal {
+      @extend .button-box__add;
+      grid-row: 2;
+  }
+
+  .button__add {
+    background: $gray-4;
+    box-shadow: $shadow-2;
+    color: $gray-1;
+    padding: $size-1 $size-7;
+  }
+
+  .button__add:focus {
+    box-shadow: $shadow-3;
+    outline: none;
+  }
+
+  .button-box__save {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 7;
+    margin: $size-4 $size-3 0 $size-3;
+  }
+
+  .button-box__save--grocery {
+      @extend .button-box__save;
+      grid-row: 5;
+  }
+  
+  .button__save {
+    background: $primary-5;
+    box-shadow: $shadow-3;
+    color: $white;
+    font-size: $size-5;
+    font-weight: bold;
+    padding: $size-3;
+  }
+
+  .button__Save:focus {
+    box-shadow: $shadow-4;
+    outline: none;
+  }

@@ -62,7 +62,7 @@ export class GroceryPage extends Component {
     render() {
         return (
             <div>
-                <div className="grocery">
+                <div className="update--grocery">
                     <GroceryForm
                         selectedMeal={this.state.selectedMeal}
                         groceryName={this.state.groceryName}
@@ -73,7 +73,6 @@ export class GroceryPage extends Component {
                         resetGrocery={this.resetGrocery}
                         meals={this.props.meals}
                         groceryId={this.props.grocery ? this.props.grocery.id : ''}
-                        title={this.props.grocery ? 'Edit Grocery List' : 'Create Grocery List'}
                         updateGrocery={this.props.grocery ? this.props.onEditGrocery : this.props.onAddGrocery}
                     />
                     <GroceryItems

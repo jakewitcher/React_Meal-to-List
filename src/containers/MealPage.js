@@ -93,7 +93,7 @@ export class MealPage extends Component {
 
     render() {
         return (
-            <div className="meal">
+            <div className="update">
                 <MealForm
                     mealNameChange={this.mealNameChange}
                     itemNameChange={this.itemNameChange}

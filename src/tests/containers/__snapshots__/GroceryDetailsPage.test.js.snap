@@ -5,58 +5,6 @@ exports[`should correctly render GroceryDetailsPage 1`] = `
   <GroceryItems
     groceryName="Monday Meals"
     isDetails={true}
-    itemsList={
-      Array [
-        Object {
-          "amount": 1,
-          "id": 5,
-          "itemName": "salad",
-          "unit": "bag",
-        },
-        Object {
-          "amount": 2,
-          "id": 6,
-          "itemName": "chicken",
-          "unit": "pounds",
-        },
-        Object {
-          "amount": 12,
-          "id": 7,
-          "itemName": "walnuts",
-          "unit": "ounces",
-        },
-        Object {
-          "amount": 4,
-          "id": 8,
-          "itemName": "apples",
-          "unit": "items",
-        },
-        Object {
-          "amount": 2,
-          "id": 1,
-          "itemName": "bacon",
-          "unit": "pounds",
-        },
-        Object {
-          "amount": 12,
-          "id": 2,
-          "itemName": "eggs",
-          "unit": "items",
-        },
-        Object {
-          "amount": 1,
-          "id": 3,
-          "itemName": "toast",
-          "unit": "bag",
-        },
-        Object {
-          "amount": 1,
-          "id": 4,
-          "itemName": "orange juice",
-          "unit": "quart",
-        },
-      ]
-    }
   />
 </div>
 `;

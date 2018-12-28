@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { onStartLogout } from '../actions/auth';
 
-class NavBar extends Component {
+export class NavBar extends Component {
     state = {
         navLinkClassName: 'navbar__link',
         isToggled: true,
@@ -34,7 +34,7 @@ class NavBar extends Component {
                 <NavLink to="/grocerylists/create" className={this.state.navLinkClassName} activeClassName="navbar__link--active" exact={true}>
                     <p>Create a New Grocery List</p>
                 </NavLink>
-                <button onClick={this.props.onStartLogout}>Logout</button>
+                <button className={`navbar__link-button ${this.state.navLinkClassName}`} onClick={this.props.onStartLogout}>Logout</button>
             </div>
         );
     }

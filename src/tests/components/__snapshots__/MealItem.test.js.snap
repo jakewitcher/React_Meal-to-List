@@ -4,34 +4,27 @@ exports[`should render MealItem correctly 1`] = `
 <li
   className="itemlist__item"
 >
-  <div
-    className="item"
+  <p
+    className="item__name"
   >
-    <p>
-      bacon
-    </p>
-  </div>
-  <div
-    className="item"
+    bacon
+  </p>
+  <p
+    className="item__amount"
   >
-    <p>
-      2
-    </p>
-  </div>
+    2
+     
+    pounds
+  </p>
   <div
-    className="item"
+    className="item__update"
   >
-    <p>
-      pounds
-    </p>
-  </div>
-  <div>
     <i
-      className="fas fa-edit"
+      className="fas fa-edit item__update--edit"
       onClick={[Function]}
     />
     <i
-      className="fas fa-trash"
+      className="fas fa-trash item__update--delete"
       onClick={[Function]}
     />
   </div>

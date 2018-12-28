@@ -4,20 +4,14 @@ const GroceryItem = (props) =>  {
     const { itemName, amount, unit } = props.item;
     return (
         <li className="itemlist__item">
-            <div className="item">
-                <p>{itemName}</p>
-            </div>
-            <div className="item">
-                <p>{amount}</p>
-            </div>
-            <div className="item">
-                <p>{unit}</p>
-            </div>
+          
+                <p className="item__name">{itemName}</p>
+                <p className="item__amount">{amount} {unit}</p>
             {
                 !props.isDetails &&
-                <div>
+                <div className="item__update">
                     <i 
-                        className="fas fa-trash"
+                        className="fas fa-trash item__update--delete"
                         onClick={() => props.deleteGroceryItem(itemName)}    
                     />
                 </div>

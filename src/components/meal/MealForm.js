@@ -37,39 +37,30 @@ const MealForm = (props) => {
 
     return (
         <div className="form">
-            <div className="form__nameinputfield">
-                <p>Meal Name</p>
-                <input
-                    className="form__nameinputfield--input"
-                    type="text"
-                    value={mealName}
-                    onChange={mealNameChange}
-                />
-            </div>
-            <div className="form__iteminputfields form__iteminputfields--itemname">
+            <div className="input-box input-box--item-name">
                 <p>Item</p>
                 <input
-                    className="form__iteminputfields--input"
+                    className="input"
                     type="text"
                     value={itemName}
                     onChange={itemNameChange}
                 />
             </div>
 
-            <div className="form__iteminputfields form__iteminputfields--amount">
+            <div className="input-box input-box--amount">
                 <p>Amount</p>
                 <input
-                    className="form__iteminputfields--input"
+                    className="input"
                     type="number"
                     value={amount}
                     onChange={amountChange}
                 />
             </div>
 
-            <div className="form__iteminputfields form__iteminputfields--unit">
+            <div className="input-box input-box--unit">
                 <p>Unit</p>
                 <select
-                    className="form__iteminputfields--input form__iteminputfields--dropdown"
+                    className="input input--dropdown"
                     name="unit"
                     value={unit}
                     onChange={unitChange}
@@ -85,23 +76,34 @@ const MealForm = (props) => {
                     <option value={pluralUnitValue(amount, 'container')}>{pluralUnitValue(amount, 'container')}</option>
                 </select>
             </div>
-            <div className="form__button--item-div">
+            <div className="button-box__add">
                 <button
-                    className="form__button--item-button"
+                    className="button button__add"
                     onClick={addItem}
                 >
                     Add Item
                     </button>
             </div>
-            <div className="form__button--meal-div">
-                <button
-                    className="form__button--meal-button"
-                    onClick={() => handleMealChange(mealName, mealId, itemList)}
-                >
-                    Save Meal
-                    </button>
+            <div>
+                <div className="input-box__meal-name">
+                    <p>Meal Name</p>
+                    <input
+                        className="input__meal-name"
+                        type="text"
+                        value={mealName}
+                        onChange={mealNameChange}
+                    />
+                </div>
+                <div className="button-box__save">
+                    <button
+                        className="button button__save"
+                        onClick={() => handleMealChange(mealName, mealId, itemList)}
+                    >
+                        Save Meal
+                        </button>
+                </div>
             </div>
-        </div >
+        </div>
     )
 }
 

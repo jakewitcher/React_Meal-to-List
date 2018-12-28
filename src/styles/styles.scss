@@ -1,29 +1,9 @@
 @import './base/settings';
 @import './base/base';
-
-// stylesheets for the Header
-
-// @import './components/formButtons';
-// @import './components/header';
-
-// stylesheet for the CreateMealPage
-
-@import './components/meal/meal';
-
-
-// stylesheet for the CreateGroceryPage
-
-// @import './components/grocery/grocery';
-
-// stylesheet for LandingPage
-
-@import './components/landingPage';
-
-// stylesheet for NavBar
-
+@import './components/update-pages';
+@import './components/landing-page';
 @import './components/navbar';
-
-// shared stylesheets
-
-@import './components/shared/form';
-@import './components/shared/items';
+@import './components/forms';
+@import './components/inputs';
+@import './components/buttons';
+@import './components/items';
