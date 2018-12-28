@@ -4,12 +4,14 @@ import MealItems from '../components/meal/MealItems';
 
 export const MealDetailsPage = (props) => {
     return (
-        <div>
-            <MealItems 
-                mealName={props.meal.name}
-                itemList={props.meal.itemList}
-                isDetails={true}
-            />
+        <div className="details__container">
+            <div className="details">
+                <MealItems 
+                    mealName={props.meal.name}
+                    itemList={props.meal.itemList}
+                    isDetails={true}
+                />
+            </div>
         </div>
     );
 };

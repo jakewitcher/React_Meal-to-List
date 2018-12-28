@@ -4,7 +4,7 @@ import { onStartLogin } from '../actions/auth';
 
 const LandingPage = (props) => {
     return (
-        <div className="container container__landingpage">
+        <div className="landingpage__container">
             <div className="landingpage">
                 <h1 className="landingpage__title">Meal to List</h1>
                 <h3 className="landingpage__subtitle">Meal Planning Made Easy</h3>

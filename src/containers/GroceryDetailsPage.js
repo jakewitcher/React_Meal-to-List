@@ -4,12 +4,14 @@ import GroceryItems from '../components/grocery/GroceryItems';
 
 export const GroceryDetailsPage = (props) => {
     return (
-        <div>
-            <GroceryItems
-                groceryName={props.grocery.name}
-                itemList={props.grocery.itemList}
-                isDetails={true}
-            />
+        <div className="details__container">
+            <div className="details">
+                <GroceryItems
+                    groceryName={props.grocery.name}
+                    itemList={props.grocery.itemList}
+                    isDetails={true}
+                />
+            </div>
         </div>
     );
 };
