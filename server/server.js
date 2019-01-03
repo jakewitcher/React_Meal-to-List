@@ -1,15 +1,16 @@
-const express = require('express');
-const path = require('path');
+const path = require("path");
+const express = require("express");
 const app = express();
-const buildPath = path.join('__dirName', '..', 'build');
+const buildPath = path.join(__dirname, "..", "build");
 const port = process.env.PORT || 3000;
+require("../config/env");
 
 app.use(express.static(buildPath));
 
-app.get('*', (req, res) => {
-    res.sendFile(buildPath, 'index.html');
+app.get("*", (req, res) => {
+  res.sendFile(path.join(buildPath, "index.html"));
 });
 
 app.listen(port, () => {
-    console.log(`The server is running on port ${port}`);
+  console.log(`The server is running at port ${port}`);
 });
