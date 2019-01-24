@@ -20,11 +20,11 @@ exports[`should render MealItem correctly 1`] = `
     className="item__update"
   >
     <i
-      className="fas fa-edit item__update--edit"
+      className="fas fa-edit item__update-edit"
       onClick={[Function]}
     />
     <i
-      className="fas fa-trash item__update--delete"
+      className="fas fa-trash item__update-delete"
       onClick={[Function]}
     />
   </div>

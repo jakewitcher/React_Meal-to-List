@@ -2,81 +2,72 @@
 
 exports[`should render GroceryForm correctly 1`] = `
 <div
-  className="form"
+  className="form--grocery"
 >
-  <h2
-    className="form__header"
-  >
-    grocery
-  </h2>
   <div
-    className="form__form"
+    className="input-box input-box--meal-name"
   >
-    <div
-      className="form__nameinputfield"
+    <p>
+      Meals
+    </p>
+    <select
+      className="input input--dropdown"
+      name="selectedMeal"
+      onChange={[MockFunction]}
+      value="breakfast"
     >
-      <p>
-        Grocery List Name
-      </p>
-      <input
-        className="form__nameinputfield--input"
-        onChange={[MockFunction]}
-        type="text"
-        value="Monday Meals"
-      />
-    </div>
-    <div
-      className="form__iteminputfields"
+      <option
+        key="101"
+        value="breakfast"
+      >
+        breakfast
+      </option>
+      <option
+        key="102"
+        value="lunch"
+      >
+        lunch
+      </option>
+      <option
+        key="103"
+        value="dinner"
+      >
+        dinner
+      </option>
+    </select>
+  </div>
+  <div
+    className="button-box__add--meal"
+  >
+    <button
+      className="button button__add"
+      onClick={[MockFunction]}
     >
-      <div>
-        <p>
-          Meals
-        </p>
-        <select
-          className="form__iteminputfields--input form__iteminputfields--dropdown"
-          name="selectedMeal"
-          onChange={[MockFunction]}
-          value="breakfast"
-        >
-          <option
-            key="101"
-            value="breakfast"
-          >
-            breakfast
-          </option>
-          <option
-            key="102"
-            value="lunch"
-          >
-            lunch
-          </option>
-          <option
-            key="103"
-            value="dinner"
-          >
-            dinner
-          </option>
-        </select>
-      </div>
-      <div
-        className="form__button"
-      >
-        <button
-          className="form__button--add"
-          onClick={[MockFunction]}
-        >
-          Add Meal
-        </button>
-      </div>
-    </div>
-    <div>
-      <button
-        className="form__button--save"
-        onClick={[Function]}
-      >
-        Save Grocery List
-      </button>
-    </div>
+      Add Meal
+    </button>
+  </div>
+  <div
+    className="input-box__grocery-name"
+  >
+    <p>
+      Grocery List Name
+    </p>
+    <input
+      className="input__grocery-name"
+      onChange={[MockFunction]}
+      type="text"
+      value="Monday Meals"
+    />
+  </div>
+  <div
+    className="button-box__save--grocery"
+  >
+    <button
+      className="button button__save"
+      onClick={[Function]}
+    >
+      Save Grocery List
+    </button>
   </div>
 </div>
 `;

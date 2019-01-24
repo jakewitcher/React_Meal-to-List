@@ -3,7 +3,7 @@
 exports[`should render MealPage correctly 1`] = `
 <div>
   <div
-    className="grocery"
+    className="update--grocery"
   >
     <GroceryForm
       addMealToList={[Function]}
@@ -147,7 +147,6 @@ exports[`should render MealPage correctly 1`] = `
         }
       }
       selectedMealChange={[Function]}
-      title="Create Grocery List"
     />
     <GroceryItems
       deleteGroceryItem={[Function]}

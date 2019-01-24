@@ -5,52 +5,39 @@ exports[`should render MealForm correctly 1`] = `
   className="form"
 >
   <div
-    className="form__nameinputfield"
-  >
-    <p>
-      Meal Name
-    </p>
-    <input
-      className="form__nameinputfield--input"
-      onChange={[MockFunction]}
-      type="text"
-      value="breakfast"
-    />
-  </div>
-  <div
-    className="form__iteminputfields form__iteminputfields--itemname"
+    className="input-box input-box--item-name"
   >
     <p>
       Item
     </p>
     <input
-      className="form__iteminputfields--input"
+      className="input"
       onChange={[MockFunction]}
       type="text"
       value="bacon"
     />
   </div>
   <div
-    className="form__iteminputfields form__iteminputfields--amount"
+    className="input-box input-box--amount"
   >
     <p>
       Amount
     </p>
     <input
-      className="form__iteminputfields--input"
+      className="input"
       onChange={[MockFunction]}
       type="number"
       value={5}
     />
   </div>
   <div
-    className="form__iteminputfields form__iteminputfields--unit"
+    className="input-box input-box--unit"
   >
     <p>
       Unit
     </p>
     <select
-      className="form__iteminputfields--input form__iteminputfields--dropdown"
+      className="input input--dropdown"
       name="unit"
       onChange={[MockFunction]}
       value="pounds"
@@ -103,24 +90,39 @@ exports[`should render MealForm correctly 1`] = `
     </select>
   </div>
   <div
-    className="form__button--item-div"
+    className="button-box__add"
   >
     <button
-      className="form__button--item-button"
+      className="button button__add"
       onClick={[MockFunction]}
     >
       Add Item
     </button>
   </div>
-  <div
-    className="form__button--meal-div"
-  >
-    <button
-      className="form__button--meal-button"
-      onClick={[Function]}
+  <div>
+    <div
+      className="input-box__meal-name"
     >
-      Save Meal
-    </button>
+      <p>
+        Meal Name
+      </p>
+      <input
+        className="input__meal-name"
+        onChange={[MockFunction]}
+        type="text"
+        value="breakfast"
+      />
+    </div>
+    <div
+      className="button-box__save"
+    >
+      <button
+        className="button button__save"
+        onClick={[Function]}
+      >
+        Save Meal
+      </button>
+    </div>
   </div>
 </div>
 `;

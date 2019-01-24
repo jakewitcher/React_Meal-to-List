@@ -1,10 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should correctly render GroceryDetailsPage 1`] = `
-<div>
-  <GroceryItems
-    groceryName="Monday Meals"
-    isDetails={true}
-  />
+<div
+  className="details__container"
+>
+  <div
+    className="details"
+  >
+    <GroceryItems
+      groceryName="Monday Meals"
+      isDetails={true}
+    />
+  </div>
 </div>
 `;

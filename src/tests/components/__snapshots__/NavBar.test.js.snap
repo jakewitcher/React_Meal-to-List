@@ -63,7 +63,9 @@ exports[`should render NavBar correctly 1`] = `
       Create a New Grocery List
     </p>
   </NavLink>
-  <button>
+  <button
+    className="navbar__link-button navbar__link"
+  >
     Logout
   </button>
 </div>

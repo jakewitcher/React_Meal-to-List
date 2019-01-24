@@ -2,7 +2,7 @@
 
 exports[`should render MealPage correctly 1`] = `
 <div
-  className="meal"
+  className="update"
 >
   <MealForm
     addItem={[Function]}

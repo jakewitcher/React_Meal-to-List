@@ -4,30 +4,23 @@ exports[`should render GroceryItem correctly 1`] = `
 <li
   className="itemlist__item"
 >
-  <div
-    className="item"
+  <p
+    className="item__name"
   >
-    <p>
-      chicken
-    </p>
-  </div>
-  <div
-    className="item"
+    chicken
+  </p>
+  <p
+    className="item__amount"
   >
-    <p>
-      2
-    </p>
-  </div>
+    2
+     
+    pounds
+  </p>
   <div
-    className="item"
+    className="item__update"
   >
-    <p>
-      pounds
-    </p>
-  </div>
-  <div>
     <i
-      className="fas fa-trash"
+      className="fas fa-trash item__update-delete"
       onClick={[Function]}
     />
   </div>
