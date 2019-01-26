@@ -8,6 +8,7 @@ exports[`should render MealPage correctly 1`] = `
     <GroceryForm
       addMealToList={[Function]}
       groceryId=""
+      groceryListMeals={Object {}}
       groceryName=""
       groceryNameChange={[Function]}
       itemList={Array []}

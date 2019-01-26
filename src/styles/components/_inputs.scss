@@ -1,93 +1,92 @@
-  .input {
-    border: none;
-    border-radius: $radius-1;
-    box-shadow: $shadow-1;
-    color: $gray-9;
-    font-family: $text;
-    height: $size-4;
-    margin: 0;
-    padding: $size-1 $size-2;
-  }
+.input {
+  border: none;
+  border-radius: $radius-1;
+  box-shadow: $shadow-1;
+  color: $gray-9;
+  font-family: $text;
+  height: $size-4;
+  margin: 0;
+  padding: $size-1 $size-2;
+}
 
-  .input-box {
-    color: $gray-9;
-    display: flex;
-    flex-direction: column;
-    font-family: $text;
-    font-size: $size-3;
-    font-weight: bold;
-    letter-spacing: .1rem;
-    margin: 0 $size-3 $size-2 $size-3;
-    padding: 0;
-  }
-  
-  .input:focus {
-    box-shadow: $shadow-3;
-    outline: none;
-  }
-  
-  .input--dropdown {
-    font-family: $text;
-    height: $size-5;
-  }
+.input-box {
+  color: $gray-9;
+  display: flex;
+  flex-direction: column;
+  font-family: $text;
+  font-size: $size-3;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  margin: 0 $size-3 $size-2 $size-3;
+  padding: 0;
+}
 
-  .input-box--item-name {
-    grid-column: 1;
-    grid-row: 1;
-  }
+.input:focus {
+  box-shadow: $shadow-3;
+  outline: none;
+}
 
-  .input-box--meal-name {
-    grid-column: 1;
-    grid-row: 1;
-  }
+.input--dropdown {
+  font-family: $text;
+  height: $size-5;
+}
 
-  .input-box--amount {
-    grid-column: 1;
-    grid-row: 2;
-  }
+.input-box--item-name {
+  grid-column: 1;
+  grid-row: 1;
+}
 
-  .input-box--unit {
-    grid-column: 1;
-    grid-row: 3;
-  }
+.input-box--meal-name {
+  grid-column: 1;
+  grid-row: 1;
+}
 
-  .input-box__meal-name {
-    border-top: 1px solid $gray-2;
-    color: $gray-9;
-    display: flex;
-    flex-direction: column;
-    font-family: $text;
-    font-size: $size-4;
-    font-weight: bold;
-    grid-column: 1;
-    grid-row: 6;
-    letter-spacing: .1rem;
-    margin: $size-2 $size-3 $size-2 $size-3;
-    padding: 0;
-  }
+.input-box--amount {
+  grid-column: 1;
+  grid-row: 2;
+}
 
-  .input-box__grocery-name {
-    @extend .input-box__meal-name;
-    grid-row: 4;
-  }
-  
-  .input__meal-name {
-    border: none;
-    border-radius: $radius-1;
-    box-shadow: $shadow-1;
-    color: $gray-9;
-    font-family: $text;
-    height: $size-4;
-    margin: 0;
-    padding: $size-1 $size-2;
-  }
+.input-box--unit {
+  grid-column: 1;
+  grid-row: 3;
+}
 
-  .input__grocery-name {
-    @extend .input__meal-name;
+.input-box__meal-name {
+  border-top: 1px solid $gray-2;
+  color: $gray-9;
+  display: flex;
+  flex-direction: column;
+  font-family: $text;
+  font-size: $size-4;
+  font-weight: bold;
+  grid-column: 1;
+  grid-row: 6;
+  letter-spacing: 0.1rem;
+  margin: $size-2 $size-3 $size-2 $size-3;
+  padding: 0;
+}
 
-  }
-  
-  .input__meal-name:focus {
-    box-shadow: $shadow-3;
-    outline: none;
-  }
+.input-box__grocery-name {
+  @extend .input-box__meal-name;
+  grid-row: 4;
+}
+
+.input__meal-name {
+  border: none;
+  border-radius: $radius-1;
+  box-shadow: $shadow-1;
+  color: $gray-9;
+  font-family: $text;
+  height: $size-4;
+  margin: 0;
+  padding: $size-1 $size-2;
+}
+
+.input__grocery-name {
+  @extend .input__meal-name;
+}
+
+.input__meal-name:focus {
+  box-shadow: $shadow-3;
+  outline: none;
+}

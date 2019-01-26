@@ -1,136 +1,136 @@
 .landingpage {
-    align-items: flex-start;
-    background: $primary-5;
-    border-radius: $radius-1;
-    box-shadow: $shadow-3;
-    display: flex;
-    flex-direction: column;
-    grid-column: 2;
-    grid-row: 2;
-    justify-content: center;
-    margin: 0;
+  align-items: flex-start;
+  background: $primary-5;
+  border-radius: $radius-1;
+  box-shadow: $shadow-3;
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 2;
+  justify-content: center;
+  margin: 0;
 }
 
 .landingpage__container {
-    display: grid;
-    grid-template-columns: auto $size-15 auto;
-    grid-template-rows: $size-11 $size-12 auto;
-    height: 100%;
-    width: 100%;
+  display: grid;
+  grid-template-columns: auto $size-15 auto;
+  grid-template-rows: $size-11 $size-12 auto;
+  height: 100%;
+  width: 100%;
 }
-  
+
 .landingpage__title {
-    color: $white;
-    font-family: $header;
-    font-size: $size-9;
-    font-weight: 700;
-    margin: 0 $size-7;
-    padding-bottom: 0;
+  color: $white;
+  font-family: $header;
+  font-size: $size-9;
+  font-weight: 700;
+  margin: 0 $size-7;
+  padding-bottom: 0;
 }
-  
+
 .landingpage__subtitle {
-    color: $primary-8;
-    font-family: $header;
-    font-size: $size-4;
-    font-weight: 700;
-    margin: 0 $size-7;
-    padding: 0 $size-1;
+  color: $primary-8;
+  font-family: $header;
+  font-size: $size-4;
+  font-weight: 700;
+  margin: 0 $size-7;
+  padding: 0 $size-1;
 }
 
 .landingpage__button {
-    background: $secondary-5;
-    border: none;
-    border-radius: $radius-2;
-    box-shadow: $shadow-5;
-    color: $white;
-    font-family: $text;
-    font-size: $size-5;
-    font-weight: bold;
-    margin: $size-2;
-    padding: $size-2 $size-7;
-    width: 100%;
+  background: $secondary-5;
+  border: none;
+  border-radius: $radius-2;
+  box-shadow: $shadow-5;
+  color: $white;
+  font-family: $text;
+  font-size: $size-5;
+  font-weight: bold;
+  margin: $size-2;
+  padding: $size-2 $size-7;
+  width: 100%;
 }
 
 .landingpage__button--div {
-    align-self: flex-end;
-    display: flex;
-    justify-content: center;
-    margin: 0 $size-7;
-    text-decoration: none;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  margin: 0 $size-7;
+  text-decoration: none;
 }
 
 @media (max-width: $breakpoint-2) {
-    .landingpage {
-        align-items: flex-start;
-        border-radius: 0;
-        grid-column: 1;
-        grid-row: 2;
-        padding-top: $size-2;
-    }
+  .landingpage {
+    align-items: flex-start;
+    border-radius: 0;
+    grid-column: 1;
+    grid-row: 2;
+    padding-top: $size-2;
+  }
 
-    .landingpage__container {
-        grid-template-columns: 100%;
-        grid-template-rows: $size-12 $size-12 auto;
-        height: 100%;
-        width: 100%;
-    }
+  .landingpage__container {
+    grid-template-columns: 100%;
+    grid-template-rows: $size-12 $size-12 auto;
+    height: 100%;
+    width: 100%;
+  }
 
-    .landingpage__title {
-        font-size: $size-9;
-        margin: 0 $size-9;
-    }
+  .landingpage__title {
+    font-size: $size-9;
+    margin: 0 $size-9;
+  }
 
-    .landingpage__subtitle {
-        margin: 0 $size-9;
-        font-size: $size-5;
-    }
+  .landingpage__subtitle {
+    margin: 0 $size-9;
+    font-size: $size-5;
+  }
 
-    .landingpage__button {
-        align-self: center;
-        font-size: $size-5;
-        margin: $size-3 $size-7 $size-6 0;
-        padding: $size-3 $size-8;
-    }
+  .landingpage__button {
+    align-self: center;
+    font-size: $size-5;
+    margin: $size-3 $size-7 $size-6 0;
+    padding: $size-3 $size-8;
+  }
 
-    .landingpage__button--div {
-        align-self: flex-end;
-    }
+  .landingpage__button--div {
+    align-self: flex-end;
+  }
 }
 
 @media (max-width: $breakpoint-1) {
-    .landingpage {
-        border-radius: 0;
-        align-items: center;
-        grid-column: 1;
-        grid-row: 2;
-        padding-top: $size-3;
-    }
+  .landingpage {
+    border-radius: 0;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 2;
+    padding-top: $size-3;
+  }
 
-    .landingpage__container {
-        grid-template-columns: 100%;
-        grid-template-rows: $size-11 $size-11 auto;
-        height: 100%;
-        width: 100%;
-    }
+  .landingpage__container {
+    grid-template-columns: 100%;
+    grid-template-rows: $size-11 $size-11 auto;
+    height: 100%;
+    width: 100%;
+  }
 
-    .landingpage__title {
-        font-size: $size-7;
-        margin: 0;
-    }
+  .landingpage__title {
+    font-size: $size-7;
+    margin: 0;
+  }
 
-    .landingpage__subtitle {
-        font-size: $size-4;
-        margin: 0;
-    }
+  .landingpage__subtitle {
+    font-size: $size-4;
+    margin: 0;
+  }
 
-    .landingpage__button {
-        align-self: center;
-        font-size: $size-5;
-        margin: $size-6 0;
-        padding: $size-3 $size-8;
-    }
+  .landingpage__button {
+    align-self: center;
+    font-size: $size-5;
+    margin: $size-6 0;
+    padding: $size-3 $size-8;
+  }
 
-    .landingpage__button--div {
-        align-self: center;
-    }
+  .landingpage__button--div {
+    align-self: center;
+  }
 }
