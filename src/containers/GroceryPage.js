@@ -39,11 +39,9 @@ export class GroceryPage extends Component {
       return list;
     }, listCopy);
 
-    const mealsCopy = Object.assign({}, groceryListMeals);
-
     const updatedGroceryListMeals = {
-      ...mealsCopy,
-      [selectedMeal.id]: (mealsCopy[selectedMeal.id] || 0) + 1
+      ...groceryListMeals,
+      [selectedMeal.id]: (groceryListMeals[selectedMeal.id] || 0) + 1
     };
 
     this.setState({
@@ -69,7 +67,7 @@ export class GroceryPage extends Component {
   };
 
   resetGrocery = () => {
-    this.setState({ groceryName: "", itemList: [] });
+    this.setState({ groceryName: "", itemList: [], groceryListMeals: {} });
   };
   render() {
     return (
