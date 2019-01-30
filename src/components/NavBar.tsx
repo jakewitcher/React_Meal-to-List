@@ -1,9 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Dispatch } from "redux";
 import { NavLink } from "react-router-dom";
 import { onStartLogout } from "../actions/auth";
 
-export class NavBar extends Component {
+interface INavbarProps {
+  onStartLogout(): { type: string };
+}
+
+interface INavbarState {
+  navLinkClassName: string;
+  isToggled: boolean;
+}
+
+export class NavBar extends Component<INavbarProps, INavbarState> {
   state = {
     navLinkClassName: "navbar__link",
     isToggled: true
@@ -72,7 +82,7 @@ export class NavBar extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
   onStartLogout: () => dispatch(onStartLogout())
 });
 
