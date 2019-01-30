@@ -1,7 +1,21 @@
-import React from "react";
+import * as React from "react";
 import MealItem from "./MealItem";
 
-const MealItems = props => {
+interface Item {
+  amount: number;
+  itemName: string;
+  unit: string;
+}
+
+interface IMealItemsProps {
+  isDetails: boolean;
+  itemList: Item[];
+  mealName: string;
+  deleteMealItem(name: string): void;
+  itemToEdit(name: string): void;
+}
+
+const MealItems: React.FC<IMealItemsProps> = props => {
   const { mealName, itemList, deleteMealItem, itemToEdit, isDetails } = props;
   return (
     <div className="itemlist">

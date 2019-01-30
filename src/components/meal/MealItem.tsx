@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 interface IMealItemProps {
   isDetails: boolean;
@@ -7,7 +7,7 @@ interface IMealItemProps {
   itemToEdit(name: string): void;
 }
 
-const MealItem = (props: IMealItemProps) => {
+const MealItem: React.FC<IMealItemProps> = props => {
   const { itemName, amount, unit } = props.item;
   return (
     <li className="itemlist__item">
