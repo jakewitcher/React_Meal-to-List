@@ -1,6 +1,13 @@
 import React from "react";
 
-const MealItem = props => {
+interface IMealItemProps {
+  isDetails: boolean;
+  item: { itemName: string; amount: number; unit: string };
+  deleteMealItem(name: string): void;
+  itemToEdit(name: string): void;
+}
+
+const MealItem = (props: IMealItemProps) => {
   const { itemName, amount, unit } = props.item;
   return (
     <li className="itemlist__item">
