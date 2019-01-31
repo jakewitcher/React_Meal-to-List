@@ -2,12 +2,12 @@ const groceryDefaultState = [];
 
 export default (state = { groceryList: groceryDefaultState }, action) => {
   switch (action.type) {
-    case "ADD_GROCERY":
+    case "@@grocery/ADD_GROCERY":
       return {
         ...state,
         groceryList: [...state.groceryList, action.grocery]
       };
-    case "DELETE_GROCERY":
+    case "@@grocery/DELETE_GROCERY":
       const newGroceryList = state.groceryList.filter(
         ({ id }) => id !== action.id
       );
@@ -15,7 +15,7 @@ export default (state = { groceryList: groceryDefaultState }, action) => {
         groceryList: newGroceryList
       };
 
-    case "EDIT_GROCERY":
+    case "@@grocery/EDIT_GROCERY":
       const editedGroceryList = state.groceryList.map(grocery => {
         if (grocery.id === action.grocery.id) {
           grocery = action.grocery;
@@ -26,7 +26,7 @@ export default (state = { groceryList: groceryDefaultState }, action) => {
       return {
         groceryList: editedGroceryList
       };
-    case "SET_GROCERY":
+    case "@@grocery/SET_GROCERY":
       return {
         groceryList: action.lists
       };

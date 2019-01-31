@@ -29,7 +29,7 @@ function* addGrocery({ grocery = {} }) {
     });
 
   yield put({
-    type: "ADD_GROCERY",
+    type: "@@grocery/ADD_GROCERY",
     grocery: {
       name,
       itemList,
@@ -50,7 +50,7 @@ function* editGrocery({ grocery = {} }) {
     .update({ name, items, meals });
 
   yield put({
-    type: "EDIT_GROCERY",
+    type: "@@grocery/EDIT_GROCERY",
     grocery: {
       name,
       itemList,
@@ -66,7 +66,7 @@ function* deleteGrocery({ id = "" }) {
   yield database.ref(`users/${uid}/groceryLists/${id}`).remove();
 
   yield put({
-    type: "DELETE_GROCERY",
+    type: "@@grocery/DELETE_GROCERY",
     id
   });
 }
@@ -97,21 +97,21 @@ function* setGrocery() {
         });
       });
     });
-  yield put({ type: "SET_GROCERY", lists });
+  yield put({ type: "@@grocery/SET_GROCERY", lists });
 }
 
 export function* watchAddGrocery() {
-  yield takeEvery("ON_ADD_GROCERY", addGrocery);
+  yield takeEvery("@@grocery/ON_ADD_GROCERY", addGrocery);
 }
 
 export function* watchEditGrocery() {
-  yield takeEvery("ON_EDIT_GROCERY", editGrocery);
+  yield takeEvery("@@grocery/ON_EDIT_GROCERY", editGrocery);
 }
 
 export function* watchDeleteGrocery() {
-  yield takeEvery("ON_DELETE_GROCERY", deleteGrocery);
+  yield takeEvery("@@grocery/ON_DELETE_GROCERY", deleteGrocery);
 }
 
 export function* watchSetGrocery() {
-  yield takeEvery("ON_SET_GROCERY", setGrocery);
+  yield takeEvery("@@grocery/ON_SET_GROCERY", setGrocery);
 }

@@ -6,20 +6,20 @@ export interface Auth {
 }
 
 // auth actions
-export interface OnStartLoginAction {
+export interface OnStartLoginAction extends Action {
   type: "@@auth/ON_START_LOGIN";
 }
 
-export interface OnLoginAction {
+export interface OnLoginAction extends Action {
   type: "@@auth/ON_LOGIN";
   uid: string;
 }
 
-export interface OnStartLogoutAction {
+export interface OnStartLogoutAction extends Action {
   type: "@@auth/ON_START_LOGOUT";
 }
 
-export interface OnLogoutAction {
+export interface OnLogoutAction extends Action {
   type: "@@auth/ON_LOGOUT";
 }
 
