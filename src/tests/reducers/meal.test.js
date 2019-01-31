@@ -1,4 +1,4 @@
-import mealReducer from "../../reducers/meal";
+import mealReducer from "../../store/meal/reducers";
 import { mealsList, dinnerEditItems } from "../fixtures/meal";
 
 test("should set default state", () => {

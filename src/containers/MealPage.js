@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import MealForm from "../components/meal/MealForm";
-import MealItems from "../components/meal/MealItems";
-import { onAddMeal, onEditMeal } from "../actions/meal";
-import { onAddItem } from "../actions/items";
+import MealForm from "../components/MealForm";
+import MealItems from "../components/MealItems";
+import { onAddMeal, onEditMeal } from "../store/meal/actions";
+import { onAddItem } from "../store/item/actions";
 
 export class MealPage extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Meal from "../components/meal/Meal";
+import Meal from "../components/Meal";
 
 export const MealListsPage = props => {
   return (

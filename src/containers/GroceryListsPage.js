@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Grocery from "../components/grocery/Grocery";
+import Grocery from "../components/Grocery";
 
 export const GroceryListsPage = props => {
   return (

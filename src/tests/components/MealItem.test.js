@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import MealItem from "../../components/meal/MealItem";
+import MealItem from "../../components/MealItem";
 import { mealItems } from "../fixtures/meal";
 
 let item, deleteMealItem, itemToEdit, wrapper;

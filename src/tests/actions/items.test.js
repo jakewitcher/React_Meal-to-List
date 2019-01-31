@@ -1,4 +1,4 @@
-import { onAddItem, onSetItem } from "../../actions/items";
+import { onAddItem, onSetItem } from "../../store/item/actions";
 
 test("should generate add item action object", () => {
   const name = "bacon";

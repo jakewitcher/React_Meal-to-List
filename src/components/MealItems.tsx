@@ -1,18 +1,13 @@
 import * as React from "react";
 import MealItem from "./MealItem";
-
-interface Item {
-  amount: number;
-  itemName: string;
-  unit: string;
-}
+import { Item } from "../store/item/types";
 
 interface IMealItemsProps {
   isDetails: boolean;
   itemList: Item[];
   mealName: string;
-  deleteMealItem(name: string): void;
-  itemToEdit(name: string): void;
+  deleteMealItem(name: string): void | null;
+  itemToEdit(name: string): void | null;
 }
 
 const MealItems: React.FC<IMealItemsProps> = props => {

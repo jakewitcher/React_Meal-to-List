@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { onDeleteMeal } from "../../actions/meal";
+import { onDeleteMeal } from "../store/meal/actions";
 
 export const Meal = props => {
   const { name, id, itemList } = props;

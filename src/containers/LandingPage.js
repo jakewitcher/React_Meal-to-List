@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { onStartLogin } from "../actions/auth";
+import { onStartLogin } from "../store/auth/actions";
 
 const LandingPage = props => {
   return (

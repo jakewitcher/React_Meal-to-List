@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import MealItems from "../../components/meal/MealItems";
+import MealItems from "../../components/MealItems";
 import { mealsList } from "../fixtures/meal";
 
 test("should render MealItems correctly", () => {

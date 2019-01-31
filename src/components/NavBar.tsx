@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { NavLink } from "react-router-dom";
-import { onStartLogout } from "../actions/auth";
+import { onStartLogout } from "../store/auth/actions";
 
 interface INavbarProps {
   onStartLogout(): { type: string };

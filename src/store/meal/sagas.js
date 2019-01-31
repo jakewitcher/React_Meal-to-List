@@ -1,5 +1,5 @@
 import { put, takeEvery, select } from "redux-saga/effects";
-import database from "../firebase/firebase";
+import database from "../../firebase/firebase";
 
 const getUserId = state => state.auth.uid;
 

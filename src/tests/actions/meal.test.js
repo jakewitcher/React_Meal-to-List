@@ -3,7 +3,7 @@ import {
   onDeleteMeal,
   onEditMeal,
   onSetMeal
-} from "../../actions/meal";
+} from "../../store/meal/actions";
 
 const itemList = [
   { name: "bacon", amount: 2, unit: "pounds" },

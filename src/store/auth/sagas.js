@@ -1,5 +1,5 @@
 import { takeEvery } from "redux-saga/effects";
-import { firebase, googleAuthProvider } from "../firebase/firebase";
+import { firebase, googleAuthProvider } from "../../firebase/firebase";
 
 function* startLogin() {
   yield firebase.auth().signInWithPopup(googleAuthProvider);
@@ -10,9 +10,9 @@ function* startLogout() {
 }
 
 export function* watchStartLogin() {
-  yield takeEvery("ON_START_LOGIN", startLogin);
+  yield takeEvery("@@auth/ON_START_LOGIN", startLogin);
 }
 
 export function* watchStartLogout() {
-  yield takeEvery("ON_START_LOGOUT", startLogout);
+  yield takeEvery("@@auth/ON_START_LOGOUT", startLogout);
 }

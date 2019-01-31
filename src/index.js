@@ -6,10 +6,10 @@ import AppRouter, { history } from "./routers/AppRouter";
 import * as serviceWorker from "./serviceWorker";
 import "./styles/styles.scss";
 import { firebase } from "./firebase/firebase";
-import { onSetItem } from "./actions/items";
-import { onSetMeal } from "./actions/meal";
-import { onSetGrocery } from "./actions/grocery";
-import { onLogin, onLogout } from "./actions/auth";
+import { onSetItem } from "./store/item/actions";
+import { onSetMeal } from "./store/meal/actions";
+import { onSetGrocery } from "./store/grocery/actions";
+import { onLogin, onLogout } from "./store/auth/actions";
 import LoadingPage from "./containers/LoadingPage";
 
 const store = configureStore();

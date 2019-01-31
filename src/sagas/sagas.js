@@ -1,18 +1,18 @@
 import { all } from "redux-saga/effects";
-import { watchAddItems, watchSetItem } from "./items";
+import { watchAddItems, watchSetItem } from "../store/item/sagas";
 import {
   watchAddMeal,
   watchEditMeal,
   watchDeleteMeal,
   watchSetMeal
-} from "./meal";
+} from "../store/meal/sagas";
 import {
   watchAddGrocery,
   watchEditGrocery,
   watchDeleteGrocery,
   watchSetGrocery
-} from "./grocery";
-import { watchStartLogin, watchStartLogout } from "./auth";
+} from "../store/grocery/sagas";
+import { watchStartLogin, watchStartLogout } from "../store/auth/sagas";
 
 export default function* rootSaga() {
   yield all([

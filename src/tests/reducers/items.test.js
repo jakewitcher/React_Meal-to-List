@@ -1,4 +1,4 @@
-import itemsReducer from "../../reducers/items";
+import itemsReducer from "../../store/item/reducers";
 import { itemsList } from "../fixtures/items";
 
 test("should set default state", () => {

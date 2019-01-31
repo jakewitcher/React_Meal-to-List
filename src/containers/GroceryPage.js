@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import GroceryForm from "../components/grocery/GroceryForm";
-import GroceryItems from "../components/grocery/GroceryItems";
-import { onAddGrocery, onEditGrocery } from "../actions/grocery";
+import GroceryForm from "../components/GroceryForm";
+import GroceryItems from "../components/GroceryItems";
+import { onAddGrocery, onEditGrocery } from "../store/grocery/actions";
 
 export class GroceryPage extends Component {
   constructor(props) {

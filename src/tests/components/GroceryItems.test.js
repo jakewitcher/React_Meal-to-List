@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import GroceryItems from "../../components/grocery/GroceryItems";
+import GroceryItems from "../../components/GroceryItems";
 import { groceryLists } from "../fixtures/grocery";
 
 test("should render MealItems correctly", () => {

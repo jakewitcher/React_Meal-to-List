@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import MealForm from "../../components/meal/MealForm";
+import MealForm from "../../components/MealForm";
 
 let title,
   mealName,

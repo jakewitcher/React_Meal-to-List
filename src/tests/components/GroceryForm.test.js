@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import GroceryForm from "../../components/grocery/GroceryForm";
+import GroceryForm from "../../components/GroceryForm";
 import { mealsList } from "../fixtures/meal";
 
 let title,

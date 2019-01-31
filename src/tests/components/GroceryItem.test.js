@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import GroceryItem from "../../components/grocery/GroceryItem";
+import GroceryItem from "../../components/GroceryItem";
 import { groceryItems } from "../fixtures/grocery";
 
 let item, deleteGroceryItem, wrapper;

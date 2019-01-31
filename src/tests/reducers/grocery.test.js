@@ -1,4 +1,4 @@
-import groceryReducer from "../../reducers/grocery";
+import groceryReducer from "../../store/grocery/reducers";
 import { groceryLists, editGroceryItems } from "../fixtures/grocery";
 
 test("should set default state", () => {
