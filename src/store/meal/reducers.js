@@ -2,19 +2,19 @@ const mealDefaultState = [];
 
 export default (state = { mealList: mealDefaultState }, action) => {
   switch (action.type) {
-    case "ADD_MEAL":
+    case "@@meal/ADD_MEAL":
       return {
         ...state,
         mealList: [...state.mealList, action.meal]
       };
 
-    case "DELETE_MEAL":
+    case "@@meal/DELETE_MEAL":
       const newMealList = state.mealList.filter(({ id }) => id !== action.id);
       return {
         mealList: newMealList
       };
 
-    case "EDIT_MEAL":
+    case "@@meal/EDIT_MEAL":
       const editedMealList = state.mealList.map(meal => {
         if (meal.id === action.meal.id) {
           meal = action.meal;
@@ -26,7 +26,7 @@ export default (state = { mealList: mealDefaultState }, action) => {
         mealList: editedMealList
       };
 
-    case "SET_MEAL":
+    case "@@meal/SET_MEAL":
       return {
         mealList: action.meals
       };

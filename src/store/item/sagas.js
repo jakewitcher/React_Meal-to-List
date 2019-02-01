@@ -13,7 +13,7 @@ function* addItem({ name = "" }) {
       id = ref.key;
     });
 
-  yield put({ type: "ADD_ITEM", name, id });
+  yield put({ type: "@@item/ADD_ITEM", name, id });
 }
 
 function* setItem() {
@@ -31,13 +31,13 @@ function* setItem() {
       });
     });
 
-  yield put({ type: "SET_ITEM", items });
+  yield put({ type: "@@item/SET_ITEM", items });
 }
 
 export function* watchAddItems() {
-  yield takeEvery("ON_ADD_ITEM", addItem);
+  yield takeEvery("@@item/ON_ADD_ITEM", addItem);
 }
 
 export function* watchSetItem() {
-  yield takeEvery("ON_SET_ITEM", setItem);
+  yield takeEvery("@@item/ON_SET_ITEM", setItem);
 }

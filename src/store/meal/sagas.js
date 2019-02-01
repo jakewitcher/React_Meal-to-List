@@ -28,7 +28,7 @@ function* addMeal({ meal = {} } = {}) {
     });
 
   yield put({
-    type: "ADD_MEAL",
+    type: "@@meal/ADD_MEAL",
     meal: {
       name,
       itemList,
@@ -45,7 +45,7 @@ function* editMeal({ meal = {} }) {
   yield database.ref(`users/${uid}/meals/${id}`).update({ name, items });
 
   yield put({
-    type: "EDIT_MEAL",
+    type: "@@meal/EDIT_MEAL",
     meal: {
       name,
       itemList,
@@ -60,7 +60,7 @@ function* deleteMeal({ id = "" }) {
   yield database.ref(`users/${uid}/meals/${id}`).remove();
 
   yield put({
-    type: "DELETE_MEAL",
+    type: "@@meal/DELETE_MEAL",
     id
   });
 }
@@ -91,21 +91,21 @@ function* setMeal() {
       });
     });
 
-  yield put({ type: "SET_MEAL", meals });
+  yield put({ type: "@@meal/SET_MEAL", meals });
 }
 
 export function* watchAddMeal() {
-  yield takeEvery("ON_ADD_MEAL", addMeal);
+  yield takeEvery("@@meal/ON_ADD_MEAL", addMeal);
 }
 
 export function* watchEditMeal() {
-  yield takeEvery("ON_EDIT_MEAL", editMeal);
+  yield takeEvery("@@meal/ON_EDIT_MEAL", editMeal);
 }
 
 export function* watchDeleteMeal() {
-  yield takeEvery("ON_DELETE_MEAL", deleteMeal);
+  yield takeEvery("@@meal/ON_DELETE_MEAL", deleteMeal);
 }
 
 export function* watchSetMeal() {
-  yield takeEvery("ON_SET_MEAL", setMeal);
+  yield takeEvery("@@meal/ON_SET_MEAL", setMeal);
 }
