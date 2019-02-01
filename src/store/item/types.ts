@@ -15,13 +15,13 @@ export interface Item {
   unit: string;
 }
 
-export interface onAddItemAction extends Action {
+export interface OnAddItemAction extends Action {
   type: "@@item/ON_ADD_ITEM";
   name: string;
 }
 
-export interface onSetItemAction extends Action {
+export interface OnSetItemAction extends Action {
   type: "@@item/ON_SET_ITEM";
 }
 
-export type ItemActions = onAddItemAction | onSetItemAction;
+export type ItemActions = OnAddItemAction | OnSetItemAction;

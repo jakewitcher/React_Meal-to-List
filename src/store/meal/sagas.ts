@@ -1,10 +1,25 @@
 import { put, takeEvery, select } from "redux-saga/effects";
 import database from "../../firebase/firebase";
+import { Auth } from "../auth/types";
+import { Item } from "../item/types";
+import {
+  Meal,
+  OnAddMealAction,
+  OnEditMealAction,
+  OnDeleteMealAction
+} from "./types";
 
-const getUserId = state => state.auth.uid;
+interface FBMealItemList {
+  [itemName: string]: {
+    amount: number;
+    unit: string;
+  };
+}
 
-const formatItemList = list => {
-  return list.reduce((list, item) => {
+const getUserId = ({ auth }: { auth: Auth }) => auth.uid;
+
+const formatItemList = (list: Item[]) => {
+  return list.reduce((list: FBMealItemList, item: Item) => {
     list[item.itemName] = {
       amount: item.amount,
       unit: item.unit
@@ -13,7 +28,7 @@ const formatItemList = list => {
   }, {});
 };
 
-function* addMeal({ meal = {} } = {}) {
+function* addMeal({ meal = {} }: OnAddMealAction) {
   const { itemList, name } = meal;
   const items = formatItemList(itemList);
   console.log(items);
@@ -37,7 +52,7 @@ function* addMeal({ meal = {} } = {}) {
   });
 }
 
-function* editMeal({ meal = {} }) {
+function* editMeal({ meal = {} }: OnEditMealAction) {
   const { itemList, name, id } = meal;
   const items = formatItemList(itemList);
   const uid = yield select(getUserId);
@@ -54,7 +69,7 @@ function* editMeal({ meal = {} }) {
   });
 }
 
-function* deleteMeal({ id = "" }) {
+function* deleteMeal({ id = "" }: OnDeleteMealAction) {
   const uid = yield select(getUserId);
 
   yield database.ref(`users/${uid}/meals/${id}`).remove();
@@ -66,7 +81,7 @@ function* deleteMeal({ id = "" }) {
 }
 
 function* setMeal() {
-  const meals = [];
+  const meals: Meal[] = [];
   const uid = yield select(getUserId);
 
   yield database
@@ -74,7 +89,7 @@ function* setMeal() {
     .once("value")
     .then(snapshot => {
       snapshot.forEach(childSnapshot => {
-        const itemList = [];
+        const itemList: Item[] = [];
         childSnapshot.child("items").forEach(item => {
           itemList.push({
             itemName: item.key,

@@ -1,10 +1,25 @@
 import { put, takeEvery, select } from "redux-saga/effects";
 import database from "../../firebase/firebase";
+import { Auth } from "../auth/types";
+import { Item } from "../item/types";
+import {
+  Grocery,
+  OnAddGroceryAction,
+  OnEditGroceryAction,
+  OnDeleteGroceryAction
+} from "./types";
 
-const getUserId = state => state.auth.uid;
+interface FBGroceryItemList {
+  [itemName: string]: {
+    amount: number;
+    unit: string;
+  };
+}
 
-const formatItemList = list => {
-  return list.reduce((list, item) => {
+const getUserId = ({ auth }: { auth: Auth }) => auth.uid;
+
+const formatItemList = (list: Item[]) => {
+  return list.reduce((list: FBGroceryItemList, item: Item) => {
     list[item.itemName] = {
       amount: item.amount,
       unit: item.unit
@@ -13,7 +28,7 @@ const formatItemList = list => {
   }, {});
 };
 
-function* addGrocery({ grocery = {} }) {
+function* addGrocery({ grocery = {} }: OnAddGroceryAction) {
   const { itemList, name, groceryListMeals } = grocery;
   const items = formatItemList(itemList);
   const meals = groceryListMeals;
@@ -39,7 +54,7 @@ function* addGrocery({ grocery = {} }) {
   });
 }
 
-function* editGrocery({ grocery = {} }) {
+function* editGrocery({ grocery = {} }: OnEditGroceryAction) {
   const { itemList, name, id, groceryListMeals } = grocery;
   const items = formatItemList(itemList);
   const uid = yield select(getUserId);
@@ -60,7 +75,7 @@ function* editGrocery({ grocery = {} }) {
   });
 }
 
-function* deleteGrocery({ id = "" }) {
+function* deleteGrocery({ id = "" }: OnDeleteGroceryAction) {
   const uid = yield select(getUserId);
 
   yield database.ref(`users/${uid}/groceryLists/${id}`).remove();
@@ -72,7 +87,7 @@ function* deleteGrocery({ id = "" }) {
 }
 
 function* setGrocery() {
-  const lists = [];
+  const lists: Grocery[] = [];
   const uid = yield select(getUserId);
 
   yield database
@@ -80,7 +95,7 @@ function* setGrocery() {
     .once("value")
     .then(snapshot => {
       snapshot.forEach(childSnapshot => {
-        const itemList = [];
+        const itemList: Item[] = [];
         childSnapshot.child("items").forEach(item => {
           itemList.push({
             itemName: item.key,

@@ -1,9 +1,11 @@
 import { put, takeEvery, select } from "redux-saga/effects";
 import database from "../../firebase/firebase";
+import { Auth } from "../auth/types";
+import { OnAddItemAction, ItemAll } from "./types";
 
-const getUserId = state => state.auth.uid;
+const getUserId = ({ auth }: { auth: Auth }) => auth.uid;
 
-function* addItem({ name = "" }) {
+function* addItem({ name = "" }: OnAddItemAction) {
   let id;
   const uid = yield select(getUserId);
   yield database
@@ -17,7 +19,7 @@ function* addItem({ name = "" }) {
 }
 
 function* setItem() {
-  const items = [];
+  const items: ItemAll[] = [];
   const uid = yield select(getUserId);
   yield database
     .ref(`users/${uid}/itemsAll`)

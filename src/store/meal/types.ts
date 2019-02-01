@@ -11,34 +11,27 @@ export interface Meal {
   id?: string;
 }
 
-export interface onAddMealAction extends Action {
+export interface OnAddMealAction extends Action {
   type: "@@meal/ON_ADD_MEAL";
-  meal: {
-    name: string;
-    itemList: Item[];
-  };
+  meal: Meal;
 }
 
-export interface onDeleteMealAction extends Action {
+export interface OnDeleteMealAction extends Action {
   type: "@@meal/ON_DELETE_MEAL";
   id: string;
 }
 
-export interface onEditMealAction extends Action {
+export interface OnEditMealAction extends Action {
   type: "@@meal/ON_EDIT_MEAL";
-  meal: {
-    id: string;
-    name: string;
-    itemList: Item[];
-  };
+  meal: Meal;
 }
 
-export interface onSetMealAction extends Action {
+export interface OnSetMealAction extends Action {
   type: "@@meal/ON_SET_MEAL";
 }
 
 export type MealActions =
-  | onAddMealAction
-  | onDeleteMealAction
-  | onEditMealAction
-  | onSetMealAction;
+  | OnAddMealAction
+  | OnDeleteMealAction
+  | OnEditMealAction
+  | OnSetMealAction;
