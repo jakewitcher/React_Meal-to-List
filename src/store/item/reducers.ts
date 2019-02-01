@@ -1,6 +1,14 @@
-const itemsAllDefaultState = [];
+import { Reducer } from "redux";
+import { ItemState } from "./types";
 
-export default (state = { itemsAll: itemsAllDefaultState }, action) => {
+const itemsAllDefaultState: ItemState = {
+  itemsAll: []
+};
+
+const itemsReducer: Reducer<ItemState> = (
+  state = itemsAllDefaultState,
+  action
+) => {
   switch (action.type) {
     case "@@item/ADD_ITEM":
       state.itemsAll.push({
@@ -16,3 +24,5 @@ export default (state = { itemsAll: itemsAllDefaultState }, action) => {
       return state;
   }
 };
+
+export default itemsReducer;

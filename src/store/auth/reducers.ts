@@ -1,4 +1,7 @@
-export default (state = {}, action) => {
+import { Reducer } from "redux";
+import { AuthState } from "./types";
+
+const authReducer: Reducer<AuthState> = (state = {}, action) => {
   switch (action.type) {
     case "@@auth/ON_LOGIN":
       return {
@@ -10,3 +13,5 @@ export default (state = {}, action) => {
       return state;
   }
 };
+
+export default authReducer;

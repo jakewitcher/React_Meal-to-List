@@ -1,5 +1,9 @@
 import { Action } from "redux";
 
+export interface ItemState {
+  itemsAll: ItemAll[];
+}
+
 export interface ItemAll {
   name: string;
   id: string;

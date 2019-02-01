@@ -2,6 +2,10 @@ import { Action } from "redux";
 import { Item } from "../item/types";
 
 // grocery state
+export interface GroceryState {
+  groceryList: Grocery[];
+}
+
 export interface Grocery {
   name?: string;
   id?: string;

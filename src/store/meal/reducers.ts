@@ -1,6 +1,11 @@
-const mealDefaultState = [];
+import { Reducer } from "redux";
+import { MealState, MealActions } from "./types";
 
-export default (state = { mealList: mealDefaultState }, action) => {
+const mealDefaultState: MealState = {
+  mealList: []
+};
+
+const mealReducer: Reducer<MealState> = (state = mealDefaultState, action) => {
   switch (action.type) {
     case "@@meal/ADD_MEAL":
       return {
@@ -35,3 +40,5 @@ export default (state = { mealList: mealDefaultState }, action) => {
       return state;
   }
 };
+
+export default mealReducer;

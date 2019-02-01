@@ -1,6 +1,14 @@
-const groceryDefaultState = [];
+import { Reducer } from "redux";
+import { GroceryState } from "./types";
 
-export default (state = { groceryList: groceryDefaultState }, action) => {
+const groceryDefaultState: GroceryState = {
+  groceryList: []
+};
+
+const groceryReducer: Reducer<GroceryState> = (
+  state = groceryDefaultState,
+  action
+) => {
   switch (action.type) {
     case "@@grocery/ADD_GROCERY":
       return {
@@ -34,3 +42,5 @@ export default (state = { groceryList: groceryDefaultState }, action) => {
       return state;
   }
 };
+
+export default groceryReducer;

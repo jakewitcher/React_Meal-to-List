@@ -1,6 +1,10 @@
 import { Action } from "redux";
 import { Item } from "../item/types";
 
+export interface MealState {
+  mealList: Meal[];
+}
+
 export interface Meal {
   name?: string;
   itemList?: Item[];
