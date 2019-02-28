@@ -1,7 +1,15 @@
 import React from "react";
 import GroceryItem from "./GroceryItem";
+import { Item } from "../store/item/types";
 
-const GroceryItems = props => {
+interface IGroceryItemsProps {
+  isDetails: boolean;
+  itemList: Item[];
+  groceryName: string;
+  deleteGroceryItem(name: string): void;
+}
+
+const GroceryItems: React.FC<IGroceryItemsProps> = props => {
   const { groceryName, itemList, deleteGroceryItem, isDetails } = props;
   return (
     <div className="itemlist">
