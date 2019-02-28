@@ -1,8 +1,13 @@
 import React from "react";
+import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { onStartLogin } from "../store/auth/actions";
 
-const LandingPage = props => {
+interface ILandingPageProps {
+  onStartLogin(): void;
+}
+
+const LandingPage: React.FC<ILandingPageProps> = props => {
   return (
     <div className="landingpage__container">
       <div className="landingpage">
@@ -18,7 +23,7 @@ const LandingPage = props => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
   onStartLogin: () => dispatch(onStartLogin())
 });
 
