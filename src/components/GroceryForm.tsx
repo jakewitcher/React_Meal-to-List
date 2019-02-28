@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { Item } from "../store/item/types";
 import { Meal, MealState } from "../store/meal/types";
 import { Grocery, GroceryMeals } from "../store/grocery/types";
@@ -11,7 +11,7 @@ interface IMealFormProps {
   meals: MealState;
   groceryListMeals: GroceryMeals;
   addMealToList(): void;
-  selectedMealChange(): void;
+  selectedMealChange(e: ChangeEvent<HTMLSelectElement>): void;
   groceryNameChange(e: React.FormEvent<HTMLInputElement>): void;
   resetGrocery(): void;
   updateGrocery(grocery: Grocery): void;

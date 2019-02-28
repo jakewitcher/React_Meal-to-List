@@ -1,11 +1,34 @@
-import React, { Component } from "react";
+import React, { Component, ChangeEvent } from "react";
+import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import GroceryForm from "../components/GroceryForm";
 import GroceryItems from "../components/GroceryItems";
 import { onAddGrocery, onEditGrocery } from "../store/grocery/actions";
+import { Grocery, GroceryMeals } from "../store/grocery/types";
+import { MealState, Meal } from "../store/meal/types";
+import { Item } from "../store/item/types";
+import { ApplicationState } from "../store";
+import { RouteComponentProps } from "react-router";
 
-export class GroceryPage extends Component {
-  constructor(props) {
+interface IGroceryPageProps extends RouteComponentProps<{ groceryId: string }> {
+  grocery?: Grocery;
+  meals: MealState;
+  onAddGrocery(grocery: Grocery): void;
+  onEditGrocery(grocery: Grocery): void;
+}
+
+interface IGroceryPageState {
+  groceryName: string;
+  selectedMeal: Meal;
+  itemList: Item[];
+  groceryListMeals: GroceryMeals;
+}
+
+export class GroceryPage extends Component<
+  IGroceryPageProps,
+  IGroceryPageState
+> {
+  constructor(props: IGroceryPageProps) {
     super(props);
     this.state = {
       groceryName: props.grocery ? props.grocery.name : "",
@@ -15,7 +38,7 @@ export class GroceryPage extends Component {
     };
   }
 
-  deleteGroceryItem = name => {
+  deleteGroceryItem = (name: string) => {
     const newGroceryList = this.state.itemList.filter(
       item => item.itemName !== name
     );
@@ -50,7 +73,7 @@ export class GroceryPage extends Component {
     });
   };
 
-  selectedMealChange = e => {
+  selectedMealChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const { meals } = this.props;
     const selectedMealName = e.target.value;
     const selectedMeal = meals.mealList.filter(
@@ -61,7 +84,7 @@ export class GroceryPage extends Component {
     });
   };
 
-  groceryNameChange = e => {
+  groceryNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     const groceryName = e.target.value;
     this.setState({ groceryName });
   };
@@ -102,7 +125,7 @@ export class GroceryPage extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state: ApplicationState, props: IGroceryPageProps) => {
   return {
     groceryLists: state.groceryLists,
     meals: state.meals,
@@ -112,10 +135,10 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    onEditGrocery: data => dispatch(onEditGrocery(data)),
-    onAddGrocery: data => dispatch(onAddGrocery(data))
+    onEditGrocery: (data: Grocery) => dispatch(onEditGrocery(data)),
+    onAddGrocery: (data: Grocery) => dispatch(onAddGrocery(data))
   };
 };
 
