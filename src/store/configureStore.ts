@@ -1,9 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
-import mealReducer from "./meal/reducers";
-import itemsReducer from "../store/item/reducers";
-import groceryReducer from "./grocery/reducers";
-import authReducer from "./auth/reducers";
 import rootSaga from "../sagas/sagas";
 import { reducers } from "./index";
 

@@ -9,9 +9,9 @@ interface IMealFormProps {
   unit: string;
   itemList: [] | Item[];
   mealId: string;
-  mealNameChange(e: React.FormEvent<HTMLInputElement>): void;
-  itemNameChange(e: React.FormEvent<HTMLInputElement>): void;
-  amountChange(e: React.FormEvent<HTMLInputElement>): void;
+  mealNameChange(e: React.ChangeEvent<HTMLInputElement>): void;
+  itemNameChange(e: React.ChangeEvent<HTMLInputElement>): void;
+  amountChange(e: React.ChangeEvent<HTMLInputElement>): void;
   unitChange(e: React.ChangeEvent<HTMLSelectElement>): void;
   addItem(): void;
   resetMeal(): void;
