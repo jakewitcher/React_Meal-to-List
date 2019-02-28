@@ -1,9 +1,18 @@
 import React from "react";
+import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { onDeleteGrocery } from "../store/grocery/actions";
+import { Item } from "../store/item/types";
 
-export const Grocery = props => {
+interface IGroceryProps {
+  name: string;
+  id: string;
+  itemList: Item[];
+  onDeleteGrocery(id: string): void;
+}
+
+export const Grocery: React.FC<IGroceryProps> = props => {
   const { name, id, itemList } = props;
   return (
     <div className="list-type">
@@ -29,9 +38,9 @@ export const Grocery = props => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    onDeleteGrocery: id => dispatch(onDeleteGrocery(id))
+    onDeleteGrocery: (id: string) => dispatch(onDeleteGrocery(id))
   };
 };
 
