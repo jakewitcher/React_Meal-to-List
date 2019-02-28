@@ -1,8 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import Meal from "../components/Meal";
+import { MealState } from "../store/meal/types";
+import { ApplicationState } from "../store/index";
 
-export const MealListsPage = props => {
+interface IMealListsPageProps {
+  meals: MealState;
+}
+
+export const MealListsPage: React.FC<IMealListsPageProps> = props => {
   return (
     <div className="list__container">
       <div className="list">
@@ -21,7 +27,7 @@ export const MealListsPage = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: ApplicationState) => {
   return {
     meals: state.meals
   };
