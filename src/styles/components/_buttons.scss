@@ -48,10 +48,11 @@
   color: $white;
   font-size: $size-5;
   font-weight: bold;
+  outline: none;
   padding: $size-3;
 }
 
-.button__Save:focus {
-  box-shadow: $shadow-4;
+.button__save:focus {
+  box-shadow: $shadow-5;
   outline: none;
 }

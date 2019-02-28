@@ -19,8 +19,8 @@ export const onDeleteMeal: ActionCreator<MealActions> = (id: string = "") => ({
 
 export const onEditMeal: ActionCreator<MealActions> = ({
   name = "",
-  id = "",
-  itemList = []
+  itemList = [],
+  id = ""
 }: Meal = {}) => ({
   type: "@@meal/ON_EDIT_MEAL",
   meal: {

@@ -1,6 +1,24 @@
 import React from "react";
+import { Item } from "../store/item/types";
+import { Meal } from "../store/meal/types";
 
-const MealForm = props => {
+interface IMealFormProps {
+  mealNameChange(e: React.FormEvent<HTMLInputElement>): void;
+  itemNameChange(e: React.FormEvent<HTMLInputElement>): void;
+  amountChange(e: React.FormEvent<HTMLInputElement>): void;
+  unitChange(e: React.ChangeEvent<HTMLSelectElement>): void;
+  addItem(): void;
+  resetMeal(): void;
+  updateMeal(meal: Meal): void;
+  mealName: string;
+  itemName: string;
+  amount: string;
+  unit: string;
+  itemList: [] | Item[];
+  mealId: string;
+}
+
+const MealForm: React.FC<IMealFormProps> = props => {
   const {
     mealNameChange,
     itemNameChange,
@@ -17,14 +35,14 @@ const MealForm = props => {
     mealId
   } = props;
 
-  const pluralUnitValue = (amount, unitType) => {
-    if (amount < 2) {
+  const pluralUnitValue = (amount: string, unitType: string) => {
+    if (parseFloat(amount) < 2) {
       return `${unitType}`;
     }
     return `${unitType}s`;
   };
 
-  const handleMealChange = (name, id, itemList) => {
+  const handleMealChange = (name: string, itemList: Item[], id: string) => {
     updateMeal({
       name,
       itemList,
@@ -108,7 +126,7 @@ const MealForm = props => {
         <div className="button-box__save">
           <button
             className="button button__save"
-            onClick={() => handleMealChange(mealName, mealId, itemList)}
+            onClick={() => handleMealChange(mealName, itemList, mealId)}
           >
             Save Meal
           </button>
