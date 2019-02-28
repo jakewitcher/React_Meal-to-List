@@ -23,9 +23,9 @@ export const onDeleteGrocery: ActionCreator<GroceryActions> = (
 
 export const onEditGrocery: ActionCreator<GroceryActions> = ({
   name = "",
-  id = "",
   itemList = [],
-  groceryListMeals = {}
+  groceryListMeals = {},
+  id = ""
 }: Grocery = {}) => ({
   type: "@@grocery/ON_EDIT_GROCERY",
   grocery: {

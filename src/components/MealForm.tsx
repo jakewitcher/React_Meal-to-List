@@ -3,6 +3,12 @@ import { Item } from "../store/item/types";
 import { Meal } from "../store/meal/types";
 
 interface IMealFormProps {
+  mealName: string;
+  itemName: string;
+  amount: string;
+  unit: string;
+  itemList: [] | Item[];
+  mealId: string;
   mealNameChange(e: React.FormEvent<HTMLInputElement>): void;
   itemNameChange(e: React.FormEvent<HTMLInputElement>): void;
   amountChange(e: React.FormEvent<HTMLInputElement>): void;
@@ -10,12 +16,6 @@ interface IMealFormProps {
   addItem(): void;
   resetMeal(): void;
   updateMeal(meal: Meal): void;
-  mealName: string;
-  itemName: string;
-  amount: string;
-  unit: string;
-  itemList: [] | Item[];
-  mealId: string;
 }
 
 const MealForm: React.FC<IMealFormProps> = props => {

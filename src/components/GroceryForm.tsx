@@ -1,6 +1,23 @@
 import React from "react";
+import { Item } from "../store/item/types";
+import { Meal, MealState } from "../store/meal/types";
+import { Grocery, GroceryMeals } from "../store/grocery/types";
 
-const GroceryForm = props => {
+interface IMealFormProps {
+  groceryName: string;
+  itemList: [] | Item[];
+  groceryId: string;
+  selectedMeal: Meal;
+  meals: MealState;
+  groceryListMeals: GroceryMeals;
+  addMealToList(): void;
+  selectedMealChange(): void;
+  groceryNameChange(e: React.FormEvent<HTMLInputElement>): void;
+  resetGrocery(): void;
+  updateGrocery(grocery: Grocery): void;
+}
+
+const GroceryForm: React.FC<IMealFormProps> = props => {
   const {
     selectedMealChange,
     selectedMeal,
@@ -15,7 +32,12 @@ const GroceryForm = props => {
     groceryId
   } = props;
 
-  const handleGroceryChange = (name, id, itemList, groceryListMeals) => {
+  const handleGroceryChange = (
+    name: string,
+    itemList: Item[],
+    groceryListMeals: GroceryMeals,
+    id: string
+  ) => {
     updateGrocery({
       name,
       itemList,
@@ -62,9 +84,9 @@ const GroceryForm = props => {
           onClick={() =>
             handleGroceryChange(
               groceryName,
-              groceryId,
               itemList,
-              groceryListMeals
+              groceryListMeals,
+              groceryId
             )
           }
         >
