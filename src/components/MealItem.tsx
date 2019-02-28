@@ -1,8 +1,9 @@
 import * as React from "react";
+import { Item } from "../store/item/types";
 
 interface IMealItemProps {
   isDetails: boolean;
-  item: { itemName: string; amount: number; unit: string };
+  item: Item;
   deleteMealItem(name: string): void;
   itemToEdit(name: string): void;
 }
