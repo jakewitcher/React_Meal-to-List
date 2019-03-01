@@ -1,9 +1,9 @@
 import { put, takeEvery, select } from "redux-saga/effects";
 import database from "../../firebase/firebase";
-import { Auth } from "../auth/types";
+import { ApplicationState } from "../index";
 import { OnAddItemAction, ItemAll } from "./types";
 
-const getUserId = ({ auth }: { auth: Auth }) => auth.uid;
+const getUserId = ({ auth }: ApplicationState) => auth.uid;
 
 function* addItem({ name = "" }: OnAddItemAction) {
   let id;

@@ -1,6 +1,6 @@
 import { put, takeEvery, select } from "redux-saga/effects";
 import database from "../../firebase/firebase";
-import { Auth } from "../auth/types";
+import { ApplicationState } from "../index";
 import { Item } from "../item/types";
 import {
   Meal,
@@ -16,7 +16,7 @@ interface FBMealItemList {
   };
 }
 
-const getUserId = ({ auth }: { auth: Auth }) => auth.uid;
+const getUserId = ({ auth }: ApplicationState) => auth.uid;
 
 const formatItemList = (list: Item[]) => {
   return list.reduce((list: FBMealItemList, item: Item) => {
