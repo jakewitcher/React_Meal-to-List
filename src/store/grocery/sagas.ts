@@ -1,7 +1,7 @@
 import { put, takeEvery, select } from "redux-saga/effects";
 import database from "../../firebase/firebase";
-import { Auth } from "../auth/types";
 import { Item } from "../item/types";
+import { ApplicationState } from "../index";
 import {
   Grocery,
   OnAddGroceryAction,
@@ -16,7 +16,7 @@ interface FBGroceryItemList {
   };
 }
 
-const getUserId = ({ auth }: { auth: Auth }) => auth.uid;
+const getUserId = ({ auth }: ApplicationState) => auth.uid;
 
 const formatItemList = (list: Item[]) => {
   return list.reduce((list: FBGroceryItemList, item: Item) => {
