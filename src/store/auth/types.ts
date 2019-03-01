@@ -1,13 +1,9 @@
 import { Action } from "redux";
 
 // auth state
-export type AuthState = Auth | NotAuth;
-
-export interface Auth {
-  uid: string;
+export interface AuthState {
+  uid: string | undefined;
 }
-
-export interface NotAuth {}
 
 // auth actions
 export interface OnStartLoginAction extends Action {

@@ -1,14 +1,20 @@
 import { Reducer } from "redux";
 import { AuthState } from "./types";
 
-const authReducer: Reducer<AuthState> = (state = {}, action) => {
+const authDefaultState: AuthState = {
+  uid: undefined
+};
+
+const authReducer: Reducer<AuthState> = (state = authDefaultState, action) => {
   switch (action.type) {
     case "@@auth/ON_LOGIN":
       return {
         uid: action.uid
       };
     case "@@auth/ON_LOGOUT":
-      return {};
+      return {
+        uid: undefined
+      };
     default:
       return state;
   }

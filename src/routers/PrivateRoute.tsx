@@ -1,8 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, RouteProps } from "react-router-dom";
+import { ApplicationState } from "../store/index";
 
-export const PrivateRoute = ({
+interface IPrivateRouteProps extends RouteProps {
+  isAuthenticated: boolean;
+  component: new (props: any) => React.Component;
+}
+
+export const PrivateRoute: React.FC<IPrivateRouteProps> = ({
   isAuthenticated,
   component: Component,
   ...rest
@@ -21,7 +27,7 @@ export const PrivateRoute = ({
   />
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: ApplicationState) => ({
   isAuthenticated: !!state.auth.uid
 });
 

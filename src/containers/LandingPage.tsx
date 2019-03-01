@@ -3,7 +3,7 @@ import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { onStartLogin } from "../store/auth/actions";
 
-interface ILandingPageProps {
+export interface ILandingPageProps {
   onStartLogin(): void;
 }
 
