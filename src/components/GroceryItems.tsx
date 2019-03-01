@@ -6,7 +6,7 @@ interface IGroceryItemsProps {
   isDetails: boolean;
   itemList: Item[];
   groceryName: string;
-  deleteGroceryItem(name: string): void;
+  deleteGroceryItem?(name: string): void;
 }
 
 const GroceryItems: React.FC<IGroceryItemsProps> = props => {

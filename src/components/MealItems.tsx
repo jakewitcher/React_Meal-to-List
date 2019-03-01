@@ -6,8 +6,8 @@ interface IMealItemsProps {
   isDetails: boolean;
   itemList: Item[];
   mealName: string;
-  deleteMealItem(name: string): void | null;
-  itemToEdit(name: string): void | null;
+  deleteMealItem?(name: string): void;
+  itemToEdit?(name: string): void;
 }
 
 const MealItems: React.FC<IMealItemsProps> = props => {

@@ -19,8 +19,6 @@ export const MealDetailsPage: React.FC<IMealDetailsPageProps> = props => {
           mealName={props.meal.name}
           itemList={props.meal.itemList}
           isDetails={true}
-          deleteMealItem={null}
-          itemToEdit={null}
         />
       </div>
     </div>
