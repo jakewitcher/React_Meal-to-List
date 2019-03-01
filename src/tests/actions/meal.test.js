@@ -15,7 +15,7 @@ const id = "123wasd";
 test("should generate new meal action object", () => {
   const action = onAddMeal({ name, itemList });
   expect(action).toEqual({
-    type: "ON_ADD_MEAL",
+    type: "@@meal/ON_ADD_MEAL",
     meal: {
       name,
       itemList
@@ -26,7 +26,7 @@ test("should generate new meal action object", () => {
 test("should generate delete meal action object", () => {
   const action = onDeleteMeal(id);
   expect(action).toEqual({
-    type: "ON_DELETE_MEAL",
+    type: "@@meal/ON_DELETE_MEAL",
     id
   });
 });
@@ -34,7 +34,7 @@ test("should generate delete meal action object", () => {
 test("should generate edit meal action object", () => {
   const action = onEditMeal({ name, id, itemList });
   expect(action).toEqual({
-    type: "ON_EDIT_MEAL",
+    type: "@@meal/ON_EDIT_MEAL",
     meal: {
       id,
       name,
@@ -46,6 +46,6 @@ test("should generate edit meal action object", () => {
 test("shouldl generate set meal action object", () => {
   const action = onSetMeal();
   expect(action).toEqual({
-    type: "ON_SET_MEAL"
+    type: "@@meal/ON_SET_MEAL"
   });
 });

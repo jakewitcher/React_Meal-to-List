@@ -11,14 +11,14 @@ test("should add item", () => {
   const name = itemsList[0].name;
   const id = itemsList[0].id;
 
-  const action = { type: "ADD_ITEM", name, id };
+  const action = { type: "@@item/ADD_ITEM", name, id };
   const state = itemsReducer(undefined, action);
   expect(state.itemsAll).toEqual([item]);
 });
 
 test("should set initial state for items in Redux store", () => {
   const items = itemsList;
-  const action = { type: "SET_ITEM", items };
+  const action = { type: "@@item/SET_ITEM", items };
   const state = itemsReducer(undefined, action);
   expect(state.itemsAll).toEqual(items);
 });

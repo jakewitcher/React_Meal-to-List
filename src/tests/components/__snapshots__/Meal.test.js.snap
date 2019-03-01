@@ -18,7 +18,8 @@ exports[`should render Meal correctly 1`] = `
   <p
     className="list-type__details"
   >
-    number of items: 
+    number of items:
+     
     <span
       className="list-type__details list-type__details--span"
     >
