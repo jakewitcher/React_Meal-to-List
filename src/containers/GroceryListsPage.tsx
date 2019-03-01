@@ -1,8 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import Grocery from "../components/Grocery";
+import { GroceryState } from "../store/grocery/types";
+import { ApplicationState } from "../store/index";
 
-export const GroceryListsPage = props => {
+interface IGroceryListsPageProps {
+  groceryLists: GroceryState;
+}
+
+export const GroceryListsPage: React.FC<IGroceryListsPageProps> = props => {
   return (
     <div className="list__container">
       <div className="list">
@@ -21,7 +27,7 @@ export const GroceryListsPage = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: ApplicationState) => {
   return {
     groceryLists: state.groceryLists
   };
